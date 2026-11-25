@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule Tables - Free Time Vacation Planner</title>
+  <link rel="stylesheet" href="site/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Schedule Tables</h1>
+    <p class="subtitle">Verified event rows and estimated season windows. Every row includes a status and source link.</p>
+  </div>
+</header>
+<nav>
+  <div class="wrap">
+    <a href="index.html">Executive Summary</a>
+    <a href="calendar.html">Calendar / Scoreboard</a>
+    <a class="active" href="schedule.html">Schedule Tables</a>
+    <a href="sources.html">Sources &amp; Methodology</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+  </div>
+</nav>
+<main><div class="wrap">
+
+  <div class="card">
+    <h2>Scope Rules</h2>
+    <ul class="tight">
+      <li><strong>High priority:</strong> SF Giants (MLB), A’s (MLB), San Francisco 49ers (NFL preseason/regular/postseason), Stanford NCAAF, California NCAAF, Westwood One Sports national NFL radio broadcasts.</li>
+      <li><strong>Also in scope:</strong> All 30 MLB teams, every MLB game (regular/postseason/all-star/special) for 2027-2028 planning; all NFL games. Where official schedules are not released, entries are marked <span class="badge estimated">estimated</span> or <span class="badge tbd">tbd</span>.</li>
+      <li><strong>Free time:</strong> any minute/day with no in-scope game on air. MLB preseason included as busy.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>San Francisco 49ers — 2026 Verified Schedule (NFL.com)</h2>
+    <p class="small">Source: <a href="https://www.nfl.com/schedules/2026/by-team/san-francisco-49ers" target="_blank" rel="noopener">NFL.com official 49ers schedule</a>. Times shown as captured from source; PT conversion included where evident.</p>
+    <div id="t49"></div>
+  </div>
+
+  <div class="card">
+    <h2>Westwood One Sports — 2026 NFL National Radio Broadcasts (Verified)</h2>
+    <p class="small">Source: <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">Westwood One Sports NFL Schedule</a>. These are national radio broadcasts; confirm local SF AM/FM carriage via <a href="https://www.westwoodonesports.com/station-finder/" target="_blank" rel="noopener">Station Finder</a>.</p>
+    <div id="twwo"></div>
+  </div>
+
+  <div class="card">
+    <h2>Stanford Cardinal Football — 2026 Verified Schedule</h2>
+    <p class="small">Source: <a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">GoStanford.com official schedule</a>. Times left blank where not explicitly captured in accessible text.</p>
+    <div id="tstan"></div>
+  </div>
+
+  <div class="card">
+    <h2>California Golden Bears Football — 2026 Verified Schedule</h2>
+    <p class="small">Source: <a href="https://calbears.com/sports/football/schedule" target="_blank" rel="noopener">CalBears.com official schedule</a>.</p>
+    <div id="tcal"></div>
+  </div>
+
+  <div class="card">
+    <h2>2027–2029 Season Windows (Verified Landmarks + Estimated Planning Windows)</h2>
+    <p class="small">These windows drive the vacation-window analysis. Official future schedules not released are marked <span class="badge estimated">estimated</span>. Every row has a source link.</p>
+    <div id="twindows"></div>
+  </div>
+
+  <div class="card">
+    <h2>All MLB Teams / All NFL Games — Scope Coverage</h2>
+    <p>The user requested all 30 MLB clubs shown and every MLB game in 2027 and 2028 (regular/postseason/all-star/special), plus all NFL games. Official game-by-game schedules for 2028-2029 are not released; 2027 MLB schedule is released by MLB but full game-level ingestion is incomplete in this static dataset.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Coverage</th><th>Status</th><th>What is included here</th><th>Official source for full schedule</th><th>Flag</th></tr></thead>
+        <tbody>
+          <tr class="est-row">
+            <td>All 30 MLB teams — 2027 regular season</td>
+            <td><span class="badge verified">Season dates verified</span> / <span class="badge tbd">Game-level times TBD</span></td>
+            <td>Verified season landmarks: Opening Day Mar 25, 2027; season ends Sep 26, 2027; ASG Jul 13, 2027. Day-level busy estimate applied during season window.</td>
+            <td><a href="https://www.mlb.com/schedule/2027-03-25" target="_blank" rel="noopener">MLB.com 2027 Schedule</a></td>
+            <td>Full per-game rows not fully ingested in this static build; use MLB.com for complete game list.</td>
+          </tr>
+          <tr class="est-row">
+            <td>All 30 MLB teams — 2028 regular/postseason</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Estimated season window only; no official 2028 schedule released.</td>
+            <td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">MLB.com Schedule Hub</a></td>
+            <td>No official game dates/times. Do not treat as confirmed.</td>
+          </tr>
+          <tr class="est-row">
+            <td>All 30 MLB teams — 2029 regular/postseason</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Estimated season window only; no official 2029 schedule released.</td>
+            <td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">MLB.com Schedule Hub</a></td>
+            <td>No official game dates/times. Do not treat as confirmed.</td>
+          </tr>
+          <tr class="est-row">
+            <td>All NFL games — 2027 season</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Estimated season window; opponents determined by formula but dates/times not released.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a></td>
+            <td>No official 2027 game dates/times released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>All NFL games — 2028 season</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Estimated season window only.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a></td>
+            <td>No official 2028 game dates/times released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>All NFL games — 2029 season</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Estimated season window only.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a></td>
+            <td>No official 2029 game dates/times released.</td>
+          </tr>
+          <tr>
+            <td>SF Giants / Oakland Athletics — high priority</td>
+            <td><span class="badge unverified">Needs game-level ingestion</span></td>
+            <td>Flagged as high priority throughout; full 2027-2029 game rows should be ingested from MLB.com when available.</td>
+            <td><a href="https://www.mlb.com/giants/schedule" target="_blank" rel="noopener">Giants Schedule</a>, <a href="https://www.mlb.com/athletics/schedule" target="_blank" rel="noopener">A's Schedule</a></td>
+            <td>High-priority team game-level rows incomplete in this static build.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div></main>
+<footer><div class="wrap">All rows include status and source links. Unverified/TBD values are intentionally blank or flagged.</div></footer>
+<script src="site/data/data.js"></script>
+<script>
+function esc(s){ return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]); }
+function badge(s){ const m={verified:'verified',estimated:'estimated',unverified:'unverified',tbd:'tbd'}; const c=m[s]||'tbd'; return `<span class="badge ${c}">${esc(s)}</span>`; }
+function link(u,t='Source'){ return u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`:''; }
+function table(headers, rows){ let h='<div class="table-wrap"><table><thead><tr>'+headers.map(x=>`<th>${x}</th>`).join('')+'</tr></thead><tbody>'; h+=rows.join(''); h+='</tbody></table></div>'; return h; }
+document.getElementById('t49').innerHTML=table(['Date','PT Time','ET Time','Opponent','Home/Away','Type','Network','Result','Status','Source','Note'], VERIFIED_49ERS_2026.map(r=>`<tr class="${r.status==='estimated'?'est-row':''} ${String(r.opponent).includes('49ers')?'':''}"><td>${esc(r.date)}</td><td>${esc(r.time||'')}</td><td>${esc(r.etTime||'')}</td><td>${esc(r.opponent)}</td><td>${esc(r.homeAway)}</td><td>${esc(r.type)}</td><td>${esc(r.network||'')}</td><td>${esc(r.result||'')}</td><td>${badge(r.status)}</td><td>${link(r.sourceUrl)}</td><td class="small">${esc(r.note||'')}</td></tr>`));
+document.getElementById('twwo').innerHTML=table(['Date','ET Time','Matchup','Venue','Label','Status','Source'], VERIFIED_WESTWOOD_ONE_NFL_2026.map(r=>`<tr class="${r.status!=='verified'?'est-row':''}"><td>${esc(r.date)}</td><td>${esc(r.etTime)}</td><td>${esc(r.matchup)}</td><td>${esc(r.venue)}</td><td>${esc(r.label)}</td><td>${badge(r.status)}</td><td>${link(r.sourceUrl,'Westwood One')}</td></tr>`));
+document.getElementById('tstan').innerHTML=table(['Date','Time (PT)','Opponent','Home/Away','Result','Status','Source','Note'], VERIFIED_STANFORD_2026.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.time||'')}</td><td>${esc(r.opponent)}</td><td>${esc(r.homeAway)}</td><td>${esc(r.result||'')}</td><td>${badge(r.status)}</td><td>${link(r.sourceUrl,'GoStanford')}</td><td class="small">${esc(r.note||'')}</td></tr>`));
+document.getElementById('tcal').innerHTML=table(['Date','Time (PT)','Opponent','Home/Away','Result','Status','Source','Note'], VERIFIED_CAL_2026.map(r=>`<tr><td>${esc(r.date)}</td><td>${esc(r.time||'')}</td><td>${esc(r.opponent)}</td><td>${esc(r.homeAway)}</td><td>${esc(r.result||'')}</td><td>${badge(r.status)}</td><td>${link(r.sourceUrl,'CalBears')}</td><td class="small">${esc(r.note||'')}</td></tr>`));
+document.getElementById('twindows').innerHTML=table(['Start','End','Label','Scope','Priority','Status','Source','Note'], SEASON_WINDOWS.map(r=>`<tr class="${r.status==='estimated'?'est-row':''}"><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td>${esc(r.label)}</td><td>${esc(r.scope)}</td><td><span class="badge ${r.priority==='high'?'high':'med'}">${esc(r.priority)}</span></td><td>${badge(r.status)}</td><td>${link(r.sourceUrl)}</td><td class="small">${esc(r.note||'')}</td></tr>`));
+</script>
+</body>
+</html>
