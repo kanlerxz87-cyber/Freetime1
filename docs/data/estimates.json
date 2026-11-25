@@ -1,0 +1,164 @@
+{
+  "title": "Season windows used when official game schedules are not yet released (estimates)",
+  "retrieved": "2026-11-25",
+  "rule": "Any day inside an estimated window is shown as ESTIMATED BUSY. Days outside every window and with no verified game are shown as FREE.",
+  "windows": [
+    {
+      "league": "CFB",
+      "label": "Stanford/Cal 2026 season end (estimate)",
+      "start": "2026-11-25",
+      "end": "2026-12-06",
+      "est": true,
+      "source": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2026 regular season (Westwood One / 49ers games verified; full schedule not loaded)",
+      "start": "2026-09-01",
+      "end": "2027-01-10",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2026 postseason through Super Bowl LXI (Feb 14, 2027; SB date from secondary sources)",
+      "start": "2027-01-11",
+      "end": "2027-02-14",
+      "est": true,
+      "source": "https://acadcalendar.com/super-bowl/"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2027 preseason (estimate)",
+      "start": "2027-08-01",
+      "end": "2027-08-31",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2027 regular season (estimate)",
+      "start": "2027-09-01",
+      "end": "2028-01-10",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2027 postseason + Super Bowl LXII (estimate: second Sunday of Feb = Feb 13, 2028)",
+      "start": "2028-01-11",
+      "end": "2028-02-13",
+      "est": true,
+      "source": "https://superbowltickets.net/"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2028 preseason (estimate)",
+      "start": "2028-08-01",
+      "end": "2028-08-31",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2028 regular season (estimate)",
+      "start": "2028-09-01",
+      "end": "2029-01-10",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2028 postseason + Super Bowl LXIII (estimate: Feb 11, 2029)",
+      "start": "2029-01-11",
+      "end": "2029-02-11",
+      "est": true,
+      "source": "https://superbowltickets.net/"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2029 preseason (estimate)",
+      "start": "2029-08-01",
+      "end": "2029-08-31",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "NFL",
+      "label": "NFL 2029 regular season (estimate)",
+      "start": "2029-09-01",
+      "end": "2029-12-31",
+      "est": true,
+      "source": "https://www.nfl.com/schedules"
+    },
+    {
+      "league": "MLB",
+      "label": "MLB 2027 postseason (estimate; 2027 postseason not yet released)",
+      "start": "2027-09-27",
+      "end": "2027-10-31",
+      "est": true,
+      "source": "https://www.mlb.com/press-release/press-release-orioles-announce-2027-regular-season-schedule"
+    },
+    {
+      "league": "MLB",
+      "label": "MLB 2028 spring training + regular season + postseason (estimate; 2028 schedule not yet released)",
+      "start": "2028-02-18",
+      "end": "2028-10-31",
+      "est": true,
+      "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+    },
+    {
+      "league": "MLB",
+      "label": "MLB 2029 spring training + regular season + postseason (estimate; not yet released)",
+      "start": "2029-02-16",
+      "end": "2029-10-31",
+      "est": true,
+      "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2029"
+    },
+    {
+      "league": "CFB",
+      "label": "Stanford/Cal 2027 season (estimate)",
+      "start": "2027-08-20",
+      "end": "2027-12-06",
+      "est": true,
+      "source": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "league": "CFB",
+      "label": "Stanford/Cal 2028 season (estimate)",
+      "start": "2028-08-20",
+      "end": "2028-12-06",
+      "est": true,
+      "source": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "league": "CFB",
+      "label": "Stanford/Cal 2029 season (estimate)",
+      "start": "2029-08-20",
+      "end": "2029-12-06",
+      "est": true,
+      "source": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "league": "MLB",
+      "label": "2027 All-Star week: Home Run Derby and other special events are not in the MLB game feed; estimated busy on Jul 12 (the day before the All-Star Game)",
+      "start": "2027-07-12",
+      "end": "2027-07-12",
+      "est": true,
+      "source": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=A"
+    }
+  ],
+  "events_extra": [
+    {
+      "league": "NFL",
+      "id": "SB-LXI",
+      "title": "Super Bowl LXI (SoFi Stadium, Inglewood, CA)",
+      "date": "2027-02-14T15:30:00-08:00",
+      "estimated_time": true,
+      "duration_league": "NFL",
+      "time_note": "Date from secondary sources (acadcalendar.com). Kickoff time not verified; 3:30 PM PT is a placeholder estimate.",
+      "source": "https://acadcalendar.com/super-bowl/",
+      "league_label": "NFL postseason"
+    }
+  ]
+}

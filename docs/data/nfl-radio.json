@@ -1,0 +1,260 @@
+{
+  "title": "Westwood One Sports NFL radio broadcasts (upcoming)",
+  "source_page": "https://www.westwoodonesports.com/nfl-schedule/",
+  "retrieved": "2026-11-25",
+  "note": "Times are Eastern as listed on the Westwood One page. Rows marked dupOf are also on the official 49ers.com schedule, whose times are used in the timeline.",
+  "games": [
+    {
+      "id": 548511,
+      "date": "2026-11-25T19:30:00-05:00",
+      "matchup": "Green Bay Packers at Los Angeles Rams",
+      "venue": "SoFi Stadium, Inglewood, CA",
+      "label": "Thanksgiving Wednesday",
+      "nfl_com_check": "NFL.com lists 8:00 PM ET (NETFLIX) for this game; Westwood One lists 7:30 PM ET"
+    },
+    {
+      "id": 548512,
+      "date": "2026-11-26T12:30:00-05:00",
+      "matchup": "Chicago Bears at Detroit Lions",
+      "venue": "Ford Field, Detroit, MI, USA",
+      "label": "NFL Thanksgiving Day Tripleheader",
+      "nfl_com_check": "NFL.com lists 1:00 PM (CBS); Westwood One lists 12:30 PM ET"
+    },
+    {
+      "id": 548513,
+      "date": "2026-11-26T16:15:00-05:00",
+      "matchup": "Philadelphia Eagles at Dallas Cowboys",
+      "venue": "AT&T Stadium, Arlington, TX",
+      "label": "NFL Thanksgiving Day Tripleheader",
+      "nfl_com_check": "NFL.com lists 4:30 PM (FOX); Westwood One lists 4:15 PM ET"
+    },
+    {
+      "id": 548514,
+      "date": "2026-11-26T20:00:00-05:00",
+      "matchup": "Kansas City Chiefs at Buffalo Bills",
+      "venue": "New Highmark Stadium, Orchard Park, NY",
+      "label": "NFL Thanksgiving Day Tripleheader",
+      "nfl_com_check": "NFL.com lists 8:20 PM (NBC); Westwood One lists 8:00 PM ET"
+    },
+    {
+      "id": 548515,
+      "date": "2026-11-27T14:30:00-05:00",
+      "matchup": "Denver Broncos at Pittsburgh Steelers",
+      "venue": "Acrisure Stadium, Pittsburgh, PA",
+      "label": "NFL Black Friday Game",
+      "nfl_com_check": "NFL.com lists 3:00 PM (PRIME); Westwood One lists 2:30 PM ET"
+    },
+    {
+      "id": 548502,
+      "date": "2026-11-29T19:30:00-05:00",
+      "matchup": "Las Vegas Raiders at Cleveland Browns",
+      "venue": "Huntington Bank Field, Cleveland, OH",
+      "label": "Sunday Night Football"
+    },
+    {
+      "id": 548544,
+      "date": "2026-11-30T19:00:00-05:00",
+      "matchup": "Carolina Panthers at Tampa Bay Buccaneers",
+      "venue": "Raymond James Stadium, Tampa, FL",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548566,
+      "date": "2026-12-03T19:30:00-05:00",
+      "matchup": "Kansas City Chiefs at Los Angeles Rams",
+      "venue": "SoFi Stadium, Inglewood, CA",
+      "label": "Thursday Night Football"
+    },
+    {
+      "id": 548503,
+      "date": "2026-12-06T19:30:00-05:00",
+      "matchup": "Houston Texans at Pittsburgh Steelers",
+      "venue": "Acrisure Stadium, Pittsburgh, PA",
+      "label": "Sunday Night Football"
+    },
+    {
+      "id": 548545,
+      "date": "2026-12-07T19:00:00-05:00",
+      "matchup": "Dallas Cowboys at Seattle Seahawks",
+      "venue": "Lumen Field, Seattle, WA",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548567,
+      "date": "2026-12-10T19:30:00-05:00",
+      "matchup": "Minnesota Vikings at New England Patriots",
+      "venue": "Gillette Stadium, Foxborough, MA",
+      "label": "Thursday Night Football"
+    },
+    {
+      "id": 548505,
+      "date": "2026-12-13T19:30:00-05:00",
+      "matchup": "Buffalo Bills at Green Bay Packers",
+      "venue": "Lambeau Field, Green Bay, WI",
+      "label": "Sunday Night Football"
+    },
+    {
+      "id": 548546,
+      "date": "2026-12-14T19:00:00-05:00",
+      "matchup": "Pittsburgh Steelers at Jacksonville Jaguars",
+      "venue": "EverBank Stadium, Jacksonville, FL",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548568,
+      "date": "2026-12-17T19:30:00-05:00",
+      "matchup": "San Francisco 49ers at Los Angeles Chargers",
+      "venue": "SoFi Stadium, Inglewood, CA",
+      "label": "Thursday Night Football",
+      "dupOf": "49ers.com 2026 schedule"
+    },
+    {
+      "id": 548517,
+      "date": "2026-12-19T16:30:00-05:00",
+      "matchup": "Seattle Seahawks at Philadelphia Eagles",
+      "venue": "Lincoln Financial Field, Philadelphia, PA",
+      "label": "Week 15 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548518,
+      "date": "2026-12-19T20:00:00-05:00",
+      "matchup": "Chicago Bears at Buffalo Bills",
+      "venue": "New Highmark Stadium, Orchard Park, NY",
+      "label": "Week 15 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548506,
+      "date": "2026-12-20T19:30:00-05:00",
+      "matchup": "Detroit Lions at Minnesota Vikings",
+      "venue": "U.S. Bank Stadium, Minneapolis, MN",
+      "label": "Sunday Night Football"
+    },
+    {
+      "id": 548548,
+      "date": "2026-12-21T19:00:00-05:00",
+      "matchup": "New England Patriots at Kansas City Chiefs",
+      "venue": "GEHA Field at Arrowhead Stadium, Kansas City, MO",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548569,
+      "date": "2026-12-24T19:30:00-05:00",
+      "matchup": "Houston Texans at Philadelphia Eagles",
+      "venue": "Lincoln Financial Field, Philadelphia, PA",
+      "label": "Thursday Night Football"
+    },
+    {
+      "id": 548531,
+      "date": "2026-12-25T16:15:00-05:00",
+      "matchup": "Buffalo Bills at Denver Broncos",
+      "venue": "Empower Field at Mile High, Denver, CO",
+      "label": "Christmas Day NFL Tripleheader"
+    },
+    {
+      "id": 548528,
+      "date": "2026-12-25T12:30:00-05:00",
+      "matchup": "Green Bay Packers at Chicago Bears",
+      "venue": "Soldier Field, Chicago, IL",
+      "label": "Christmas Day NFL Tripleheader"
+    },
+    {
+      "id": 548534,
+      "date": "2026-12-25T20:00:00-05:00",
+      "matchup": "Los Angeles Rams at Seattle Seahawks",
+      "venue": "Lumen Field, Seattle, WA",
+      "label": "Christmas Day NFL Tripleheader"
+    },
+    {
+      "id": 548519,
+      "date": "2026-12-26T16:00:00-05:00",
+      "matchup": "Week 16 Saturday Doubleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 16 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548520,
+      "date": "2026-12-26T20:00:00-05:00",
+      "matchup": "Week 16 Saturday Doubleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 16 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548507,
+      "date": "2026-12-27T19:30:00-05:00",
+      "matchup": "Jacksonville Jaguars at Dallas Cowboys",
+      "venue": "AT&T Stadium, Arlington, TX",
+      "label": "Sunday Night Football"
+    },
+    {
+      "id": 548550,
+      "date": "2026-12-28T19:00:00-05:00",
+      "matchup": "New York Giants at Detroit Lions",
+      "venue": "Ford Field, Detroit, Michigan",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548570,
+      "date": "2026-12-31T19:30:00-05:00",
+      "matchup": "Baltimore Ravens at Cincinnati Bengals",
+      "venue": "Paycor Stadium, Cincinnati, OH",
+      "label": "Thursday Night Football"
+    },
+    {
+      "id": 548521,
+      "date": "2027-01-02T16:00:00-05:00",
+      "matchup": "Week 17 Saturday Doubleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 17 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548522,
+      "date": "2027-01-02T20:00:00-05:00",
+      "matchup": "Week 17 Saturday Doubleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 17 Saturday NFL Doubleheader"
+    },
+    {
+      "id": 548509,
+      "date": "2027-01-03T19:30:00-05:00",
+      "matchup": "Philadelphia Eagles at San Francisco 49ers",
+      "venue": "Levi's Stadium, Santa Clara, CA",
+      "label": "Sunday Night Football",
+      "dupOf": "49ers.com 2026 schedule"
+    },
+    {
+      "id": 548552,
+      "date": "2027-01-04T19:00:00-05:00",
+      "matchup": "Houston Texans at Green Bay Packers",
+      "venue": "Lambeau Field, Green Bay, WI",
+      "label": "Monday Night Football"
+    },
+    {
+      "id": 548523,
+      "date": "2027-01-09T12:30:00-05:00",
+      "matchup": "Week 18 Saturday Tripleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 18 Saturday NFL Tripleheader"
+    },
+    {
+      "id": 548524,
+      "date": "2027-01-09T16:15:00-05:00",
+      "matchup": "Week 18 Saturday Tripleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 18 Saturday NFL Tripleheader"
+    },
+    {
+      "id": 548526,
+      "date": "2027-01-09T20:00:00-05:00",
+      "matchup": "Week 18 Saturday Tripleheader (teams TBA)",
+      "venue": "TBA",
+      "label": "Week 18 Saturday NFL Tripleheader"
+    },
+    {
+      "id": 548510,
+      "date": "2027-01-10T19:30:00-05:00",
+      "matchup": "Week 18 Sunday Night Football (teams TBA)",
+      "venue": "TBA",
+      "label": "Sunday Night Football"
+    }
+  ]
+}

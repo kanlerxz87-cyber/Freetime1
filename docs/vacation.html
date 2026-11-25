@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vacation windows - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>Vacation windows, 2027-2029</h1>
+<p class="lead">Every run of consecutive days with no tracked game, computed day by day from the data in this site. A run is <strong>verified</strong> when it is in the 2027 MLB schedule from the official MLB Stats API and has no NFL or college season window; it is <strong>estimated</strong> when it relies on an unreleased season.</p>
+<p class="muted" id="feedstatus"></p>
+<div class="note" id="answer"></div>
+<h2>Free runs found</h2>
+<div class="wrap"><table class="tbl" id="runs"><thead><tr><th>Start</th><th>End</th><th>Days</th><th>Confidence</th><th>What is around it</th></tr></thead><tbody><tr><td colspan="5">Loading...</td></tr></tbody></table></div>
+<h2>Estimated season windows used</h2>
+<p class="muted">Used whenever a league's games are not yet released. Any day inside a window is shown as ESTIMATED BUSY. Each window has a source link.</p>
+<div class="wrap"><table class="tbl" id="wins"><thead><tr><th>League</th><th>Window</th><th>Dates</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+<h2>Method</h2>
+<ul class="clean">
+<li>Clock: America/Los_Angeles (Pacific) for every day boundary.</li>
+<li>Busy window per game: scheduled start to start + average duration (MLB 158 min, NFL 183 min, college 207 min). See <a href="sources.html">Sources and method</a>.</li>
+<li>A game with a TBD start uses an estimated start (MLB 1:00 PM day / 7:00 PM night) and is flagged.</li>
+<li>Free runs require no verified game and no estimated window on any day in the run.</li>
+</ul>
+</main>
+<footer>Estimates are labeled. Verify any travel date against the official schedules before booking.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  FT.status(document.getElementById('feedstatus'));
+  Promise.all([FT.loadCtx(), fetch('data/estimates.json').then(function (r) { return r.json(); })]).then(function (a) {
+    var ctx = a[0], est = a[1];
+    var runs = FT.freeRuns(ctx);
+    var lg = runs.filter(function (r) { return r.start.slice(0, 4) >= '2027' && r.start.slice(0, 4) <= '2029'; });
+    var longest = lg.reduce(function (b, r) { return (!b || r.days > b.days) ? r : b; }, null);
+    var ans = document.getElementById('answer');
+    ans.innerHTML = '<strong>Answer:</strong> ' + (longest && longest.days >= 7
+      ? 'the longest free run is ' + longest.days + ' days (' + FT.esc(FT.fmtShort(longest.start)) + ' to ' + FT.esc(FT.fmtShort(longest.end)) + ').'
+      : 'no free run of 7 days or more exists in 2027, 2028, or 2029. The longest run is <strong>' + (longest ? longest.days : 0) + ' days</strong> (' +
+        (longest ? FT.esc(FT.fmtShort(longest.start)) + ' to ' + FT.esc(FT.fmtShort(longest.end)) : 'none') + '). A 2-week or 3-week window is not available.');
+    var tb = '';
+    runs.forEach(function (r) {
+      var before = FT.analyzeDay(FT.addDays(r.start, -1), ctx), after = FT.analyzeDay(FT.addDays(r.end, 1), ctx);
+      function ctxTxt(d) {
+        var w = d.windows.map(function (x) { return x.label; });
+        if (d.events.length) return d.events.slice(0, 2).map(function (e) { return e.title; }).join('; ') + (d.events.length > 2 ? ' (+' + (d.events.length - 2) + ' more)' : '');
+        return w.length ? w[0] : 'no games';
+      }
+      tb += '<tr' + (r.days >= 4 ? ' class="hp"' : '') + '><td>' + FT.esc(FT.fmtShort(r.start)) + '</td><td>' + FT.esc(FT.fmtShort(r.end)) + '</td><td><strong>' + r.days + '</strong></td><td><span class="badge ' + (r.conf === 'verified' ? 'free' : 'est') + '">' + r.conf + '</span></td><td>Day before: ' + FT.esc(ctxTxt(before)) + '. Day after: ' + FT.esc(ctxTxt(after)) + '.</td></tr>';
+    });
+    document.querySelector('#runs tbody').innerHTML = tb || '<tr><td colspan="5">No free runs found.</td></tr>';
+    var wb = '';
+    est.windows.forEach(function (w) {
+      wb += '<tr><td>' + FT.esc(w.league) + '</td><td>' + FT.esc(w.label) + '</td><td>' + FT.esc(w.start) + ' to ' + FT.esc(w.end) + '</td><td><a href="' + FT.esc(w.source) + '" target="_blank" rel="noopener">source</a></td></tr>';
+    });
+    wb += '<tr><td>MLB</td><td>MLB live feed status</td><td>' + FT.esc(ctx.mlb.ok ? 'loaded' : 'unavailable') + '</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027" target="_blank" rel="noopener">MLB Stats API</a></td></tr>';
+    document.querySelector('#wins tbody').innerHTML = wb;
+  }).catch(function (err) {
+    document.getElementById('answer').innerHTML = 'Could not load the data: ' + FT.esc(err.message);
+  });
+});
+</script>
+</body></html>

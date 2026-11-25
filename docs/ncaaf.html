@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stanford and Cal - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>Stanford and Cal football (NCAAF)</h1>
+<p class="lead">Both are high priority. Rows render from <code>data/ncaaf.json</code>. Only the remaining 2026 games and the 2027 dates the schools have announced are listed.</p>
+<h2>Remaining 2026 games</h2>
+<div class="wrap"><table class="tbl" id="cfb"><thead><tr><th>Team</th><th>Date</th><th>Opponent</th><th>Time (PT)</th><th>TV</th><th>Radio</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+<h2>2027 dates announced so far</h2>
+<div class="wrap"><table class="tbl"><thead><tr><th>Team</th><th>Date</th><th>Opponent</th><th>Note</th><th>Source</th></tr></thead><tbody id="c27"></tbody></table></div>
+<div class="note"><strong>Not verified:</strong> Stanford's 2027 schedule, California's 2027 Big Game date, and the Cal flagship station (810 AM is from a secondary preview). See <a href="flagged.html">Flagged for Review</a>.</div>
+</main>
+<footer>Sources: gostanford.com, calbears.com.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('data/ncaaf.json').then(function (r) { return r.json(); }).then(function (d) {
+    document.querySelector('#cfb tbody').innerHTML = d.games.map(function (g) {
+      var date = g.date ? FT.fmtShort(g.date.slice(0, 10)) : 'TBA';
+      var t = g.estimated_time ? g.time_text : g.time_text;
+      return '<tr' + (g.team === 'Stanford' ? ' class="hp"' : ' class="hp"') + '><td>' + FT.esc(g.team) + '</td><td>' + FT.esc(date) + (g.conditional ? ' <span class="badge flag">conditional</span>' : '') + '</td><td>' + FT.esc(g.opponent) + '</td><td>' + FT.esc(t) + '</td><td>' + FT.esc(g.tv || '') + '</td><td>' + FT.esc(g.radio || '') + '</td><td><a href="' + FT.esc(g.source) + '" target="_blank" rel="noopener">source</a>' + (g.radio_source ? ' | <a href="' + FT.esc(g.radio_source) + '" target="_blank" rel="noopener">radio</a>' : '') + '</td></tr>';
+    }).join('');
+    document.getElementById('c27').innerHTML = d.cal_2027_known.map(function (g) {
+      return '<tr><td>California</td><td>' + FT.esc(g.date ? FT.fmtShort(g.date) : 'TBA') + '</td><td>' + FT.esc(g.opponent) + '</td><td>' + FT.esc(g.note) + '</td><td><a href="' + FT.esc(g.source) + '" target="_blank" rel="noopener">calbears.com</a></td></tr>';
+    }).join('');
+  });
+});
+</script>
+</body></html>
