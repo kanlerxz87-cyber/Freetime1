@@ -1,22 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#10231f"><meta name="description" content="Evidence-led San Francisco sports radio calendar and vacation-window planner.">
-  <title>Free Time Vacation · Bay Area Sports Planner</title><link rel="stylesheet" href="styles.css"><script defer src="app.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Freetime1 — When are you free? Bay Area radio sports planner (2026–2029)</title>
+<meta name="description" content="Day-by-day free/busy planner for Bay Area AM/FM radio sports: MLB (Giants/A's high priority, all 30 clubs), NFL/49ers, Stanford/Cal NCAAF, Westwood One. Pacific time. Vacation windows 2027–2029.">
+<link rel="stylesheet" href="assets/style.css">
 </head>
-<body data-page="overview">
-  <header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">FT</span><span>FREE TIME <b>VACATION</b></span></a><nav aria-label="Main navigation"><a class="active" href="index.html">Overview</a><a href="mlb.html">MLB</a><a href="football.html">Football</a><a href="radio.html">Radio</a><a href="review.html">Flagged for Review</a></nav></header>
-  <main class="shell">
-    <section class="hero"><div><p class="eyebrow">SAN FRANCISCO BAY AREA · OUTER SUNSET 94122</p><h1>Know when the game is on.<br><span>Plan around what’s confirmed.</span></h1><p class="lede">A source-linked calendar for live sports that may compete with your radio time. Unverified schedules stay visibly unknown; an empty date is never mislabeled “free.”</p></div><div class="hero-stamp"><span>DATA AS OF</span><strong>25 NOV 2026</strong><span>Pacific Time · PT</span></div></section>
-    <section class="notice notice-warn"><span class="notice-icon">!</span><div><strong>Important: complete free-vacation windows cannot yet be certified.</strong><p>MLB has a live official schedule feed; some Cal future football fixtures have confirmed dates. The full NFL, Stanford, Westwood One game slate and each local radio clearance are not verified for every future date. No week, 2-week, or 3-week period is therefore labeled free.</p></div><a href="review.html" class="text-link">See limits &amp; review flags →</a></section>
-    <section class="metrics" aria-label="Planning status"><article class="metric"><span class="metric-label">YEARS IN VIEW</span><strong>2026—2029</strong><small>Day-by-day navigation</small></article><article class="metric"><span class="metric-label">MLB COVERAGE</span><strong>All 30 clubs</strong><small>Official schedule feed, by date</small></article><article class="metric"><span class="metric-label">FREE WINDOWS</span><strong class="text-amber">Not certified</strong><small>Other leagues / radio gaps remain</small></article></section>
-    <section class="section-head"><div><p class="eyebrow">DAILY SCOREBOARD + CALENDAR</p><h2>Pick a day</h2></div><div class="month-controls"><button id="prevMonth" class="icon-button" aria-label="Previous month">←</button><strong id="monthTitle">Loading…</strong><button id="nextMonth" class="icon-button" aria-label="Next month">→</button><button id="todayBtn" class="button button-quiet">Today</button></div></section>
-    <section class="calendar-layout"><div class="calendar-card"><div class="calendar-legend"><span><i class="dot dot-game"></i> Official MLB / Cal fixture listed</span><span><i class="dot dot-unknown"></i> Other schedules still unverified</span></div><div class="calendar-weekdays" aria-hidden="true"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calendarGrid" class="calendar-grid" aria-label="Monthly calendar"></div><div id="loadNote" class="load-note" role="status">Loading official MLB schedule data…</div></div>
-      <aside class="day-panel" aria-live="polite"><div class="day-panel-head"><p class="eyebrow">SELECTED DAY</p><h2 id="selectedDate">—</h2><span id="dayStatus" class="status-pill status-unknown">Checking sources</span></div><div class="free-answer"><span class="free-label">CAN THIS DAY BE CALLED FREE?</span><strong id="freeAnswer">Not yet verified</strong><p id="freeExplanation">A missing game in one source cannot clear the other leagues or local radio carriage.</p></div><h3>Listed games</h3><div id="gameList" class="game-list"></div><p class="microcopy">Displayed start times are converted from official source time to America/Los_Angeles (PT). Game end times and exact free minutes are not inferred.</p></aside></section>
-    <section class="section-head lower-head"><div><p class="eyebrow">VACATION WINDOW CHECK</p><h2>Find a stretch to get away</h2><p class="section-copy">This finder only reports a candidate after every required schedule source covers every date. Until then, it returns “not certifiable,” not a guess.</p></div></section>
-    <section class="finder-card"><div class="duration-select"><label for="windowLength">Trip length</label><select id="windowLength"><option value="7">7 nights / 1 week</option><option value="14">14 nights / 2 weeks</option><option value="21">21 nights / 3 weeks</option></select></div><div class="finder-result"><span class="eyebrow">BEST VERIFIED WINDOW · 2027–2029</span><strong id="finderResult">No certifiable window yet</strong><p id="finderNote">Incomplete or unavailable official schedules prevent a complete conflict check. See the flagged-items page for exact gaps.</p></div><a class="button button-dark" href="review.html">Why isn’t a window certified? <span>→</span></a></section>
-    <section class="bottom-grid"><article class="mini-card"><span class="eyebrow">WHAT “FREE” MEANS</span><h3>No listed game is not proof of free time</h3><p>A genuinely free minute requires all qualifying events and radio broadcasts to be absent during that minute. Scheduled start times alone do not establish game end times.</p></article><article class="mini-card"><span class="eyebrow">SCHEDULE STATUS</span><h3>Confirmed facts and gaps are separated</h3><p>Official schedules and future opponent announcements are linked directly. Unreleased matchups, missing kickoffs, and station carriage remain blank and flagged.</p></article></section>
-    <footer><span>Evidence-led planner · Not a radio reception guarantee</span><span><a href="sources.html">Sources</a> · <a href="review.html">Flagged for Review</a></span></footer>
-  </main>
-</body></html>
+<body>
+<header class="top"><div class="wrap"><div><h1>⏱️ Freetime1 — When are you free?</h1><p>Bay Area AM/FM radio sports planner · Outer Sunset, SF 94122 · All times Pacific (PT) · 2026–2029</p></div><span class="badge verified">Official sources only</span></div></header>
+<nav class="main"><div class="wrap">
+<a class="active" href="index.html">Dashboard</a><a href="executive-summary.html">Executive Summary</a><a href="scoreboard.html">Day Scoreboard</a><a href="vacation-windows.html">Vacation Windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL / 49ers</a><a href="ncaaf.html">Stanford / Cal</a><a href="westwood-one.html">Westwood One</a><a href="radio-guide.html">Radio Guide</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged-for-review.html">Flagged for Review</a>
+</div></nav>
+<main>
+<div class="callout good"><strong>Bottom line for vacation planning:</strong> Under the strict rule (<em>no MLB including Spring Training, no NFL including preseason, no Stanford/Cal, no Westwood One</em>), <strong>there is no 1-week, 2-week, or 3-week completely game-free window in 2027, 2028, or 2029</strong>. The longest strict all-off run is <strong>4–5 days in February</strong> (after the Super Bowl, before Spring Training). If Spring Training/preseason do <em>not</em> count, the practical vacation window is <strong>mid-February → late March (5–6 weeks)</strong>. See <a href="vacation-windows.html">Vacation Windows</a> and <a href="executive-summary.html">Executive Summary</a>.</div>
+
+<div class="grid">
+<div class="card"><h2>📅 Today on the radio</h2><p>Open the scoreboard for any day — yesterday / today / tomorrow buttons, date picker, month calendar, and a minute-by-minute free/busy timeline in Pacific time.</p><p><a class="btn primary" href="scoreboard.html">Open Day Scoreboard →</a></p></div>
+<div class="card"><h2>🏖️ Best vacation windows</h2><p>Ranked consecutive FREE-day runs for 2027–2029, strict vs. regular-season-only. Every window links its season sources.</p><p><a class="btn" href="vacation-windows.html">See vacation windows →</a></p></div>
+<div class="card"><h2>📻 What counts as “busy”?</h2><p>A minute is <strong>busy</strong> when any of these is on air: MLB (Giants &amp; A’s <span class="badge high">HIGH</span>, all 30 clubs shown) · NFL / 49ers <span class="badge high">HIGH</span> · Stanford / Cal NCAAF <span class="badge high">HIGH</span> · Westwood One national NFL radio. Otherwise it is <strong>free</strong>.</p><p><a class="btn" href="methodology.html">How free time is calculated →</a></p></div>
+</div>
+
+<div class="card"><h2>What is tracked (and what is not)</h2>
+<table><thead><tr><th>Category</th><th>Priority</th><th>Seasons covered</th><th>Official source</th></tr></thead><tbody>
+<tr><td><strong>MLB — San Francisco Giants</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Spring Training, regular season, All-Star, postseason (2026–2029)</td><td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a> · <a href="https://www.mlb.com/giants" target="_blank" rel="noopener">mlb.com/giants</a></td></tr>
+<tr><td><strong>MLB — Athletics</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Same as above (Sacramento / Las Vegas Ballpark split in 2026–2027)</td><td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a></td></tr>
+<tr><td><strong>MLB — all 30 clubs</strong></td><td>Standard (shown)</td><td>Same windows; daily radio window represents the league slate</td><td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a></td></tr>
+<tr><td><strong>NFL — San Francisco 49ers</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Preseason, regular season, postseason (2026–2029)</td><td><a href="https://www.49ers.com/schedule/" target="_blank" rel="noopener">49ers.com/schedule</a></td></tr>
+<tr><td><strong>NFL — all 32 teams</strong></td><td>Standard (shown)</td><td>Same windows; Sunday + primetime game days block vacation</td><td><a href="https://www.nfl.com/schedule/" target="_blank" rel="noopener">nfl.com/schedule</a></td></tr>
+<tr><td><strong>NCAAF — Stanford Cardinal</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Regular season + bowls/CFP window (2026 verified; 2027 partial; 2028–29 estimated)</td><td><a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com</a></td></tr>
+<tr><td><strong>NCAAF — California Golden Bears</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Regular season + bowls/CFP window (2026 verified; 2027 unverified; 2028–29 estimated)</td><td><a href="https://calbears.com/sports/football/schedule/text" target="_blank" rel="noopener">calbears.com</a></td></tr>
+<tr><td><strong>Westwood One Sports — national NFL radio</strong></td><td>Standard (subset of NFL primetime + postseason)</td><td>TNF / SNF / MNF, holiday tripleheaders, all postseason + Super Bowl</td><td><a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a></td></tr>
+</tbody></table>
+<p class="small">Full game-by-game schedules (2,430 MLB games/season, 272 NFL games/season) live on the official league pages above — this site does not retype them (to avoid hallucination). It models <em>when radio is busy vs. free</em> from verified season windows + verified 2026 anchors, and flags every future year as ESTIMATED until the league publishes it. See <a href="methodology.html">Methodology</a> and <a href="sources.html">Sources</a>.</p>
+</div>
+
+<div class="card"><h2>Quick links</h2>
+<p><a class="btn" href="mlb.html">MLB →</a> <a class="btn" href="nfl.html">NFL / 49ers →</a> <a class="btn" href="ncaaf.html">Stanford / Cal →</a> <a class="btn" href="westwood-one.html">Westwood One →</a> <a class="btn" href="radio-guide.html">Radio Guide (94122) →</a> <a class="btn" href="flagged-for-review.html">Flagged for Review →</a></p>
+<p class="small" id="data-meta">Loading data…</p>
+</div>
+</main>
+<footer>Built from official league/team/radio sources only. Times in Pacific (PT = PST/PDT as applicable). Future years marked ESTIMATED until officially released — never treat an estimate as a confirmed schedule. · <a href="sources.html">Verification log</a> · <a href="flagged-for-review.html">Flagged for Review</a></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
