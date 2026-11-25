@@ -12,11 +12,11 @@
 <a href="index.html">Dashboard</a><a class="active" href="executive-summary.html">Executive Summary</a><a href="scoreboard.html">Day Scoreboard</a><a href="vacation-windows.html">Vacation Windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL / 49ers</a><a href="ncaaf.html">Stanford / Cal</a><a href="westwood-one.html">Westwood One</a><a href="radio-guide.html">Radio Guide</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged-for-review.html">Flagged for Review</a>
 </div></nav>
 <main>
-<div class="callout bad"><strong>Headline answer:</strong> If “free” means <em>no MLB (including Spring Training), no NFL (including preseason), no Stanford/Cal, no Westwood One</em>, then <strong>no 7-day, 14-day, or 21-day vacation window exists in 2027, 2028, or 2029</strong>. The longest strict all-off run is <strong>4–5 days in February</strong>. Plan vacations around that fact — or explicitly exclude Spring Training/preseason (see §4).</div>
+<div class="callout warn"><strong>Current answer:</strong> Required schedules and broadcast coverage are incomplete, so <strong>no 7-day, 14-day, or 21-day window can be certified as free</strong>. The partial model also cannot prove that no such window exists. Do not plan a vacation from its estimated intervals.</div>
 
-<h2>1. What “free” means (one rule, applied everywhere)</h2>
+<h2>1. What would count as “free” (coverage is not complete)</h2>
 <div class="card">
-<p>A <strong>minute is FREE</strong> when <em>none</em> of these are on air; otherwise it is <strong>BUSY</strong>:</p>
+<p>A minute could be certified <strong>FREE</strong> only after confirming that no required event or broadcast is on air and that all relevant schedules are complete. That completeness condition is not currently met; current gaps are <strong>UNKNOWN</strong>, not free:</p>
 <ul>
 <li><strong>MLB</strong> — Giants &amp; Athletics <span class="badge high">HIGH PRIORITY</span>; all 30 clubs shown (a game is on almost every day in season).</li>
 <li><strong>NFL</strong> — 49ers <span class="badge high">HIGH PRIORITY</span>; all 32 teams shown (preseason + regular + postseason).</li>
@@ -31,37 +31,37 @@
 <div class="card"><div id="windows-table"><p class="small">Loading season windows…</p></div>
 <p class="small">VERIFIED = dates published by the league/team. ESTIMATED = schedule not yet released; window modeled from the prior-year pattern and labeled everywhere. PARTIAL/UNVERIFIED rows are on the <a href="flagged-for-review.html">Flagged for Review</a> page. Full 2,430-game MLB and 272-game NFL slates: <a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a> · <a href="https://www.nfl.com/schedule/" target="_blank" rel="noopener">nfl.com/schedule</a>.</p></div>
 
-<h2>3. When are there NO games? (strict definition)</h2>
+<h2>3. Can any dates be certified free of all required radio sports?</h2>
 <div class="card">
-<p>Computed day-by-day (1,461 days, 2026-01-01 – 2029-12-31) from the windows above. A FREE DAY has zero game days in any category. Full ranked table: <a href="vacation-windows.html">Vacation Windows</a>.</p>
-<table><thead><tr><th>Year</th><th>Longest strict all-off run</th><th>What bounds it</th><th>Status</th></tr></thead><tbody>
-<tr><td>2026</td><td><strong>Feb 9–19 (11 days)</strong></td><td>Super Bowl LX (Feb 8) → Spring Training (Feb 20)</td><td><span class="badge verified">VERIFIED</span></td></tr>
-<tr><td>2027</td><td><strong>Feb 15–18 (4 days)</strong></td><td>Super Bowl LXI (Feb 14) → Spring Training (Feb 19)</td><td><span class="badge verified">VERIFIED</span> (both bounds published)</td></tr>
-<tr><td>2028</td><td><strong>Feb 14–17 (4 days)</strong></td><td>Super Bowl LXII (Feb 13, confirmed) → Spring Training (est. Feb 18)</td><td><span class="badge estimated">ESTIMATED</span> (spring start estimated)</td></tr>
-<tr><td>2029</td><td><strong>Feb 12–16 (5 days)</strong></td><td>Super Bowl LXIII (Feb 11, confirmed) → Spring Training (est. Feb 17)</td><td><span class="badge estimated">ESTIMATED</span></td></tr>
+<p><strong>No full day or multi-week window is certified free by this dataset.</strong> It does not ingest every future MLB fixture, complete future NFL/Stanford/Cal schedules, and every applicable radio carriage detail. Model-generated empty days are unknown, not proof of no sports. Full limitations: <a href="vacation-windows.html">Vacation Windows</a> and <a href="flagged-for-review.html">Flagged for Review</a>.</p>
+<table><thead><tr><th>Year</th><th>Model output</th><th>Coverage limits</th><th>Certification</th></tr></thead><tbody>
+<tr><td>2026</td><td>Model showed Feb 9–19</td><td>Partial game/radio rows; duration and schedule imports are not exhaustive</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2027</td><td>Model showed Feb 15–18</td><td>MLB regular season published; full NFL and college schedules/radio details incomplete</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2028</td><td>Model showed Feb 14–17</td><td>Full MLB/NFL/college schedules and Spring Training/radio details not verified</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2029</td><td>Model showed Feb 12–16</td><td>Full MLB/NFL/college schedules and radio details not verified</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
 </tbody></table>
-<p><strong>Other “free” days are mid-season weekday gaps, not off-season vacations:</strong> e.g., Mon–Fri between NFL playoff weekends (5 days, Jan 2028 &amp; Jan 2029), and Tue/Wed/Fri between NFL Sundays. The July MLB All-Star break gives only <strong>1–2 consecutive free days</strong> because the All-Star Game itself is a game (break is Mon–Thu with the game in the middle). There is <strong>no 7-day strict window in 2027–2029</strong>.</p>
+<p>The broad model cannot prove that a 7-, 14-, or 21-day free span exists—or does not exist. See the source-linked gaps on <a href="flagged-for-review.html">Flagged for Review</a>.</p>
 </div>
 
-<h2>4. Practical vacation guidance (if preseason doesn’t count)</h2>
+<h2>4. Candidate dates are not a booking recommendation</h2>
 <div class="card">
-<p>Many listeners do not treat Spring Training / NFL preseason as “must-listen” radio. Under that <strong>regular-season-only</strong> rule (MLB regular + postseason, NFL regular + postseason, NCAAF), the picture flips:</p>
-<table><thead><tr><th>Year</th><th>Regular-season-only all-off window</th><th>Length</th><th>Status</th></tr></thead><tbody>
-<tr><td>2027</td><td>Feb 15 – Mar 23</td><td><strong>37 days (~5.3 weeks)</strong></td><td><span class="badge verified">VERIFIED</span> bounds (SB Feb 14; Opening Night Mar 24)</td></tr>
-<tr><td>2028</td><td>Feb 14 – Mar 29</td><td><strong>45 days (~6.4 weeks)</strong></td><td><span class="badge estimated">ESTIMATED</span> (Opening Day ~Mar 30 unverified)</td></tr>
-<tr><td>2029</td><td>Feb 12 – Mar 28</td><td><strong>45 days (~6.4 weeks)</strong></td><td><span class="badge estimated">ESTIMATED</span></td></tr>
+<p>Excluding Spring Training and NFL preseason still does not make a clear vacation recommendation: the future Stanford/Cal schedules and complete radio coverage are not verified, and the model does not ingest every game row.</p>
+<table><thead><tr><th>Year</th><th>Previously modeled dates</th><th>Current status</th></tr></thead><tbody>
+<tr><td>2027</td><td>Feb 15 – Mar 23</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2028</td><td>Feb 14 – Mar 29</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2029</td><td>Feb 12 – Mar 28</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
 </tbody></table>
-<p><strong>Recommendation:</strong> For a 1–3 week vacation with zero <em>regular-season</em> radio conflicts, book <strong>late February → mid/late March</strong> (after the Super Bowl, before Opening Day). For zero conflicts <em>including</em> Spring Training, the only strict option is the <strong>4–5 day February gap</strong> — a long weekend, not a multi-week trip. Confirm Spring Training start dates on <a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a> once 2028/2029 schedules publish.</p>
+<p>These dates are previous outputs of a broad seasonal model, not verified no-conflict windows. Do not book against them as “sports-free.” Reassess only after every required league schedule, relevant special event, and radio assignment is checked. Official 2027 MLB regular-season release: <a href="https://www.mlb.com/orioles/news/mlb-2027-schedule-released" target="_blank" rel="noopener">MLB release</a>; this does not resolve other required coverage.</p>
 </div>
 
 <h2>5. Day-by-day free time (scoreboard)</h2>
-<div class="card"><p>Every day in the <a href="scoreboard.html">Day Scoreboard</a> shows: FREE/BUSY status, why, a 12 AM–11:59 PM PT timeline, busy blocks (with verified 2026 kickoffs where published), and exact free gaps in minutes. Use Yesterday / Today / Tomorrow or the month calendar to jump. Verified 2026 anchors (Stanford/Cal/Westwood/49ers) are transcribed from official pages; future years show typical windows labeled ESTIMATED — never invented matchups.</p></div>
+<div class="card"><p>The <a href="scoreboard.html">Day Scoreboard</a> shows modeled activity, selected verified kickoff anchors, and gaps in the partial model. It now labels all dates <strong>not certified</strong>; unmodeled time is not confirmed free time. Pacific timezone uses America/Los_Angeles, with daylight-saving transitions handled by local date display.</p></div>
 
 <h2>6. Risks &amp; what to re-check</h2>
 <div class="card"><ul>
-<li><strong>2028/2029 schedules not released</strong> — all 2028–2029 windows are ESTIMATED. Re-run <code>tools/build_data.py</code> when MLB/NFL/NCAAF publish.</li>
-<li><strong>2028 All-Star date conflict</strong> (Jul 11 vs. Jul 12 reports) — flagged.</li>
-<li><strong>Cal 2027 schedule not found</strong> — left blank/unverified; do not assume dates.</li>
+<li><strong>Future-year schedule coverage incomplete.</strong> MLB published 2027 regular-season dates, but full game/radio ingestion and several other required league schedules remain incomplete.</li>
+<li><strong>2028 MLB All-Star day unannounced</strong> on the official MLB future-locations source; do not rely on non-MLB reported dates.</li>
+<li><strong>Cal 2027 is partial.</strong> Official announcements list three nonconference games; one date has a BYU/Old Dominion conflict requiring review.</li>
 <li><strong>Westwood One Sep–Oct 2026 rows</strong> not in snapshot — use the live official page.</li>
 <li><strong>Athletics Bay Area radio</strong> in Sacramento era — unverified; verify before relying on 94122 AM/FM carriage.</li>
 </ul><p><a class="btn" href="flagged-for-review.html">All flagged items with source links →</a></p></div>

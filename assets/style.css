@@ -44,8 +44,8 @@ tr:nth-child(even) td{background:#fafbfd}
 .monthgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:10px 0}
 .monthgrid .dow{font-size:12px;font-weight:700;text-align:center;color:var(--muted)}
 .monthgrid button{padding:8px 4px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:13px}
-.monthgrid button.free{background:var(--green-bg);border-color:#bfe3cd}
-.monthgrid button.busy{background:var(--red-bg);border-color:#f2b8b5}
+.monthgrid button.unknown{background:#f1f2f0;border-color:#d7ddda;color:#6d7773}
+.monthgrid button.modeled-busy{background:#fff0d6;border-color:#e8c88d;color:#744b06}
 .monthgrid button.sel{outline:3px solid var(--accent)}
 footer{max-width:1100px;margin:0 auto;padding:20px;color:var(--muted);font-size:13px}
 .kpi{font-size:28px;font-weight:800}
