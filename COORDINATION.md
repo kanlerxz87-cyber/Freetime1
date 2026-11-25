@@ -38,3 +38,28 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 - (to be filled per task as completed; every verified row links its official source;
   anything not confirmable from an official source is left blank + flagged unverified)
+
+## Completion records (final integration, 2026-11-25)
+
+- T1 Research + verification: DONE. Sources in `sources/verification-log.md` + `sources.html`.
+  Verified: MLB 2026/2027 windows (mlb.com press releases), NFL/49ers 2026 (49ers.com),
+  Stanford/Cal 2026 12+12 game days (gostanford.com/calbears.com), Westwood One 31 rows
+  (westwoodonesports.com/nfl-schedule fetched), SB LXII/LXIII (NFL announcements),
+  KNBR/KSAN/KTCT/KGO/KSFN (49ers.com + KNBR). Irregularities F-01..F-09 on Flagged page.
+- T2 Data model: DONE. `tools/build_data.py` → `data/schedule.json` (43 windows, 1,461 days)
+  + `data/vacation.json`. No invented matchups; future years ESTIMATED. Holiday fix
+  (Black Friday/Christmas) applied and re-verified (Dec 25/Nov 27 2026 now BUSY).
+- T3 Site: DONE. 12 pages + `assets/style.css` + `assets/app.js` + `.nojekyll`.
+  Scoreboard has Yesterday/Today/Tomorrow, date picker, month calendar, PT timeline,
+  free-gap minutes. All internal links checked (0 missing); `node --check` OK; JSON valid.
+  External link check via bash curl is blocked by sandbox egress (github/npm/pypi only);
+  verification was done via web_search/fetch_page tools instead.
+- T4 Vacation analysis: DONE. Strict max 2027–2029 = 4–5 days (Feb); no 7/14/21-day window.
+  Regular-only: 2027 37d, 2028/2029 45d EST. Tables on vacation-windows.html + exec summary.
+- T5 Integration: DONE (this session). Re-verified combined data line-by-line against
+  verification log; site serves 200 on all pages locally (python http.server :8000).
+  PR to `main` + merge + Pages deploy recorded below.
+
+## PR / deploy record
+
+- (to fill after PR merge + Pages enable)
