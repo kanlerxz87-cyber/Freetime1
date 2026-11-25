@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources and method - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>Sources and method</h1>
+<h2>How free time is calculated</h2>
+<ol class="clean">
+<li>Every tracked game gets a busy window: scheduled start to start + average duration.</li>
+<li>Free time is every minute of a Pacific calendar day that no busy window covers (within the day, 12:00 AM to 12:00 AM).</li>
+<li>A day with no verified game and no estimated season window is FREE. A day with only estimated windows is ESTIMATED BUSY. A day with a verified game is BUSY.</li>
+<li>Free blocks are not claimed for a day when another league is only estimated, because an unverified game could fill the gap.</li>
+</ol>
+<h2>Average durations used</h2>
+<div class="wrap"><table class="tbl" id="dur"><thead><tr><th>League</th><th>Minutes used</th><th>Basis</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+<h2>Sources by category</h2>
+<div class="wrap"><table class="tbl"><thead><tr><th>Category</th><th>Source</th><th>Used for</th><th>Type</th></tr></thead><tbody>
+<tr><td>MLB schedule (live)</td><td><a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027" target="_blank" rel="noopener">MLB Stats API: schedule</a></td><td>All MLB games, 2026-2029 range; start times; spring training; postseason</td><td>Official</td></tr>
+<tr><td>MLB clubs</td><td><a href="https://statsapi.mlb.com/api/v1/teams?sportId=1&season=2027" target="_blank" rel="noopener">MLB Stats API: teams</a></td><td>All 30 clubs and IDs</td><td>Official</td></tr>
+<tr><td>MLB 2027 release</td><td><a href="https://www.mlb.com/press-release/press-release-orioles-announce-2027-regular-season-schedule" target="_blank" rel="noopener">MLB press release (Orioles 2027 schedule)</a></td><td>2027 regular season released Jul 16, 2026</td><td>Official</td></tr>
+<tr><td>NFL national radio</td><td><a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">Westwood One Sports NFL schedule</a></td><td>35 national NFL radio games (with event IDs)</td><td>Official (broadcaster)</td></tr>
+<tr><td>49ers</td><td><a href="https://www.49ers.com/schedule/2026-regular-season/" target="_blank" rel="noopener">49ers.com 2026 schedule</a></td><td>49ers 2026 remaining games, times, radio</td><td>Official (team)</td></tr>
+<tr><td>NFL</td><td><a href="https://www.nfl.com/schedules" target="_blank" rel="noopener">NFL.com schedules</a></td><td>Cross-check of times; season structure</td><td>Official</td></tr>
+<tr><td>Stanford</td><td><a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com football schedule</a></td><td>Stanford 2026 games</td><td>Official (school)</td></tr>
+<tr><td>Stanford radio</td><td><a href="https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced" target="_blank" rel="noopener">gostanford.com radio announcement</a></td><td>KNBR/KTCT 1050 AM</td><td>Official (school)</td></tr>
+<tr><td>Cal</td><td><a href="https://calbears.com/news/2026/1/26/california-football-announces-2026-schedule.aspx" target="_blank" rel="noopener">calbears.com 2026 schedule</a>, <a href="https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents" target="_blank" rel="noopener">2027 conference opponents</a></td><td>Cal 2026 remaining games and 2027 dates</td><td>Official (school)</td></tr>
+<tr><td>Giants radio</td><td><a href="https://en.wikipedia.org/wiki/San_Francisco_Giants_Radio_Network" target="_blank" rel="noopener">Wikipedia: Giants Radio Network</a></td><td>KNBR flagship</td><td>Secondary</td></tr>
+<tr><td>Athletics radio</td><td><a href="https://en.wikipedia.org/wiki/Oakland_Athletics_Radio_Network" target="_blank" rel="noopener">Wikipedia: Athletics Radio Network (2025 snapshot)</a></td><td>KSTE and KNEW</td><td>Secondary</td></tr>
+<tr><td>Super Bowl LXI</td><td><a href="https://acadcalendar.com/super-bowl/" target="_blank" rel="noopener">acadcalendar.com</a></td><td>Feb 14, 2027 date</td><td>Secondary</td></tr>
+</tbody></table></div>
+<h2>Verification log (2026-11-25)</h2>
+<ul class="clean">
+<li>MLB 2027 regular season: read the MLB Stats API per day (Feb 19 to Sep 18, 2027). Jul 12 and Jul 14 have no entries in that feed.</li>
+<li>MLB 2028: API returned 0 games (not released).</li>
+<li>MLB 2026: postseason last game Oct 28, 2026.</li>
+<li>Westwood One: all 35 games re-read from the broadcaster's page (2 fetches) and matched to event IDs.</li>
+<li>49ers 2026: 6 remaining regular-season games with official times, plus Week 18 TBD.</li>
+<li>Stanford and Cal: remaining 2026 games from each school's page.</li>
+<li>Durations: 3 secondary sources; official MLB and NFL pace reports not yet fetched.</li>
+</ul>
+<p class="muted">Every row on this site links to its source. Items with no verified value are marked "not verified" and listed on <a href="flagged.html">Flagged for Review</a>.</p>
+</main>
+<footer>Sources are listed as read on 2026-11-25.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('data/durations.json').then(function (r) { return r.json(); }).then(function (d) {
+    document.querySelector('#dur tbody').innerHTML = d.items.map(function (i) {
+      return '<tr><td>' + FT.esc(i.league) + '</td><td>' + i.minutes + '</td><td>' + FT.esc(i.label) + '</td><td><a href="' + FT.esc(i.source) + '" target="_blank" rel="noopener">' + FT.esc(i.source_type) + '</a></td></tr>';
+    }).join('');
+  });
+});
+</script>
+</body></html>

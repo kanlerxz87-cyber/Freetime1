@@ -1,0 +1,57 @@
+{
+  "title": "Stanford and California football (ncaaf)",
+  "retrieved": "2026-11-25",
+  "games": [
+    {
+      "team": "Stanford",
+      "season": 2026,
+      "date": "2026-11-28T12:30:00-08:00",
+      "opponent": "SMU (home)",
+      "time_text": "12:30 PM PST",
+      "tv": "ACC Network",
+      "status": "scheduled",
+      "source": "https://gostanford.com/sports/football/schedule",
+      "radio": "KNBR/KTCT 1050 AM (Stanford radio team announced for 2026 season)",
+      "radio_source": "https://gostanford.com/news/2026/07/30/2026-football-radio-broadcast-team-announced"
+    },
+    {
+      "team": "California",
+      "season": 2026,
+      "date": "2026-11-28T12:30:00-08:00",
+      "estimated_time": true,
+      "opponent": "Pittsburgh (home)",
+      "time_text": "TBA on calbears.com (estimated 12:30 PM PT for planning)",
+      "tv": "TBA",
+      "status": "scheduled, time TBA",
+      "source": "https://calbears.com/news/2026/1/26/california-football-announces-2026-schedule.aspx",
+      "radio": "Radio not verified for this game",
+      "radio_source": ""
+    }
+  ],
+  "cal_2027_known": [
+    {
+      "date": "2027-08-28",
+      "opponent": "Sacramento State",
+      "note": "Non-conference; date only",
+      "source": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "date": "2027-09-04",
+      "opponent": "at UCLA",
+      "note": "Non-conference; date only",
+      "source": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "date": "2027-09-11",
+      "opponent": "Old Dominion",
+      "note": "Non-conference; date only",
+      "source": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    },
+    {
+      "date": null,
+      "opponent": "at Stanford (Big Game, 2027 road game for Cal per its 2027 conference list)",
+      "note": "Date TBA",
+      "source": "https://calbears.com/news/2026/9/16/california-football-announces-2027-conference-opponents"
+    }
+  ]
+}

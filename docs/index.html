@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Time Vacation - Home</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>Free Time Vacation</h1>
+<p class="lead">When can you take a trip without missing the games you want on the radio? Times are Pacific. Tracked games: all MLB (incl. spring training, postseason, All-Star), NFL preseason/regular/postseason, San Francisco 49ers, Stanford and California football, and Westwood One national NFL radio.</p>
+<p class="muted" id="feedstatus">Checking the live MLB feed...</p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="card">
+<h2>Executive summary</h2>
+<ol class="clean">
+<li><strong>No week-long window is free in 2027, 2028, or 2029.</strong> Under your rules, the NFL covers roughly September through January, and MLB covers spring training through October. A 7-day, 14-day, or 21-day window does not exist in the data we can verify or estimate.</li>
+<li><strong>The only free stretches are short.</strong> The longest verified free run is <strong>Feb 15-18, 2027 (4 days)</strong>: after Super Bowl LXI (Feb 14, 2027) and before the first 2027 spring-training game (Feb 19, 2027, MLB Stats API). The same shape repeats as estimates in <strong>Feb 14-17, 2028</strong> and <strong>Feb 12-15, 2029</strong>, because those schedules are not released yet.</li>
+<li><strong>One 1-day gap in 2027:</strong> Wednesday, July 14, 2027. The MLB Stats API lists no games that day. The 2027 All-Star Game (July 13, Wrigley Field) is in the feed. July 12 is an estimated busy day, because the Home Run Derby is not in the MLB feed.</li>
+<li><strong>MLB 2027 is verified.</strong> The regular-season schedule (Opening Night Mar 24, 2027) was released by MLB on July 16, 2026. Game start times marked TBD are estimated (13:00 PT day, 19:00 PT night) and flagged.</li>
+<li><strong>NFL is only partly loaded.</strong> The NFL-related rows are the Westwood One national broadcasts (35 games) and the 49ers' official schedule. The rest of the league is treated as an estimated season window, so no free day is claimed on an NFL-season day.</li>
+<li><strong>Radio:</strong> 49ers games are on KSAN 107.7 FM / KNBR 104.5 FM / 680 AM; Stanford is on KNBR/KTCT 1050 AM; Giants games are on KNBR 680 AM / 104.5 FM. Cal's station (810 AM) and the Athletics' Bay Area station are secondary-source only.</li>
+<li><strong>Irregularities:</strong> Westwood One and the NFL/49ers schedules disagree on several game times (for example, 49ers at Chargers, Dec 17: 4:30 PM PT vs 5:15 PM PT). See <a href="flagged.html">Flagged for Review</a>.</li>
+</ol>
+<p><a class="btn" href="scoreboard.html">Open the day-by-day scoreboard</a> <a class="btn alt" href="vacation.html">See vacation windows</a></p>
+</div>
+
+<h2>Go to a category</h2>
+<div class="grid">
+<a class="tile" href="scoreboard.html"><b>Scoreboard and calendar</b><span>Yesterday, today, tomorrow; any date; free blocks in exact Pacific times.</span></a>
+<a class="tile" href="vacation.html"><b>Vacation windows 2027-2029</b><span>Every free run found, verified vs estimated.</span></a>
+<a class="tile" href="mlb.html"><b>MLB</b><span>All 30 clubs. Giants and Athletics flagged high priority.</span></a>
+<a class="tile" href="nfl.html"><b>NFL and 49ers</b><span>Westwood One national radio games and the 49ers' 2026 schedule.</span></a>
+<a class="tile" href="ncaaf.html"><b>Stanford and Cal football</b><span>Remaining 2026 games and known 2027 dates.</span></a>
+<a class="tile" href="radio.html"><b>Radio stations</b><span>Which AM/FM station carries each team.</span></a>
+<a class="tile" href="flagged.html"><b>Flagged for Review</b><span>Mismatches, unverified items, and estimates with source links.</span></a>
+<a class="tile" href="sources.html"><b>Sources and method</b><span>Average game lengths, how free time is calculated, and every source link.</span></a>
+</div>
+</main>
+<footer>Built from official league and team sources. Estimates are labeled. Not affiliated with MLB, the NFL, or any team.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  FT.status(document.getElementById('feedstatus'));
+  FT.loadCtx().then(function (ctx) {
+    var runs = FT.freeRuns(ctx);
+    var kp = document.getElementById('kpis');
+    function longest(y) {
+      var best = null;
+      runs.forEach(function (r) { if (r.start.slice(0, 4) === String(y) && (!best || r.days > best.days)) best = r; });
+      return best;
+    }
+    var html = '';
+    [2027, 2028, 2029].forEach(function (y) {
+      var b = longest(y);
+      html += '<div class="kpi"><span>Longest free run ' + y + '</span><b>' + (b ? b.days + ' day' + (b.days > 1 ? 's' : '') : 'None') + '</b><span>' +
+        (b ? FT.esc(FT.fmtShort(b.start)) + ' to ' + FT.esc(FT.fmtShort(b.end)) + ' (' + (b.conf === 'verified' ? 'verified' : 'estimated') + ')' : 'no free run') + '</span></div>';
+    });
+    html += '<div class="kpi"><span>Tracked MLB games loaded</span><b>' + ctx.mlb.games + '</b><span>From the official MLB Stats API</span></div>';
+    kp.innerHTML = html;
+  });
+});
+</script>
+</body></html>

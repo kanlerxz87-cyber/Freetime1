@@ -1,0 +1,115 @@
+{
+ "generated": "2026-11-25",
+ "strict_definition": "FREE DAY = no MLB (spring/regular/postseason), no NFL (preseason/regular/postseason game day), no Stanford/Cal NCAAF game day, no Westwood One primetime day. See methodology.html.",
+ "regular_only_definition": "Same but EXCLUDES MLB Spring Training and NFL preseason (regular season + postseason only).",
+ "strict_top_runs": [
+  {
+   "start": "2026-02-09",
+   "end": "2026-02-19",
+   "days": 11
+  },
+  {
+   "start": "2026-01-05",
+   "end": "2026-01-09",
+   "days": 5
+  },
+  {
+   "start": "2027-01-11",
+   "end": "2027-01-15",
+   "days": 5
+  },
+  {
+   "start": "2028-01-10",
+   "end": "2028-01-14",
+   "days": 5
+  },
+  {
+   "start": "2029-01-08",
+   "end": "2029-01-12",
+   "days": 5
+  },
+  {
+   "start": "2029-02-12",
+   "end": "2029-02-16",
+   "days": 5
+  },
+  {
+   "start": "2026-01-13",
+   "end": "2026-01-16",
+   "days": 4
+  },
+  {
+   "start": "2026-01-20",
+   "end": "2026-01-23",
+   "days": 4
+  },
+  {
+   "start": "2026-01-27",
+   "end": "2026-01-30",
+   "days": 4
+  },
+  {
+   "start": "2026-02-03",
+   "end": "2026-02-06",
+   "days": 4
+  },
+  {
+   "start": "2027-01-19",
+   "end": "2027-01-22",
+   "days": 4
+  },
+  {
+   "start": "2027-01-26",
+   "end": "2027-01-29",
+   "days": 4
+  }
+ ],
+ "regular_only_top_runs": [
+  {
+   "start": "2028-02-14",
+   "end": "2028-03-29",
+   "days": 45
+  },
+  {
+   "start": "2029-02-12",
+   "end": "2029-03-28",
+   "days": 45
+  },
+  {
+   "start": "2026-02-09",
+   "end": "2026-03-24",
+   "days": 44
+  },
+  {
+   "start": "2027-02-15",
+   "end": "2027-03-23",
+   "days": 37
+  },
+  {
+   "start": "2026-01-05",
+   "end": "2026-01-09",
+   "days": 5
+  },
+  {
+   "start": "2027-01-11",
+   "end": "2027-01-15",
+   "days": 5
+  },
+  {
+   "start": "2028-01-10",
+   "end": "2028-01-14",
+   "days": 5
+  },
+  {
+   "start": "2029-01-08",
+   "end": "2029-01-12",
+   "days": 5
+  }
+ ],
+ "notes": [
+  "No 7-day (1-week) all-off window exists in 2027\u20132029 under the STRICT definition; longest is 4\u20135 days in February (post-Super Bowl, pre-Spring Training).",
+  "No 14-day or 21-day all-off window exists under EITHER definition in 2027\u20132029 except the February regular-season-only window (see regular_only_top_runs).",
+  "July All-Star breaks give 3 free days per year (All-Star Game day itself is busy).",
+  "All future-year windows are ESTIMATED until MLB/NFL/NCAAF publish official schedules; re-run tools/build_data.py when released."
+ ]
+}
