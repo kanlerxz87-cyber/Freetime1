@@ -62,7 +62,9 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 ## PR / deploy record
 
-- (to fill after PR merge + Pages enable)
+- [PR #1](https://github.com/kanlerxz87-cyber/Freetime1/pull/1) merged 2026-11-25 (`b3e2637`); [PR #2](https://github.com/kanlerxz87-cyber/Freetime1/pull/2) merged 2026-11-25 (`0e0532f`). Both were completed by the parallel integration session before this session's final sync.
+- GitHub Pages API reports `status: built`, legacy source `main:/`, public URL `https://kanlerxz87-cyber.github.io/Freetime1/`. Fetched the live home page successfully. GitHub Pages deployment runs `45626848891`, `45626733191`, and `45626099635` completed with `success`.
+- The `arena/6c361796-freetime1` session did not open a duplicate product PR: the full dashboard was already merged and published. Its only resulting contribution is this coordination conflict/handoff record.
 
 ## Supplemental verification dashboard — cf033448
 
