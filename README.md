@@ -32,3 +32,7 @@ python3 tools/build_data.py
 
 Official sources only. Future years marked ESTIMATED until published — never invented.
 Every table row links its source; unconfirmable values are blank + flagged.
+
+## Supplemental source check
+
+[Daily source check](daily-source-check.html) shows the official MLB feed when reachable and a date-stamped Westwood One snapshot. It does not certify free days.

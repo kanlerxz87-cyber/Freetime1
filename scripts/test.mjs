@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {readFileSync,existsSync} from 'node:fs';
+import {dayOf,shift,local,intervals} from '../docs/model.mjs';
+assert.equal(local('2027-03-15','00:00')-local('2027-03-14','00:00'),23*3600000);
+assert.equal(local('2027-11-08','00:00')-local('2027-11-07','00:00'),25*3600000);
+assert.equal(dayOf(local('2027-01-01','00:00')),'2027-01-01');
+assert.equal(shift('2028-02-28',1),'2028-02-29');
+assert.deepEqual(intervals([{start:-60000,duration:3},{start:60000,duration:3},{start:null}],0,300000),{busy:[[0,240000]],gaps:[[240000,300000]]});
+const lines=readFileSync('docs/radio.csv','utf8').trim().split('\n');assert.equal(lines.length,35);assert.equal(new Set(lines.map(l=>l.split(',')[2])).size,35);for(const line of lines)assert.match(line,/^202[67]-\d\d-\d\d,\d\d:\d\d,\d+,\S/);
+const html=readFileSync('daily-source-check.html','utf8');for(const [,,href] of html.matchAll(/(href|src)="([^"]+)"/g))if(href.startsWith('#'))assert.ok(html.includes(`id="${href.slice(1)}"`));else if(!href.startsWith('https://'))assert.ok(existsSync(href));
+console.log('Passed interval, DST, snapshot, and internal link checks.');

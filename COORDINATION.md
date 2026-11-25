@@ -63,3 +63,13 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 ## PR / deploy record
 
 - (to fill after PR merge + Pages enable)
+
+## Supplemental verification dashboard — cf033448
+
+- Preserved the concurrently merged site from PR #1. An add/add conflict in the task board was resolved by retaining that board and appending this handoff. The supplemental page was moved out of the existing landing page scope.
+- [PR #2](https://github.com/kanlerxz87-cyber/Freetime1/pull/2) publishes `daily-source-check.html` separately. GitHub records merge and deployment status.
+| Coverage gaps | needs review | cf033448 | docs/, index.html |
+
+- Audited 35 visible upcoming listings from the [official Westwood One NFL schedule](https://www.westwoodonesports.com/nfl-schedule/); copied national airtimes in Pacific time, retaining TBD matchup labels. Does not establish local clearances or any broadcasts omitted from the page.
+- Read [Stanford](https://gostanford.com/sports/football/schedule), [Cal](https://calbears.com/sports/football/schedule/2026), [NFL](https://www.nfl.com/super-bowl/halftime-show), [MLB spring announcement](https://www.mlb.com/press-release/press-release-mlb-announces-2027-spring-training-schedule), and [Warriors radio announcement](https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824). See Flagged for Review for missing coverage. MLB API was not reachable from the sandbox; runtime retrieval and completeness are not verified.
+- Local tests cover interval merging, midnight clipping, daylight-saving boundaries, snapshot shape and internal links; these are not checks of every external URL or schedule.
