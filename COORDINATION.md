@@ -73,3 +73,9 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 - Audited 35 visible upcoming listings from the [official Westwood One NFL schedule](https://www.westwoodonesports.com/nfl-schedule/); copied national airtimes in Pacific time, retaining TBD matchup labels. Does not establish local clearances or any broadcasts omitted from the page.
 - Read [Stanford](https://gostanford.com/sports/football/schedule), [Cal](https://calbears.com/sports/football/schedule/2026), [NFL](https://www.nfl.com/super-bowl/halftime-show), [MLB spring announcement](https://www.mlb.com/press-release/press-release-mlb-announces-2027-spring-training-schedule), and [Warriors radio announcement](https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824). See Flagged for Review for missing coverage. MLB API was not reachable from the sandbox; runtime retrieval and completeness are not verified.
 - Local tests cover interval merging, midnight clipping, daylight-saving boundaries, snapshot shape and internal links; these are not checks of every external URL or schedule.
+
+## Concurrent branch reconciliation — arena/bf7d526d-freetime1
+
+- 2026-11-25 — This Arena branch was created from the original `a7d1d4a` base when no `COORDINATION.md` existed in its checkout. During `git pull --rebase origin main`, `origin/main` advanced to include merged PR #1 and PR #2, including the shared site, task board, and source-review work.
+- A duplicate standalone planner had been created locally on this branch. To avoid overwriting the already-merged integration site or task-board records, that duplicate site commit is being omitted from the rebase. The PR #1/#2 files and records are preserved unchanged.
+- No other session's file scope is being edited. Any independently verified issue discovered against the merged data will be logged as a request/handoff here, not silently changed in their owned pages or data.
