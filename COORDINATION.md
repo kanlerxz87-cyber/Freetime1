@@ -126,3 +126,4 @@ Results:
 - **Verification performed:** Cross-checked extracted 49ers/Westwood One/Stanford/Cal rows against official pages fetched 2026-11-25. Flagged 2028-2029 MLB, 2027-2029 NFL, 2027-2029 NCAAF as estimated/TBD.
 - **Irregularities:** Full per-game ingestion for all MLB 2027-2028 and all NFL 2027-2029 not complete; SF 94122 AM/FM per-game carriage unverified; A's 2027-2029 radio affiliate unverified. See `flagged-review.html` and `site/data/data.js` notes.
 - **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/9
+- **Merge result:** Merged to `main` (merge commit on main, 2026-11-25). GitHub Pages build triggered (legacy, source main:/).
