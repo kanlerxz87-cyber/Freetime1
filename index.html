@@ -13,12 +13,12 @@
 <a class="active" href="index.html">Dashboard</a><a href="executive-summary.html">Executive Summary</a><a href="scoreboard.html">Day Scoreboard</a><a href="vacation-windows.html">Vacation Windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL / 49ers</a><a href="ncaaf.html">Stanford / Cal</a><a href="westwood-one.html">Westwood One</a><a href="radio-guide.html">Radio Guide</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged-for-review.html">Flagged for Review</a>
 </div></nav>
 <main>
-<div class="callout good"><strong>Bottom line for vacation planning:</strong> Under the strict rule (<em>no MLB including Spring Training, no NFL including preseason, no Stanford/Cal, no Westwood One</em>), <strong>there is no 1-week, 2-week, or 3-week completely game-free window in 2027, 2028, or 2029</strong>. The longest strict all-off run is <strong>4–5 days in February</strong> (after the Super Bowl, before Spring Training). If Spring Training/preseason do <em>not</em> count, the practical vacation window is <strong>mid-February → late March (5–6 weeks)</strong>. See <a href="vacation-windows.html">Vacation Windows</a> and <a href="executive-summary.html">Executive Summary</a>.</div>
+<div class="callout warn"><strong>Vacation-planning status:</strong> Current schedule coverage is incomplete, so <strong>no 1-, 2-, or 3-week span can be certified as sports-free</strong>. The available model also cannot conclusively establish that no such span exists. Treat displayed candidate intervals and free-minute calculations as unverified model output—not a booking recommendation. See <a href="vacation-windows.html">Vacation Windows</a>, <a href="flagged-for-review.html">Flagged for Review</a> and the <a href="sources/arena-bf7d526d-audit.md">supplemental official-source audit</a>.</div>
 
 <div class="grid">
 <div class="card"><h2>📅 Today on the radio</h2><p>Open the scoreboard for any day — yesterday / today / tomorrow buttons, date picker, month calendar, and a minute-by-minute free/busy timeline in Pacific time.</p><p><a class="btn primary" href="scoreboard.html">Open Day Scoreboard →</a></p></div>
-<div class="card"><h2>🏖️ Best vacation windows</h2><p>Ranked consecutive FREE-day runs for 2027–2029, strict vs. regular-season-only. Every window links its season sources.</p><p><a class="btn" href="vacation-windows.html">See vacation windows →</a></p></div>
-<div class="card"><h2>📻 What counts as “busy”?</h2><p>A minute is <strong>busy</strong> when any of these is on air: MLB (Giants &amp; A’s <span class="badge high">HIGH</span>, all 30 clubs shown) · NFL / 49ers <span class="badge high">HIGH</span> · Stanford / Cal NCAAF <span class="badge high">HIGH</span> · Westwood One national NFL radio. Otherwise it is <strong>free</strong>.</p><p><a class="btn" href="methodology.html">How free time is calculated →</a></p></div>
+<div class="card"><h2>🏖️ Best vacation windows</h2><p>Candidate gaps from a partial seasonal model, with explicit “not certified” coverage labels. No date is represented as a verified sports-free window.</p><p><a class="btn" href="vacation-windows.html">See vacation windows →</a></p></div>
+<div class="card"><h2>📻 What counts as “busy”?</h2><p>The model flags potential sports windows for MLB (Giants &amp; A’s <span class="badge high">HIGH</span>, all 30 clubs), NFL / 49ers <span class="badge high">HIGH</span>, Stanford / Cal NCAAF <span class="badge high">HIGH</span>, and Westwood One NFL radio. Missing schedule coverage means a blank interval is <strong>unknown, not free</strong>.</p><p><a class="btn" href="methodology.html">How free time is calculated →</a></p></div>
 </div>
 
 <div class="card"><h2>What is tracked (and what is not)</h2>
@@ -32,7 +32,7 @@
 <tr><td><strong>NCAAF — California Golden Bears</strong></td><td><span class="badge high">HIGH PRIORITY</span></td><td>Regular season + bowls/CFP window (2026 verified; 2027 unverified; 2028–29 estimated)</td><td><a href="https://calbears.com/sports/football/schedule/text" target="_blank" rel="noopener">calbears.com</a></td></tr>
 <tr><td><strong>Westwood One Sports — national NFL radio</strong></td><td>Standard (subset of NFL primetime + postseason)</td><td>TNF / SNF / MNF, holiday tripleheaders, all postseason + Super Bowl</td><td><a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a></td></tr>
 </tbody></table>
-<p class="small">Full game-by-game schedules (2,430 MLB games/season, 272 NFL games/season) live on the official league pages above — this site does not retype them (to avoid hallucination). It models <em>when radio is busy vs. free</em> from verified season windows + verified 2026 anchors, and flags every future year as ESTIMATED until the league publishes it. See <a href="methodology.html">Methodology</a> and <a href="sources.html">Sources</a>.</p>
+<p class="small">Full game-by-game schedules live on the official league pages above; this site does not ingest every fixture. It models possible activity from season windows and selected anchors, but it does <strong>not</strong> certify a date or interval free. Important correction: MLB published its 2027 regular-season schedule; coverage gaps are the local event-by-event import, postseason/radio details, and other leagues' unreleased schedules. See <a href="methodology.html">Methodology</a> and <a href="sources.html">Sources</a>.</p>
 </div>
 
 <div class="card"><h2>Quick links</h2>
@@ -40,7 +40,7 @@
 <p class="small" id="data-meta">Loading data…</p>
 </div>
 </main>
-<footer>Built from official league/team/radio sources only. Times in Pacific (PT = PST/PDT as applicable). Future years marked ESTIMATED until officially released — never treat an estimate as a confirmed schedule. · <a href="sources.html">Verification log</a> · <a href="flagged-for-review.html">Flagged for Review</a></footer>
+<footer>Source-linked schedule snapshot; not a complete live feed. Times use Pacific local time (PST/PDT). Incomplete coverage means modeled gaps are not certified free. · <a href="sources.html">Verification log</a> · <a href="flagged-for-review.html">Flagged for Review</a></footer>
 <script src="assets/app.js"></script>
 </body>
 </html>

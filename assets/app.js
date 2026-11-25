@@ -80,10 +80,8 @@ function renderDay(iso){
   if(!day){ el.innerHTML=`<div class="callout warn">No data for ${esc(iso)} (dataset covers 2026-01-01 – 2029-12-31).</div>`; return; }
   const blocks=blocksFor(iso), gaps=freeGaps(blocks);
   const freeMins=gaps.reduce((a,g)=>a+(g.end-g.start),0);
-  const status = day.free
-    ? `<span class="badge verified">FREE DAY — no games in any tracked category</span>`
-    : `<span class="badge high">BUSY DAY — game(s) on the radio</span>`;
-  const reasons = (day.busy_reasons||[]).map(r=>`<li>${esc(r)}</li>`).join("") || "<li>None.</li>";
+  const status = `<span class="badge unverified">NOT CERTIFIED — schedule coverage is incomplete</span>`;
+  const reasons = (day.busy_reasons||[]).map(r=>`<li>${esc(r)}</li>`).join("") || "<li>No event window is modeled for this date; schedule coverage is incomplete, so this is not evidence of a free day.</li>";
   const tlBlocks = blocks.map(b=>{
     const left=(b.startMin/1440*100).toFixed(2), width=((b.endMin-b.startMin)/1440*100).toFixed(2);
     return `<div class="block ${b.cls}" style="left:${left}%;width:${width}%" title="${esc(b.label)} — ${esc(b.note)}">${esc(b.label)}</div>`;
@@ -93,14 +91,14 @@ function renderDay(iso){
   el.innerHTML = `
     <h2 style="margin-top:0">${esc(fmtDate(iso))}</h2>
     <p>${status} <span class="small">· All times Pacific (PT). Free minutes = minutes with no tracked game on air.</span></p>
-    <p><strong>Free time today: ${freeMins} min (${(freeMins/60).toFixed(1)} h)</strong> of 1,440 min.</p>
+    <p><strong>Unblocked in this partial model: ${freeMins} min (${(freeMins/60).toFixed(1)} h)</strong> of 1,440 min. This is not verified free time.</p>
     <h3>Why?</h3><ul>${reasons}</ul>
     <h3>Timeline (12:00 AM – 11:59 PM PT)</h3>
     <div class="timeline"><div class="ticks"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div>${tlBlocks}</div>
-    <p class="small">Color key: <span class="badge" style="background:#1a6b3c;color:#fff">MLB</span> <span class="badge" style="background:#8f1d18;color:#fff">NFL</span> <span class="badge" style="background:#1a3fa0;color:#fff">NCAAF</span> <span class="badge" style="background:#5b2ea6;color:#fff">Westwood One</span> <span class="badge" style="background:#4a7a5b;color:#fff">Spring Training</span>. Hover a block for detail. Typical windows are ESTIMATED until official times publish.</p>
+    <p class="small">Colored blocks show modeled or transcribed windows only; blank space is not certified free time. Verified kickoff anchors still do not establish complete coverage of every required league, special event, or broadcast.</p>
     <h3>Busy blocks (on air)</h3>
     <table><thead><tr><th>Window (PT)</th><th>Game / window</th><th>Note</th></tr></thead><tbody>${blockRows}</tbody></table>
-    <h3>Free gaps (no game on air)</h3>
+    <h3>Unmodeled gaps (not confirmed game-free)</h3>
     <table><thead><tr><th>Free window (PT)</th><th>Length</th></tr></thead><tbody>${gapRows}</tbody></table>
   `;
   renderMonth(iso.slice(0,7), iso);
@@ -115,9 +113,9 @@ function renderMonth(ym, selected){
   for(let d=1;d<=daysIn;d++){
     const iso=`${y}-${String(m).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
     const day=dayByDate(iso);
-    const cls=day?(day.free?"free":"busy"):"";
+    const cls=day?(day.free?"unknown":"modeled-busy"):"unknown";
     const sel=iso===selected?" sel":"";
-    html+=`<button class="${cls}${sel}" data-date="${iso}" title="${iso} ${day?(day.free?"FREE":"BUSY"):""}">${d}</button>`;
+    html+=`<button class="${cls}${sel}" data-date="${iso}" title="${iso}: ${day&&!day.free?"modeled activity; not a verified complete schedule":"coverage unknown; not certified free"}">${d}</button>`;
   }
   el.innerHTML=html;
   $$("#month-grid button").forEach(b=>b.addEventListener("click",()=>{ setDate(b.dataset.date); }));
@@ -155,11 +153,11 @@ function renderWindowsTable(elId, rows){
 }
 function renderVacation(){
   const sEl=$("#vacation-strict"), rEl=$("#vacation-regular");
-  if(sEl) sEl.innerHTML=`<table><thead><tr><th>Start</th><th>End</th><th>Consecutive FREE days</th><th>Type</th></tr></thead><tbody>${
-    VACATION.strict_top_runs.map(r=>`<tr><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td><strong>${r.days}</strong></td><td>${r.days>=7?"Off-season window":"Mid-season weekday gap (season still active)"}</td></tr>`).join("")
+  if(sEl) sEl.innerHTML=`<table><thead><tr><th>Candidate start</th><th>Candidate end</th><th>Days in partial model</th><th>Coverage status</th></tr></thead><tbody>${
+    VACATION.strict_top_runs.map(r=>`<tr><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td><strong>${r.days}</strong></td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>`).join("")
   }</tbody></table>`;
-  if(rEl) rEl.innerHTML=`<table><thead><tr><th>Start</th><th>End</th><th>Consecutive FREE days</th></tr></thead><tbody>${
-    VACATION.regular_only_top_runs.map(r=>`<tr><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td><strong>${r.days}</strong> (${(r.days/7).toFixed(1)} weeks)</td></tr>`).join("")
+  if(rEl) rEl.innerHTML=`<table><thead><tr><th>Candidate start</th><th>Candidate end</th><th>Days in partial model</th><th>Coverage status</th></tr></thead><tbody>${
+    VACATION.regular_only_top_runs.map(r=>`<tr><td>${esc(r.start)}</td><td>${esc(r.end)}</td><td><strong>${r.days}</strong> (${(r.days/7).toFixed(1)} weeks)</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>`).join("")
   }</tbody></table>`;
 }
 function renderGameTables(){

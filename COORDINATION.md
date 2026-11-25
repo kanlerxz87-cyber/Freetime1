@@ -21,7 +21,8 @@ Date started: 2026-11-25
 | T3 | GitHub Pages site: landing + category subpages + scoreboard/calendar UI | in progress | arena-9f5f3a65 | `index.html`, `*.html`, `assets/*`, `.nojekyll` |
 | T4 | Vacation-window analysis (1/2/3-week all-off windows, 2027–2029) | in progress | arena-9f5f3a65 | `vacation-windows.html`, `data/vacation.json` |
 | T5 | Final integration: re-verify combined data, link check, PR to `main`, merge, Pages deploy | in progress | arena-9f5f3a65 | all (integration only) |
-| T6 | Supplemental official-source reconciliation for future schedule claims and status corrections (handoff only; no edits to owned site/data) | done | arena/bf7d526d-freetime1 | `sources/arena-bf7d526d-audit.md`, `COORDINATION.md` |
+| T6 | Supplemental official-source reconciliation for future schedule claims and status corrections | done | arena/bf7d526d-freetime1 | `sources/arena-bf7d526d-audit.md`, `COORDINATION.md` |
+| T7 | Safety correction: prevent partial modeled gaps from appearing certified free; correct flagged official schedule/radio claims from T6 audit | done | arena/bf7d526d-freetime1 | `index.html`, `scoreboard.html`, `vacation-windows.html`, `executive-summary.html`, `methodology.html`, `flagged-for-review.html`, `sources.html`, `assets/app.js`, `assets/style.css`, `scripts/test.mjs`, `COORDINATION.md` |
 
 Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 `needs review` = published on Flagged for Review page; does not block merge.
@@ -30,7 +31,10 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 - 2026-11-25 — `arena-9f5f3a65` claims T1 (scope: `sources/verification-log.md`, `COORDINATION.md`). No other claims exist. Pushing claim immediately before starting T2–T5.
 - 2026-11-25 — `arena-9f5f3a65` claims T2+T3+T4+T5 (single-session integration; scopes: `data/*`, `tools/*`, `*.html`, `assets/*`, `.nojekyll`). No other sessions active; no overlap possible.
-- 2026-11-25 — `arena/bf7d526d-freetime1` claims T6, a separate official-source reconciliation note at `sources/arena-bf7d526d-audit.md` plus this board. The existing site, shared navigation, source log, schedule data and flagged page remain outside this claim.
+- 2026-11-25 — `arena/bf7d526d-freetime1` claims T6, a separate official-source reconciliation note at `sources/arena-bf7d526d-audit.md` plus this board. The existing site and schedule data remained outside that claim.
+- 2026-11-25 — `arena/bf7d526d-freetime1` claims T7 after PR #3 merged the source audit. T7 addresses only prominent false-clearance language and source-status corrections required by that audit; no schedule rows or owner data model are being invented or expanded.
+- T7 DONE: homepage, executive summary, scoreboard, vacation analysis and methodology now state that partial-model gaps are not certified free time. Calendar dates use unknown/modeled-activity colors instead of green free-day claims; minute gaps are labeled unmodeled. Flagged page and source table now reflect the official-source findings from T6 (MLB 2027 release, Cal partial slate/conflict, Stanford opponent-vs-date scope, Athletics/Cal station sources, NFL future schedule data status and Super Bowl confirmation limits). Added regression assertions preventing false-free language from returning.
+- Verification: `node --check assets/app.js`; `node scripts/test.mjs` (interval/DST/snapshot/link checks plus no-false-free claims); `git diff --check`. External official pages were checked via browser tools; per-address 94122 radio reception remains unknown.
 
 ## Handoff / conflict log
 
