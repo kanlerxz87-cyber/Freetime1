@@ -101,4 +101,8 @@ Branch: `arena/5bf1f962-freetime1` (from `main`). Scope: `docs/` only, plus this
 
 Reconciliation note: the root planner and `docs/` planner were built independently. Known differences to check: Feb-window lengths and the July All-Star week (`docs/` estimates Jul 12 as busy, since the Home Run Derby is not in the MLB feed). Neither planner overrides the other; flagged for review.
 
-Results: PR and merge result are recorded in the PR itself (see the PR list for this branch).
+Results:
+- PR: https://github.com/kanlerxz87-cyber/Freetime1/pull/4 (arena/5bf1f962-freetime1 -> main)
+- Merge: merged 2026-11-25 13:56 UTC, merge commit f664bd1 (merge commit, not squash). Flagged items did not block.
+- Pages: build for f664bd1 status "built" (no errors). Live: https://kanlerxz87-cyber.github.io/Freetime1/docs/scoreboard.html renders the new planner with live MLB data.
+- Root site (PR #1/#2) unchanged.
