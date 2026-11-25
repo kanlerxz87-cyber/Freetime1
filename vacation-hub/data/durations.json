@@ -1,0 +1,79 @@
+[
+  {
+    "sport": "MLB (All 30 Clubs \u2014 9-Inning Game)",
+    "official_rule_clock": "Pitch timer: 15s bases empty / 18s runners on; 9 innings (no clock)",
+    "official_halftime_or_break": "None (between-inning breaks 2m 15s; 7th-inning stretch ~2\u20133m)",
+    "official_confirmed_average": "158 min (2h 38m in 2025; 2h 36m in 2024; 2h 40m in 2023)",
+    "planning_duration_min": 158,
+    "radio_pre_post_buffer": "+30m pregame / +15m postgame (KNBR station practice \u2014 estimated)",
+    "status": "VERIFIED (2023\u20132025 MLB Averages)",
+    "official_source_label": "MLB.com \u2014 Average game time under 3 hours for 3rd straight year (2:38)",
+    "official_source_url": "https://www.mlb.com/news/mlb-average-game-time-under-three-hours-third-straight-year"
+  },
+  {
+    "sport": "NFL (Regular Season & Playoffs)",
+    "official_rule_clock": "60 min regulation (4 \u00d7 15-min quarters)",
+    "official_halftime_or_break": "12 minutes official intermission (Rule 4; ~86m after kickoff in real time)",
+    "official_confirmed_average": "\u2014 (Official rulebook defines 60m clock + 12m halftime; league does not publish a fixed elapsed guarantee)",
+    "planning_duration_min": 192,
+    "radio_pre_post_buffer": "+30m pregame / +15m postgame (Westwood One / KNBR \u2014 estimated)",
+    "status": "VERIFIED (Clock & 12m Halftime) / ESTIMATED (192m Total Elapsed)",
+    "official_source_label": "NFL Football Operations \u2014 Official Terms (60m regulation, 12m halftime)",
+    "official_source_url": "https://operations.nfl.com/rules-officiating/nfl-football-basics/football-terms"
+  },
+  {
+    "sport": "NFL Super Bowl (LXI / LXII / LXIII)",
+    "official_rule_clock": "60 min regulation (4 \u00d7 15-min quarters)",
+    "official_halftime_or_break": "~25\u201330 minutes extended Super Bowl Halftime Show",
+    "official_confirmed_average": "\u2014 (Extended halftime show & ceremonies)",
+    "planning_duration_min": 225,
+    "radio_pre_post_buffer": "+60m pregame / +30m postgame (estimated)",
+    "status": "ESTIMATED (225m Elapsed + 28m Halftime)",
+    "official_source_label": "NFL.com \u2014 Super Bowl LXI Official Event Info",
+    "official_source_url": "https://www.nfl.com/news/2026-27-national-football-league-important-dates"
+  },
+  {
+    "sport": "NCAAF (Stanford & California FBS)",
+    "official_rule_clock": "60 min regulation (4 \u00d7 15-min quarters; running clock on first downs except final 2m of halves)",
+    "official_halftime_or_break": "20 minutes official NCAA Rule 3-2-1 intermission (~88m after kickoff)",
+    "official_confirmed_average": "\u2014 (Official NCAA rulebook sets 60m clock + 20m halftime; total elapsed estimated)",
+    "planning_duration_min": 204,
+    "radio_pre_post_buffer": "+30m pregame / +15m postgame (KSFO 810 / KNBR \u2014 estimated)",
+    "status": "VERIFIED (60m Clock & 20m Halftime) / ESTIMATED (204m Total Elapsed)",
+    "official_source_label": "NCAA Football Rules & CFP Broadcast Schedule",
+    "official_source_url": "https://collegefootballplayoff.com/news/2026/6/1/26-27-broadcast-sked"
+  },
+  {
+    "sport": "NBA \u2014 Golden State Warriors (95.7 FM)",
+    "official_rule_clock": "48 min regulation (4 \u00d7 12-min quarters)",
+    "official_halftime_or_break": "15 minutes halftime",
+    "official_confirmed_average": "30-min pregame & 30-min postgame shows officially confirmed on 95.7 The Game",
+    "planning_duration_min": 140,
+    "radio_pre_post_buffer": "+30m pregame / +30m postgame (VERIFIED on nba.com/warriors)",
+    "status": "VERIFIED (30m Pre/Post) / ESTIMATED (140m Game Elapsed)",
+    "official_source_label": "Warriors 2026\u201327 Radio Release (`nba.com/warriors`)",
+    "official_source_url": "https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824"
+  },
+  {
+    "sport": "WNBA \u2014 Golden State Valkyries (95.7 FM)",
+    "official_rule_clock": "40 min regulation (4 \u00d7 10-min quarters)",
+    "official_halftime_or_break": "15 minutes halftime",
+    "official_confirmed_average": "\u2014",
+    "planning_duration_min": 125,
+    "radio_pre_post_buffer": "+15m pregame / +15m postgame (estimated)",
+    "status": "ESTIMATED (125m Elapsed)",
+    "official_source_label": "Valkyries Official Radio Broadcast Schedule (`valkyries.wnba.com`)",
+    "official_source_url": "https://valkyries.wnba.com/news/golden-state-valkyries-announce-local-television-and-radio-broadcast-schedule-20260425"
+  },
+  {
+    "sport": "MLS \u2014 San Jose Earthquakes (KSFO 810 AM)",
+    "official_rule_clock": "90 min regulation (2 \u00d7 45-min halves + stoppage)",
+    "official_halftime_or_break": "15 minutes halftime",
+    "official_confirmed_average": "\u2014",
+    "planning_duration_min": 125,
+    "radio_pre_post_buffer": "+15m pregame / +15m postgame (estimated)",
+    "status": "ESTIMATED (125m Elapsed)",
+    "official_source_label": "San Jose Earthquakes 2026 Radio Stations (`sjearthquakes.com`)",
+    "official_source_url": "https://www.sjearthquakes.com/news/news-earthquakes-announce-radio-stations-for-2026-mls-season"
+  }
+]

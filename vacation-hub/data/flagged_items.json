@@ -1,0 +1,82 @@
+[
+  {
+    "id": "FLG-01",
+    "category": "MLB 2027 Labor / CBA",
+    "item": "MLB\u2013MLBPA Collective Bargaining Agreement expires December 1, 2026",
+    "official_confirmed_value": "CBA expiration Dec 1, 2026; 2027 Spring Training slated Feb 19 & Opening Night Mar 24",
+    "unverified_blank_field": "Whether any labor stoppage alters 2027 Spring/Regular Season dates",
+    "status": "NEEDS REVIEW",
+    "source_label": "MLB.com Official 2027 Spring Training Release (notes Dec 1 CBA expiration)",
+    "source_url": "https://www.mlb.com/press-release/press-release-mlb-announces-2027-spring-training-schedule"
+  },
+  {
+    "id": "FLG-02",
+    "category": "MLB 2027 Giants & A's First-Pitch Times",
+    "item": "2027 SF Giants & Athletics games with `startTimeTBD: true` in MLB StatsAPI",
+    "official_confirmed_value": "All 195 Giants & 193 Athletics 2027 game dates & opponents verified (`statsapi.mlb.com`); 104 Giants games & 27 Athletics games still have `startTimeTBD=true`",
+    "unverified_blank_field": "Official First-Pitch Time (left strictly BLANK in official column; typical PT/PST window shown separately as Estimated)",
+    "status": "PARTIAL / TBD",
+    "source_label": "MLB StatsAPI 2027 Official Schedule (`sportId=1&season=2027`)",
+    "source_url": "https://www.mlb.com/giants/schedule/2027-03"
+  },
+  {
+    "id": "FLG-03",
+    "category": "MLB 2028 All-Star Game Date",
+    "item": "2028 MLB All-Star Game at Oracle Park, San Francisco",
+    "official_confirmed_value": "Host: San Francisco Giants / Oracle Park; Month: July 2028",
+    "unverified_blank_field": "Exact July 2028 calendar date (secondary outlets report July 11 vs July 12; `mlb.com` states 'July 2028' only \u2014 left blank)",
+    "status": "PARTIAL (Date Blank)",
+    "source_label": "MLB.com Giants Official 2028 All-Star Page",
+    "source_url": "https://www.mlb.com/giants/fans/all-star-game"
+  },
+  {
+    "id": "FLG-04",
+    "category": "MLB 2027 Postseason & 2028\u20132029 Seasons",
+    "item": "2027 MLB Postseason bracket dates and 2028\u20132029 full MLB schedules",
+    "official_confirmed_value": "2027 regular season ends Sept 26, 2027; `statsapi.mlb.com` returns `totalGames: 0` for 2028",
+    "unverified_blank_field": "Exact 2027 Wild Card/World Series dates & all 2028\u20132029 MLB dates (modeled as ESTIMATED)",
+    "status": "ESTIMATED",
+    "source_label": "MLB.com Official Schedule",
+    "source_url": "https://www.mlb.com/schedule"
+  },
+  {
+    "id": "FLG-05",
+    "category": "NFL 2027\u20132029 Schedules & Super Bowl Dates",
+    "item": "2027\u20132029 NFL Regular Season / Preseason schedules & Super Bowl LXII / LXIII exact dates",
+    "official_confirmed_value": "Super Bowl LXI: Feb 14, 2027 (SoFi); Super Bowl LXII host: Atlanta (2028, date listed TBA on nfl.com); Super Bowl LXIII host: Las Vegas (2029); Super Bowl LXIV host: Nashville (2030); AFC\u2013NFC Pro Bowl game discontinued Aug 27, 2026",
+    "unverified_blank_field": "2027\u20132029 weekly NFL schedules (released each May) & official `nfl.com` calendar dates for SB LXII/LXIII",
+    "status": "PARTIAL / ESTIMATED",
+    "source_label": "NFL.com Super Bowl LXII / LXIII / LXIV Official Announcements",
+    "source_url": "https://www.nfl.com/news/mercedes-benz-stadium-in-atlanta-to-host-super-bowl-lxii-in-2028"
+  },
+  {
+    "id": "FLG-06",
+    "category": "49ers Week 18 & Stanford 2026 Bowl",
+    "item": "2026\u201327 49ers Week 18 at Arizona & Stanford 2026 Bowl Assignment",
+    "official_confirmed_value": "49ers Week 18 at Cardinals is Jan 9 or Jan 10, 2027; Stanford clinched bowl eligibility Nov 21, 2026 (6\u20135)",
+    "unverified_blank_field": "Exact 49ers Week 18 kickoff time & Stanford's Dec 2026 bowl date/opponent (announced Dec 6, 2026)",
+    "status": "PARTIAL / TBD",
+    "source_label": "49ers.com Schedule & GoStanford Bowl Berth Release",
+    "source_url": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
+  },
+  {
+    "id": "FLG-07",
+    "category": "NCAAF Cal 2027 Sept 11 Opponent Discrepancy",
+    "item": "California 2027 Non-Conference Sept 11 Slot (Old Dominion vs. earlier BYU announcement)",
+    "official_confirmed_value": "Cal's June 25, 2026 official release states Aug 28 vs Sac State, Sept 11 vs Old Dominion, plus UCLA completes 2027 non-conference play; an earlier Sept 2024 Cal release listed BYU on Sept 11, 2027",
+    "unverified_blank_field": "Confirmed disposition of the 2027 BYU date + all 2027\u20132029 ACC conference game dates & kickoffs",
+    "status": "NEEDS REVIEW",
+    "source_label": "CalBears.com June 25, 2026 Official Release",
+    "source_url": "https://calbears.com/news/2026/6/25/football-cal-announces-matchups-against-odu-sac-state.aspx"
+  },
+  {
+    "id": "FLG-08",
+    "category": "Radio Reception in Outer Sunset 94122",
+    "item": "Athletics Terrestrial AM Carriage (`960 AM KNEW` / `650 AM KSTE`) & Westwood One Local Preemptions",
+    "official_confirmed_value": "`mlb.com/athletics/schedule/affiliates` lists 960 AM KNEW (Bay Area) and 650 AM KSTE (Sacramento); `westwoodonesports.com/station-finder` lists KNBR/KTCT with conflict caveats",
+    "unverified_blank_field": "Verified 2027 field-strength reception of 960 AM / 650 AM inside Outer Sunset 94122 and game-by-game KNBR vs KTCT preemption routing when Giants/49ers overlap Westwood One",
+    "status": "NEEDS REVIEW",
+    "source_label": "Athletics Official Radio Affiliates & Westwood One Station Finder",
+    "source_url": "https://www.mlb.com/athletics/schedule/affiliates"
+  }
+]

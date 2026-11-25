@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Game Durations, Halftime &amp; PST Free-Time Methodology — Free Time Planner</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <div>
+      <h1>⏱️ Game Durations, Halftime &amp; PST Methodology</h1>
+      <p class="sub">Official rulebook clocks &amp; halftimes vs. statistical elapsed planning windows</p>
+    </div>
+    <div>
+      <span class="badge verified">Official League Rules Linked</span>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Planner sections">
+  <div class="wrap nav-links">
+    <a href="index.html">Executive Summary</a>
+    <a href="scoreboard.html">PST Daily Scoreboard &amp; Calendar</a>
+    <a href="core-games.html">Core Priority Games</a>
+    <a href="radio-94122.html">SF 94122 Radio Dial</a>
+    <a href="verified-schedules.html">Verified Season Tables</a>
+    <a class="active" href="durations.html">Durations &amp; Halftime</a>
+    <a href="repo-audit.html">Repo Audit</a>
+    <a href="flagged-for-review.html">Flagged for Review</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="card">
+    <h2>1. Researched Game &amp; Halftime Durations (Official Sources Linked)</h2>
+    <p class="small">Your prompt noted rough estimates of ~150 min for MLB and ~180 min for football with a 15–30 min halftime, and asked to research exact official averages and halftimes. Below are the verified league figures and the clearly separated planning blocks used on the PST Scoreboard:</p>
+    <div id="durations-table"><p class="small">Loading duration research…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>2. How Minute-by-Minute PST Free Time Is Calculated</h2>
+    <ul>
+      <li><strong>Time Standard (PST UTC-8):</strong> Per your requirement (<em>"use PST as the time for this calendar schedule scoreboard"</em>), every daily scoreboard timeline runs from <code>12:00 AM PST</code> (minute 0) to <code>12:00 AM PST</code> (minute 1,440) in fixed <strong>Pacific Standard Time (UTC-8)</strong>, with local civil PT (PDT UTC-7 in summer) also noted on individual MLB rows for convenience.</li>
+      <li><strong>Interval Union &amp; Exact Free Complements:</strong> For any selected date and listener tier, overlapping broadcasts are merged into non-overlapping busy intervals $[s_i, e_i]$, and the exact complement intervals inside $[0, 1440]$ are reported down to the minute (e.g., if games run <code>12:05 PM – 2:43 PM PST</code> and <code>5:45 PM – 8:23 PM PST</code>, your free time is <code>12:00 AM – 12:05 PM</code>, <code>2:43 PM – 5:45 PM</code>, and <code>8:23 PM – 12:00 AM PST</code>).</li>
+      <li><strong>Halftime Visibility:</strong> Football (12m NFL, 20m NCAAF, ~28m Super Bowl), basketball (15m), and soccer (15m) halftimes are displayed on every scoreboard card and row, while keeping the full broadcast busy (since radio halftime shows remain live on air).</li>
+      <li><strong>Optional Radio Pregame/Postgame Toggle:</strong> Toggle <em>"Include +30m Radio Pregame &amp; +15m Postgame"</em> on the <a href="scoreboard.html">PST Scoreboard</a> to expand every busy block for KNBR / 95.7 The Game / Westwood One pregame and postgame coverage.</li>
+    </ul>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Durations &amp; Methodology · <a href="scoreboard.html">Open PST Daily Scoreboard →</a>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

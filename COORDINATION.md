@@ -149,3 +149,28 @@ Results:
   - 2,430 / 2,430 unique MLB 2027 regular games (all 30 teams × 162); 109 / 109 NFL Weeks 12–18 games; 3,181 / 3,181 compiled events with official `https://` source links; all 6 `planner/*.html` pages pass ref/JS/HTTP-200 checks.
 - **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/12 (`arena/e4a8480c-freetime1` -> `main`).
 - **Live URL (after merge):** https://kanlerxz87-cyber.github.io/Freetime1/planner/
+
+---
+
+## Session `arena-1d4ebaad` (`arena/1d4ebaad-freetime1`) — Non-Overlapping Multi-Tier PST Vacation Hub & Line-by-Line Repo Audit (`vacation-hub/**`)
+
+### Conflict Resolution & Scope Isolation Log
+- **2026-11-25 (`arena-1d4ebaad`)**: Synced cleanly onto `origin/main` across PRs #1–#12. When PR #12 (`arena/e4a8480c-freetime1`) merged its dashboard under `planner/`, we relocated our self-contained 8-page suite from `planner/` to **`vacation-hub/`** so zero files from PRs #1–#12 (root, `docs/`, `site/`, `planner/`, `data/`, `tools/`, `scripts/`, `sources/`) were overwritten or discarded.
+
+### Completed Tasks (`arena-1d4ebaad`)
+
+| ID | Task | Status | Owner session | Files in scope |
+|----|------|--------|---------------|----------------|
+| T7 | Line-by-line official-source code & data audit of existing repository files, URLs, schedules, and scoreboard/computation defects | `done` | `arena-1d4ebaad` | `vacation-hub/repo-audit.html`, `vacation-hub/data/repo_audit.json`, `COORDINATION.md` |
+| T8 | Official source verification: MLB (30 clubs, all 195 Giants & 193 Athletics 2027 games + 2026/2027 daily league counts from `statsapi.mlb.com`), NFL/49ers/Pro Bowl abolition/Super Bowls, Stanford & Cal NCAAF (2026–2029), Westwood One 35 NFL + NCAA broadcasts, Outer Sunset SF 94122 AM/FM dial & all live radio sports (Warriors, Valkyries, Earthquakes, NCAA, Sharks digital exclusion), and official game/halftime durations | `done` | `arena-1d4ebaad` | `vacation-hub/data/*.json`, `vacation-hub/scripts/build_planner_data.py`, `vacation-hub/scripts/save_raw_mlb.py` |
+| T9 | Interactive PST daily scoreboard & calendar (2026–2029, multi-game per day, halftime windows, minute-by-minute free intervals) + 1/2/3-week vacation analyzer across 4 listener tiers | `done` | `arena-1d4ebaad` | `vacation-hub/index.html`, `vacation-hub/core-games.html`, `vacation-hub/scoreboard.html`, `vacation-hub/radio-94122.html`, `vacation-hub/assets/*` |
+| T10 | Master verified tables (official links per row, blank unconfirmed values), durations methodology, Flagged for Review page, link/build checks, PR to `main`, merge & GitHub Pages deploy check | `done` | `arena-1d4ebaad` | `vacation-hub/verified-schedules.html`, `vacation-hub/durations.html`, `vacation-hub/flagged-for-review.html`, `vacation-hub/scripts/verify_planner.py`, `README.md`, `COORDINATION.md` |
+| T10-flags | Unconfirmed future dates/times (`FLG-01`–`FLG-08`) & repo audit flags (`AUDIT-01`–`AUDIT-10`) published on `vacation-hub/flagged-for-review.html` | `needs review` | `arena-1d4ebaad` | `vacation-hub/flagged-for-review.html`, `vacation-hub/repo-audit.html` |
+
+### Sources, Verification & Logged Requests (`arena-1d4ebaad`)
+- **Primary Official Sources Linked**: `statsapi.mlb.com` (`sportId=1`, 1,020 unique official `https://` URLs verified), `mlb.com`, `nfl.com` (2026–27 Important Dates, Aug 27 2026 Pro Bowl game discontinuation, Super Bowls LXII/LXIII/LXIV), `media.nfl.com`, `operations.nfl.com`, `49ers.com`, `westwoodonesports.com` (35 NFL + 4 NCAA upcoming event pages), `gostanford.com`, `calbears.com` (`KSFO 810 AM` + June 25 2026 non-conf release), `collegefootballplayoff.com`, `nba.com/warriors` (`95.7 The Game`), `valkyries.wnba.com` (`95.7 The Game`), `sjearthquakes.com` (`KSFO 810 AM` / `KZSF 1370 AM`), `nhl.com/sharks` (digital-only `Sharks Audio Network`).
+- **Automated Verification**: `python3 vacation-hub/scripts/verify_planner.py` (8 HTML pages, 0 broken internal links, 1,020 unique official `https://` URLs, 0 non-official hosts, strict blank `""` on `startTimeTBD=true`, 1,461 daily records), plus `python3 scripts/verify_data.py` and `node scripts/test.mjs` all passing.
+- **Logged Change Requests for Root Files Owned by `arena-9f5f3a65` (Not Edited Directly)**:
+  1. `tools/build_data.py`: Replace blanket `Postseason wd in (0,5,6)` busy rule with official NFL playoff round dates + Aug 27, 2026 Pro Bowl abolition (`Feb 1–13, 2027` is 13 days free); mark `2026-11-25` busy (`events/548511`); remove `2026-07-16` & `2027-07-15` from `allstar_breaks` (`totalGames=1` in StatsAPI); end 2026 World Series on `2026-10-28`.
+  2. `assets/app.js`: Change `westwood_2026_verified.find(...)` at L48 to `.filter(...)` so multi-game holiday slates render all broadcasts; filter `renderWindowsTable` per league subpage.
+

@@ -1,0 +1,188 @@
+[
+  {
+    "id": "AUDIT-01",
+    "severity": "Critical Defect",
+    "file": "tools/build_data.py (L223\u2013250, L278\u2013326)",
+    "claim_in_repo": "Claims NO 7-day strict game-free vacation window exists in 2027\u20132029 (max 4\u20135 days in February) because `Postseason` marks every Sat/Sun/Mon through Super Bowl as BUSY.",
+    "official_finding": "INCORRECT. Official NFL 2026\u201327 Important Dates confirm Divisional Playoffs are Jan 23\u201324 (Sat/Sun only), AFC/NFC Championships are Jan 31 (Sun only), Super Bowl LXI is Feb 14, 2027, AND on Aug 27, 2026 the NFL officially abolished the AFC\u2013NFC Pro Bowl game. With 2026\u201327 CFP ending Jan 25, 2027 and MLB Spring Training opening Feb 19, 2027, `2027-02-01` through `2027-02-13` is a VERIFIED 13-CONSECUTIVE-DAY strict zero-game window (nearly 2 full weeks!).",
+    "official_sources": [
+      {
+        "label": "NFL 2026\u201327 Important Dates (nfl.com)",
+        "url": "https://www.nfl.com/news/2026-27-national-football-league-important-dates"
+      },
+      {
+        "label": "NFL Abolishes AFC\u2013NFC Pro Bowl Game (nfl.com, Aug 27, 2026)",
+        "url": "https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested"
+      },
+      {
+        "label": "MLB 2027 Spring Training Opens Feb 19 (mlb.com)",
+        "url": "https://www.mlb.com/press-release/press-release-mlb-announces-2027-spring-training-schedule"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-02",
+    "severity": "Critical Defect",
+    "file": "tools/build_data.py (L223\u2013252) & data/schedule.json",
+    "claim_in_repo": "Marks Wednesday `2026-11-25` (today) as `free: true` ('FREE DAY \u2014 no games in any tracked category') because `busy_reasons()` checks NFL regular season only on Mon/Thu/Sun (+ Black Friday/Christmas/Dec Sat).",
+    "official_finding": "CONTRADICTS OFFICIAL WESTWOOD ONE SCHEDULE. Westwood One Sports officially broadcasts `Green Bay Packers at Los Angeles Rams` live on Wednesday, Nov 25, 2026 at 7:30 PM ET (4:30 PM PST) as 'Thanksgiving Wednesday' (`events/548511`). `tools/build_data.py` transcribed this game into `westwood_2026` at L153 yet failed to mark `2026-11-25` busy in `busy_reasons()`.",
+    "official_sources": [
+      {
+        "label": "Westwood One Event 548511 \u2014 GB at LAR Nov 25, 2026",
+        "url": "https://www.westwoodonesports.com/events/548511"
+      },
+      {
+        "label": "Westwood One Official NFL Schedule",
+        "url": "https://www.westwoodonesports.com/nfl-schedule/"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-03",
+    "severity": "Critical Defect",
+    "file": "assets/app.js (L48)",
+    "claim_in_repo": "`const ww = (SCHEDULE.westwood_2026_verified||[]).find(x=>x.date===iso);` renders only the FIRST matching Westwood One broadcast on any given date.",
+    "official_finding": "DROPS MULTIPLE GAMES PER DAY. On Thanksgiving (`2026-11-26`, 3 games: 12:30 PM, 4:15 PM, 8:00 PM ET), Week 15 Sat (`2026-12-19`, 2 games), Christmas (`2026-12-25`, 3 games), Week 16/17 Sat (`2026-12-26`, `2027-01-02`, 2 games), and Week 18 Sat (`2027-01-09`, 3 games), `.find()` discards games 2 and 3 and falsely reports afternoon/evening hours as FREE.",
+    "official_sources": [
+      {
+        "label": "Westwood One Official NFL Schedule (Tripleheaders & Doubleheaders)",
+        "url": "https://www.westwoodonesports.com/nfl-schedule/"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-04",
+    "severity": "Data Error",
+    "file": "tools/build_data.py (L205\u2013209)",
+    "claim_in_repo": "Hardcodes Thursday `2026-07-16` and Thursday `2027-07-15` as MLB All-Star Break FREE days (`allstar_breaks`).",
+    "official_finding": "INCORRECT PER OFFICIAL MLB STATSAPI. `statsapi.mlb.com` shows `totalGames: 1` on `2026-07-16` AND `totalGames: 1` on `2027-07-15` (standalone Thursday regular-season return game). Only Monday (`2027-07-12`) and Wednesday (`2027-07-14`) have 0 MLB games during the 2027 All-Star week.",
+    "official_sources": [
+      {
+        "label": "MLB StatsAPI 2027 Official Schedule (`2027-07-15` totalGames=1)",
+        "url": "https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&season=2027&startDate=2027-07-11&endDate=2027-07-16"
+      },
+      {
+        "label": "MLB StatsAPI 2026 Official Schedule (`2026-07-16` totalGames=1)",
+        "url": "https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&season=2026&startDate=2026-07-12&endDate=2026-07-17"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-05",
+    "severity": "Data Error",
+    "file": "tools/build_data.py (L29\u201330)",
+    "claim_in_repo": "Marks `2026-10-29` through `2026-10-31` as BUSY 2026 MLB Postseason days.",
+    "official_finding": "2026 World Series ended on Wednesday, Oct 28, 2026 (Milwaukee Brewers defeated Tampa Bay Rays 4\u20131 in Game 5). Games 6 and 7 (Oct 30\u201331) were if-necessary and not played; `statsapi.mlb.com` confirms zero MLB games after `2026-10-28`.",
+    "official_sources": [
+      {
+        "label": "MLB Events \u2014 2026 World Series Result (Oct 23\u201328, 2026)",
+        "url": "https://www.mlb.com/events"
+      },
+      {
+        "label": "MLB 2026 World Series Schedule FAQ",
+        "url": "https://www.mlb.com/news/2026-mlb-world-series-faq-schedule-times-teams-and-more"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-06",
+    "severity": "Data Error",
+    "file": "tools/build_data.py (L142) & ncaaf.html",
+    "claim_in_repo": "Lists Cal `2026-11-28 vs Pittsburgh` kickoff as `TBA (see calbears.com)`, omits Stanford's clinched 2026 bowl berth, and claims in F-02 that 'No 2027 Cal schedule was found on calbears.com'.",
+    "official_finding": "1) `calbears.com` now lists `Nov 28, 2026 vs Pittsburgh` at `4:30 PM PT` on `KSFO 810 AM`. 2) `gostanford.com` confirms Stanford (6\u20135) clinched a 2026 bowl berth on Nov 21, 2026 (44\u201328 Big Game win), whereas Cal (3\u20138) is eliminated from 2026 bowls. 3) `calbears.com` published its 2027 non-conference dates on June 25, 2026 (Aug 28 vs Sac State, Sept 11 vs Old Dominion, plus UCLA; with an earlier Sept 2024 BYU Sept 11 release creating a date conflict to flag) and 2028\u20132029 Wyoming/Minnesota dates.",
+    "official_sources": [
+      {
+        "label": "Cal 2026 Official Schedule (Nov 28 vs Pitt 4:30 PM PT)",
+        "url": "https://calbears.com/sports/football/schedule"
+      },
+      {
+        "label": "Stanford Clinches 2026 Bowl Berth in Big Game (gostanford.com)",
+        "url": "https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win"
+      },
+      {
+        "label": "Cal Completes 2027 Nonconference Slate (calbears.com, Jun 25, 2026)",
+        "url": "https://calbears.com/news/2026/6/25/football-cal-announces-matchups-against-odu-sac-state.aspx"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-07",
+    "severity": "Data Error",
+    "file": "radio-guide.html & flagged-for-review.html (F-06, F-07)",
+    "claim_in_repo": "Lists `KGO 810 AM` via a fan blog (`insidethe49.com`), marks Cal's radio flagship as 'No official source found', and marks Athletics Bay Area radio as 'No official source found'.",
+    "official_finding": "1) 810 AM in San Francisco is now `KSFO 810 AM` (verified on both `calbears.com` as Cal Football's 2026 English radio station AND `sjearthquakes.com` as Earthquakes' 2026 English flagship). 2) `mlb.com/athletics/schedule/affiliates` officially lists `960 AM KNEW (Bay Area)` and `650 AM KSTE (Sacramento)` on the A's Radio Network (while 94122 signal quality & 2027 carriage remain valid flags). 3) `mlb.com/giants/schedule/broadcast-partners` officially confirms `KNBR 104.5 FM/680 AM` and `KSFN 1510 AM/99.3 FM`.",
+    "official_sources": [
+      {
+        "label": "Cal 2026 Football Schedule (`Radio: KSFO 810 AM`)",
+        "url": "https://calbears.com/sports/football/schedule"
+      },
+      {
+        "label": "Athletics Official TV & Radio Affiliates (`mlb.com`)",
+        "url": "https://www.mlb.com/athletics/schedule/affiliates"
+      },
+      {
+        "label": "Giants Official Broadcast Partners (`mlb.com`)",
+        "url": "https://www.mlb.com/giants/schedule/broadcast-partners"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-08",
+    "severity": "Source Replacement",
+    "file": "sources/verification-log.md, methodology.html, mlb.html, nfl.html",
+    "claim_in_repo": "Cites non-official secondary/blog domains (`baseballjerseyshop.com`, `huffsports.com`, `newsbreak.com`, `staging.elkford.ca`, `mlbschedule.net`, `usagametime.com`, `calendarena.com`, `ncaafpass.com`, `awfulannouncing.com`, `insidethe49.com`, `wikipedia.org`) on rows marked VERIFIED or in methodology tables.",
+    "official_finding": "Every single one of these topics has a direct primary official source (`mlb.com`, `statsapi.mlb.com`, `nfl.com`, `media.nfl.com`, `operations.nfl.com`, `collegefootballplayoff.com`, `ncaa.com`, `49ers.com`, `calbears.com`, `gostanford.com`). Also, `nfl.com` officially confirmed Nashville for Super Bowl LXIV (2030) on May 19, 2026, while listing Super Bowl LXII (2028 Atlanta) exact date as TBA.",
+    "official_sources": [
+      {
+        "label": "MLB Average Game Time 2:38 in 2025 (`mlb.com`)",
+        "url": "https://www.mlb.com/news/mlb-average-game-time-under-three-hours-third-straight-year"
+      },
+      {
+        "label": "NFL Operations Official Terms \u2014 60m clock, 12m halftime",
+        "url": "https://operations.nfl.com/rules-officiating/nfl-football-basics/football-terms"
+      },
+      {
+        "label": "Super Bowl LXIV Official NFL Announcement (Nashville 2030)",
+        "url": "https://www.nfl.com/news/super-bowl-lxiv-to-be-held-in-nashville-s-new-nissan-stadium-in-2030"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-09",
+    "severity": "Missing Scope",
+    "file": "radio-guide.html & flagged-for-review.html (F-09)",
+    "claim_in_repo": "Treats all other Bay Area AM/FM live radio sports as out of scope and omits Golden State Warriors (95.7 FM), Golden State Valkyries (95.7 FM), San Jose Earthquakes (KSFO 810 / KZSF 1370), Sharks status, and Westwood One NCAA broadcasts.",
+    "official_finding": "Prompt explicitly requested BOTH a dedicated Core Games section AND searching SF Bay Area radio stations for all other live over-the-air sports in 94122 (flagging them high priority). Official team releases confirm Warriors (preseason + 82-game regular season on `95.7 The Game`), Valkyries (`95.7 The Game`), Earthquakes (`KSFO 810 AM` / `KZSF 1370 AM`), Westwood One NCAA Football/Basketball, and Sharks' digital-only `Sharks Audio Network` (not AM/FM).",
+    "official_sources": [
+      {
+        "label": "Warriors 2026\u201327 Radio Schedule on 95.7 The Game (`nba.com`)",
+        "url": "https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824"
+      },
+      {
+        "label": "Valkyries Radio Schedule on 95.7 The Game (`wnba.com`)",
+        "url": "https://valkyries.wnba.com/news/golden-state-valkyries-announce-local-television-and-radio-broadcast-schedule-20260425"
+      },
+      {
+        "label": "Earthquakes 2026 Radio Stations KSFO 810 & KZSF 1370 (`sjearthquakes.com`)",
+        "url": "https://www.sjearthquakes.com/news/news-earthquakes-announce-radio-stations-for-2026-mls-season"
+      },
+      {
+        "label": "Sharks Audio Network Digital Broadcasts (`nhl.com`)",
+        "url": "https://www.nhl.com/sharks/news/sharks-announce-2026-preseason-schedule"
+      }
+    ]
+  },
+  {
+    "id": "AUDIT-10",
+    "severity": "UI Bug",
+    "file": "mlb.html, nfl.html, ncaaf.html & assets/app.js (L152\u2013157, L191)",
+    "claim_in_repo": "Each league subpage includes `<div id=\"windows-table\">` expecting filtered rows (e.g. `mlb.html` says 'filter to MLB rows'), but `app.js` calls `renderWindowsTable('windows-table', SCHEDULE.windows)` unfiltered on all pages, and names the Athletics `'Oakland Athletics (Athletics)'`.",
+    "official_finding": "All 43 windows across MLB, NFL, NCAAF, and Westwood One render identically on `mlb.html`, `nfl.html`, and `ncaaf.html`. Also `statsapi.mlb.com` lists club 133 officially as `Athletics` (`ATH`), not `Oakland Athletics`.",
+    "official_sources": [
+      {
+        "label": "MLB StatsAPI Official Club List (`id=133`, `name='Athletics'`)",
+        "url": "https://statsapi.mlb.com/api/v1/teams?sportId=1"
+      }
+    ]
+  }
+]

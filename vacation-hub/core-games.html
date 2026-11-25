@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Core Priority Games — MLB (30 Clubs), 49ers/NFL, Stanford &amp; Cal NCAAF, Westwood One</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <div>
+      <h1>🏈⚾ Core Priority Games Section</h1>
+      <p class="sub">Dedicated section for MLB (Giants &amp; A's High Priority + All 30 Clubs), NFL 49ers, Stanford &amp; Cal NCAAF, and Westwood One NFL</p>
+    </div>
+    <div>
+      <span class="badge high">Core Vacation Rule Set</span>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Planner sections">
+  <div class="wrap nav-links">
+    <a href="index.html">Executive Summary</a>
+    <a href="scoreboard.html">PST Daily Scoreboard &amp; Calendar</a>
+    <a class="active" href="core-games.html">Core Priority Games</a>
+    <a href="radio-94122.html">SF 94122 Radio Dial</a>
+    <a href="verified-schedules.html">Verified Season Tables</a>
+    <a href="durations.html">Durations &amp; Halftime</a>
+    <a href="repo-audit.html">Repo Audit</a>
+    <a href="flagged-for-review.html">Flagged for Review</a>
+  </div>
+</nav>
+
+<main class="wrap" data-master-section="true">
+  <div class="callout">
+    <strong>Scope of this section:</strong> Contains strictly the four core categories defined in your vacation rule:
+    (1) <strong>MLB</strong> — San Francisco Giants &amp; Athletics flagged <span class="badge high">HIGH PRIORITY</span> plus all 30 MLB clubs shown;
+    (2) <strong>NFL — San Francisco 49ers</strong> Preseason, Regular Season &amp; Postseason (<span class="badge high">HIGH PRIORITY</span>) + all 32 NFL clubs;
+    (3) <strong>Stanford NCAAF &amp; California NCAAF</strong> (<span class="badge high">HIGH PRIORITY</span>);
+    (4) <strong>Westwood One Sports</strong> national NFL radio broadcasts (TNF, SNF, MNF, Holidays, Playoffs, Super Bowl).
+  </div>
+
+  <div class="card">
+    <h2>1A. MLB — All 30 Clubs (SF Giants &amp; Athletics Flagged High Priority)</h2>
+    <p class="small">Retrieved from official <a href="https://statsapi.mlb.com/api/v1/teams?sportId=1" target="_blank" rel="noopener">MLB StatsAPI (`sportId=1`)</a>. Every club links to its official <code>mlb.com</code> schedule page.</p>
+    <div id="mlb-30-table"><p class="small">Loading all 30 MLB clubs…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>1B. Official 2027 SF Giants (195 Games) &amp; Athletics (193 Games) Schedule Browser</h2>
+    <p class="small">Every 2027 Spring Training, Exhibition, and 162-game Regular Season game retrieved directly from <a href="https://statsapi.mlb.com/api/v1/schedule/games/?sportId=1&amp;season=2027" target="_blank" rel="noopener">official MLB StatsAPI</a>. Where MLB marks <code>startTimeTBD=true</code>, the Official Confirmed First-Pitch column is left strictly blank (<code>—</code>) and an estimated planning window is shown separately.</p>
+    <div class="controls">
+      <label class="small"><strong>Club:</strong>
+        <select id="mlb-team-filter">
+          <option value="all">Both High-Priority Clubs (Giants + Athletics)</option>
+          <option value="SF Giants">San Francisco Giants Only (195 games)</option>
+          <option value="Athletics">Athletics Only (193 games)</option>
+        </select>
+      </label>
+      <label class="small"><strong>Phase:</strong>
+        <select id="mlb-phase-filter">
+          <option value="all">All Phases (Spring + Exhibition + Regular)</option>
+          <option value="Regular Season">Regular Season Only (162/club)</option>
+          <option value="Spring Training">Spring Training Only</option>
+          <option value="Exhibition">Exhibition Only</option>
+        </select>
+      </label>
+      <label class="small"><strong>Month:</strong>
+        <select id="mlb-month-filter">
+          <option value="all">All 2027 Months</option>
+          <option value="2027-02">Feb 2027</option>
+          <option value="2027-03">Mar 2027</option>
+          <option value="2027-04">Apr 2027</option>
+          <option value="2027-05">May 2027</option>
+          <option value="2027-06">Jun 2027</option>
+          <option value="2027-07">Jul 2027</option>
+          <option value="2027-08">Aug 2027</option>
+          <option value="2027-09">Sep 2027</option>
+        </select>
+      </label>
+      <input type="search" id="mlb-search" placeholder="Filter opponent or date (e.g. Dodgers, Bay, 2027-07)…">
+    </div>
+    <p class="small" id="mlb-games-count"></p>
+    <div id="mlb-2027-games-table"><p class="small">Loading 388 official 2027 Giants &amp; A's games…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>2A. NFL — San Francisco 49ers Preseason &amp; Regular Season (High Priority, Verified)</h2>
+    <p class="small">Verified game-by-game from <a href="https://www.49ers.com/schedule/" target="_blank" rel="noopener">49ers.com/schedule</a>. Every broadcast airs in SF 94122 on <strong>KSAN 107.7 FM / KNBR 104.5 FM / 680 AM</strong>. Note: On Aug 27, 2026, the NFL officially discontinued the AFC–NFC Pro Bowl game (<a href="https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested" target="_blank" rel="noopener">nfl.com</a>).</p>
+    <div id="niners-full-table"><p class="small">Loading 49ers schedule…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>2B. NFL — All 32 Clubs Reference</h2>
+    <div id="nfl-32-table"><p class="small">Loading 32 NFL clubs…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>3. Westwood One Sports — National NFL Radio Broadcasts (All 35 Upcoming Listings Verified)</h2>
+    <p class="small">Transcribed verbatim from <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a> on Nov 25, 2026, with direct links to each official event page and PST conversion.</p>
+    <div id="westwood-35-table"><p class="small">Loading Westwood One NFL broadcasts…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>4A. Stanford Cardinal NCAAF — 2026 Verified Schedule &amp; Clinched Bowl Berth (High Priority)</h2>
+    <p class="small">Verified from <a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">gostanford.com</a>. Stanford clinched 2026 bowl eligibility with its 44–28 Big Game win on Nov 21, 2026 (<a href="https://gostanford.com/news/2026/11/21/stanford-secures-bowl-berth-with-big-game-win" target="_blank" rel="noopener">official release</a>); exact December 2026 bowl assignment is announced Dec 6, 2026.</p>
+    <div id="stanford-2026-table"><p class="small">Loading Stanford 2026 schedule…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>4B. California Golden Bears NCAAF — 2026 Verified Schedule on KSFO 810 AM (High Priority)</h2>
+    <p class="small">Verified from <a href="https://calbears.com/sports/football/schedule" target="_blank" rel="noopener">calbears.com</a>, including the newly confirmed <strong>Nov 28, 2026 vs. Pittsburgh (4:30 PM PST on KSFO 810 AM)</strong>.</p>
+    <div id="cal-2026-table"><p class="small">Loading California 2026 schedule…</p></div>
+  </div>
+
+  <div class="card">
+    <h2>4C. Stanford &amp; California 2027–2029 Official Announced Dates &amp; ACC Opponent Allocations</h2>
+    <p class="small">All confirmed future non-conference dates and official ACC home/away opponent allocations from <code>gostanford.com</code> and <code>calbears.com</code>. Unannounced conference dates and kickoff times are left strictly blank.</p>
+    <div id="ncaaf-future-table"><p class="small">Loading 2027–2029 NCAAF rows…</p></div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Core Priority Games · Every row links to its official league, club, or broadcaster source · <a href="scoreboard.html">Open PST Daily Scoreboard →</a>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

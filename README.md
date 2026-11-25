@@ -61,3 +61,18 @@ Published separately at **`planner/`** (preserving all prior root, `docs/`, and 
   - **109 / 109** official remaining 2026 NFL Regular Season games Weeks 12–18 (`data/nfl_2026_w12_15.csv`, `data/nfl_2026_w16_18.csv`, directly from `nfl.com`)
   - **Pro Bowl Discontinuation Finding:** Official NFL Aug 27, 2026 announcement eliminating the AFC–NFC Pro Bowl game starting 2026–27 unlocks a **13-day zero-game window (Mon Feb 1 – Sat Feb 13, 2027)** even in Strict Mode; Regular+Postseason Mode provides **37 verified days (Feb 15 – Mar 23, 2027)** and **~45 est. days** in 2028–2029.
   - **Rebuild & Verify:** `python3 scripts/build_data.py && python3 scripts/verify_data.py`
+
+---
+
+## Multi-Tier PST Vacation Hub, All-94122 Radio Sports & Line-by-Line Repo Audit (`vacation-hub/` — Session `arena-1d4ebaad`)
+
+Published at **`vacation-hub/`** (preserving 100% of root, `docs/`, `site/`, and `planner/` work unchanged):
+- **Live Dashboard:** https://kanlerxz87-cyber.github.io/Freetime1/vacation-hub/
+- **8 Pages:**
+  - [`vacation-hub/index.html`](vacation-hub/index.html) — Executive Summary & 1/2/3-Week Vacation Matrix (2027–2029) across **4 listener modes** (`Core Strict`, `Core Championship`, `SF High-Priority + Westwood One`, and `Full SF 94122 AM/FM Dial` including Warriors NBA, Valkyries WNBA, Earthquakes MLS, CFP & NCAA), plus **1-Game Bridge Windows** (`Feb 1–18, 2027`: 17/18 free days) and **Total 94122 Radio Silence (`Feb 15–18, 2027`)**.
+  - [`vacation-hub/scoreboard.html`](vacation-hub/scoreboard.html) — Interactive PST (UTC-8) Daily Scoreboard & Calendar (`2026-01-01` – `2029-12-31`) with multi-game cards, halftime windows, optional +30m/+15m radio pre/postgame buffer, and exact minute-by-minute free intervals.
+  - [`vacation-hub/core-games.html`](vacation-hub/core-games.html) — Dedicated Core Priority Games section: all 30 MLB clubs + interactive browser of all **195 SF Giants** & **193 Athletics** 2027 official `statsapi.mlb.com` games (`mlb.com/gameday/{gamePk}`, leaving `startTimeTBD=true` strictly blank), all 20 SF 49ers 2026–27 games, all 35 Westwood One NFL broadcasts, and Stanford & Cal NCAAF (2026–2029).
+  - [`vacation-hub/radio-94122.html`](vacation-hub/radio-94122.html) — Outer Sunset SF 94122 AM/FM Dial (KNBR 680/104.5, KSAN 107.7, KTCT 1050, KSFO 810, KGMZ 95.7, KNEW 960/KSTE 650, KSFN 1510, KZSF 1370, plus Sharks digital-only verification).
+  - [`vacation-hub/verified-schedules.html`](vacation-hub/verified-schedules.html), [`vacation-hub/durations.html`](vacation-hub/durations.html), [`vacation-hub/repo-audit.html`](vacation-hub/repo-audit.html), and [`vacation-hub/flagged-for-review.html`](vacation-hub/flagged-for-review.html).
+- **Rebuild & Verify:** `python3 vacation-hub/scripts/build_planner_data.py && python3 vacation-hub/scripts/verify_planner.py`
+

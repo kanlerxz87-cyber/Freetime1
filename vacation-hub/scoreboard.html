@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PST Daily Scoreboard &amp; Free-Time Calendar (2026–2029) — Free Time Planner</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <div>
+      <h1>📅 PST Daily Scoreboard &amp; Free-Time Calendar</h1>
+      <p class="sub">Minute-by-minute free &amp; busy time in PST (UTC-8) · Every day 2026–2029 · Halftime markers &amp; official sources</p>
+    </div>
+    <div>
+      <span class="badge verified">1,461 Days Computed</span>
+    </div>
+  </div>
+</header>
+
+<nav class="site-nav" aria-label="Planner sections">
+  <div class="wrap nav-links">
+    <a href="index.html">Executive Summary</a>
+    <a class="active" href="scoreboard.html">PST Daily Scoreboard &amp; Calendar</a>
+    <a href="core-games.html">Core Priority Games</a>
+    <a href="radio-94122.html">SF 94122 Radio Dial</a>
+    <a href="verified-schedules.html">Verified Season Tables</a>
+    <a href="durations.html">Durations &amp; Halftime</a>
+    <a href="repo-audit.html">Repo Audit</a>
+    <a href="flagged-for-review.html">Flagged for Review</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <div class="card">
+    <div class="controls">
+      <button type="button" id="sb-prev-wk">« -7d</button>
+      <button type="button" id="sb-prev">← Yesterday</button>
+      <button type="button" class="primary" id="sb-today">Today (Nov 25, 2026)</button>
+      <button type="button" id="sb-next">Tomorrow →</button>
+      <button type="button" id="sb-next-wk">+7d »</button>
+      <label class="small"><strong>Date:</strong> <input type="date" id="sb-date" min="2026-01-01" max="2029-12-31" value="2026-11-25"></label>
+      <label class="small"><strong>Month:</strong> <select id="sb-month"></select></label>
+    </div>
+    <div class="controls" style="margin-bottom:0">
+      <label class="small"><strong>Listener Rule:</strong>
+        <select id="sb-tier">
+          <option value="core_strict">Tier 1: Core Strict (MLB 30 + NFL 32 + Stanford/Cal + Westwood One, incl. Preseason)</option>
+          <option value="core_regular">Tier 2: Core Championship (Excludes Spring Training &amp; NFL Preseason)</option>
+          <option value="sf_high_priority">Tier 3: SF High-Priority Teams + Westwood One NFL Only</option>
+          <option value="full_radio_94122">Tier 4: All SF 94122 AM/FM Sports (+Warriors, Valkyries, Earthquakes, NCAA)</option>
+        </select>
+      </label>
+      <label class="small" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer">
+        <input type="checkbox" id="sb-buffer"> Include +30m Radio Pregame &amp; +15m Postgame
+      </label>
+    </div>
+    <div class="btn-row" style="margin-top:10px;margin-bottom:0">
+      <span class="small"><strong>Quick Jump:</strong></span>
+      <button type="button" data-jump-iso="2026-11-26">Thanksgiving Tripleheader (Nov 26, 2026)</button>
+      <button type="button" data-jump-iso="2026-11-28">Stanford &amp; Cal Finale (Nov 28, 2026)</button>
+      <button type="button" data-jump-iso="2026-12-25">Christmas NFL Tripleheader (Dec 25, 2026)</button>
+      <button type="button" data-jump-iso="2027-02-01">13-Day Free Window Start (Feb 1, 2027)</button>
+      <button type="button" data-jump-iso="2027-02-14">Super Bowl LXI (Feb 14, 2027)</button>
+      <button type="button" data-jump-iso="2027-02-15">Post-SB Silence (Feb 15, 2027)</button>
+      <button type="button" data-jump-iso="2027-03-25">2027 MLB Opening Day (Mar 25, 2027)</button>
+    </div>
+  </div>
+
+  <div class="scoreboard-layout">
+    <div class="card">
+      <h2 style="margin-bottom:4px">Monthly Availability</h2>
+      <p class="small" id="sb-month-summary" style="margin-top:0">Loading month…</p>
+      <div class="cal-grid" id="sb-cal-grid"></div>
+      <p class="small" style="margin-top:12px;margin-bottom:0">
+        <span class="badge verified">Green</span> = 100% Free Day (0 games)<br>
+        <span class="badge high">Red</span> = Busy Radio Day (click to see exact free PST hours)
+      </p>
+    </div>
+
+    <div class="card" id="scoreboard-day-panel">
+      <p>Loading daily PST scoreboard…</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    All times displayed in <strong>PST (UTC-8)</strong> · Planning durations: MLB 158m, NFL 192m (12m halftime), Super Bowl 225m (28m halftime), NCAAF 204m (20m halftime), NBA 140m (15m halftime) · <a href="durations.html">Durations &amp; Methodology</a> · <a href="flagged-for-review.html">Flagged for Review</a>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
