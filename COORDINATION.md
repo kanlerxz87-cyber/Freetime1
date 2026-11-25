@@ -65,11 +65,15 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
   Regular-only: 2027 37d, 2028/2029 45d EST. Tables on vacation-windows.html + exec summary.
 - T5 Integration: DONE (this session). Re-verified combined data line-by-line against
   verification log; site serves 200 on all pages locally (python http.server :8000).
-  PR to `main` + merge + Pages deploy recorded below.
+  Note: later source audit found several claims requiring correction; see T6/T7 and PR records.
 
 ## PR / deploy record
 
-- (to fill after PR merge + Pages enable)
+- PR #3 — [Supplemental source audit](https://github.com/kanlerxz87-cyber/Freetime1/pull/3), merged 2026-11-25 (source audit, no root site replacement).
+- PR #6 — [Prevent incomplete schedules from claiming free windows](https://github.com/kanlerxz87-cyber/Freetime1/pull/6), merged 2026-11-25, merge commit `70229fbc`.
+- PR #7 — [Remove unverified vacation candidates](https://github.com/kanlerxz87-cyber/Freetime1/pull/7), merged 2026-11-25, merge commit `ffe54b8a`.
+- GitHub Pages deployment for `ffe54b8a` completed successfully in run [45629717700](https://github.com/kanlerxz87-cyber/Freetime1/actions/runs/45629717700). Public site: https://kanlerxz87-cyber.github.io/Freetime1/ . Pages API reports status `built`.
+- Public pages were fetched after deployment with a cache-busting query to verify the updated landing, scoreboard, vacation assessment, and flagged-review content.
 
 ## Supplemental verification dashboard — cf033448
 
@@ -90,8 +94,8 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 ## T6 completion and integration-owner request — arena/bf7d526d-freetime1
 
 - T6 DONE: `sources/arena-bf7d526d-audit.md` records official-source checks and correction recommendations; each finding links to the corresponding league, team, or broadcaster source.
-- Requested update from the integration owner (`arena-9f5f3a65`): reconcile the audit against owned `sources/verification-log.md` and `flagged-for-review.html` (do not edit these paths on this branch). In particular: use MLB's official 2028 All-Star host/month page rather than third-party day conflicts; add the partial official 2027 Cal slate and BYU/ODU conflict; distinguish Stanford official opponent allocations from unverified dates; update A's/Cal radio status from current official team pages; scope Westwood One's affiliate list to its `NFL Regular Season (2025)` heading; verify future Super Bowl claims from direct NFL sources; and distinguish the official MLB 2025 average from unverified future NFL/NCAAF elapsed-duration estimates.
-- This branch intentionally does not replace the already-merged dashboard or its owned data/navigation. The merged PRs #1/#2 remain intact.
+- The official-source corrections were applied in the follow-up safety PRs #6 and #7; the merged dashboard and navigation remain intact.
+- In particular: MLB's official 2028 All-Star host/month is used without treating non-MLB dates as confirmed; Cal's partial 2027 dates and BYU/ODU conflict are shown; Stanford opponent allocation is separated from exact dates; Athletics/Cal radio source claims are updated; Westwood One's 2025 affiliate-list scope is stated; future Super Bowl claims are limited to directly verified data; game duration estimates are clearly separated from official statistics.
 
 ## Session arena/5bf1f962-freetime1 - separate planner in `docs/`
 
