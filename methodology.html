@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methodology — Freetime1</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><div><h1>Methodology</h1><p>Free definition · durations · estimation rules · time zone · how to re-run</p></div></div></header>
+<nav class="main"><div class="wrap">
+<a href="index.html">Dashboard</a><a href="executive-summary.html">Executive Summary</a><a href="scoreboard.html">Day Scoreboard</a><a href="vacation-windows.html">Vacation Windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL / 49ers</a><a href="ncaaf.html">Stanford / Cal</a><a href="westwood-one.html">Westwood One</a><a href="radio-guide.html">Radio Guide</a><a class="active" href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged-for-review.html">Flagged for Review</a>
+</div></nav>
+<main>
+<div class="callout warn"><strong>Current limitation:</strong> schedule coverage is incomplete. The dashboard does not certify any date/minute as free, and blank modeled time must not be interpreted as an absence of sports or radio.</div>
+<div class="card"><h2>1. Free definition (target rule; not currently certifiable)</h2>
+<p>A minute would be called FREE only if no tracked game/broadcast were on air and all required schedules and local radio windows were checked. Required scope = MLB (all 30 clubs, Spring Training, regular season, postseason, All-Star/special games; Giants/A’s HIGH), NFL (all games; 49ers HIGH; preseason/postseason), Stanford/Cal football (HIGH), plus Westwood One NFL broadcasts. Current data is incomplete, so <strong>no date or interval is certified free</strong>. The generated intervals below the dashboard are model output only, not schedule findings.</p>
+<h3>Busy-day rules (conservative for vacation)</h3>
+<ul>
+<li><strong>MLB</strong> spring/regular/postseason: every day busy <em>except</em> All-Star break non-game days (All-Star day itself busy).</li>
+<li><strong>NFL preseason:</strong> Thu–Sun busy. <strong>Regular:</strong> Sun/Thu/Mon busy (+ Sat Dec–Jan doubleheaders). <strong>Postseason:</strong> Sat/Sun/Mon busy.</li>
+<li><strong>NCAAF 2026:</strong> actual Stanford/Cal game days only (+ Dec 5 ACC Champ as TBD-busy). <strong>Other years:</strong> every Saturday in the window (conservative — at least one team likely plays).</li>
+<li><strong>Westwood One:</strong> same primetime/postseason days as NFL (subset; no extra blocking).</li>
+</ul></div>
+<div class="card"><h2>2. Durations (illustrative estimates, not verified event end times)</h2>
+<table><thead><tr><th>Sport</th><th>Planning block</th><th>Halftime</th><th>Evidence (range)</th><th>Source</th></tr></thead><tbody>
+<tr><td>MLB</td><td><strong>150 min</strong> (model assumption; not used as confirmed end time)</td><td>—</td><td>Official MLB reported a 2025 season average of 2 h 38 min. That historical mean is not a duration guarantee for an individual future fixture.</td><td><a href="https://www.mlb.com/press-release/press-release-mlb-attendance-reaches-71-4-million-three-straight-years-of-growth-for-first-time-since-2007" target="_blank" rel="noopener">Official MLB 2025 release</a></td></tr>
+<tr><td>NFL</td><td><strong>192 min</strong> (non-official planning assumption)</td><td>Rulebook describes halftime; event length varies</td><td>No official league average elapsed broadcast duration was confirmed in this review. Regulation game clock is 60 minutes; elapsed time includes stoppages and is not inferred from that clock.</td><td><a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook" target="_blank" rel="noopener">Official NFL rulebook</a></td></tr>
+<tr><td>NCAAF</td><td><strong>204 min</strong> (non-official planning assumption)</td><td>Varies by event</td><td>No official Stanford/Cal average elapsed broadcast duration was confirmed in this review. A planning estimate is not a verified scheduled end time.</td><td><a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">Official Stanford schedule</a></td></tr>
+<tr><td>Radio pre/post</td><td><strong>+30 pre / +15 post</strong></td><td>—</td><td>Standard pregame show + postgame. Scoreboard busy block = 30-min pregame + game duration (postgame shown in note).</td><td>Station practice (KNBR/Westwood One pregame shows) — planning assumption, labeled ESTIMATED.</td></tr>
+</tbody></table>
+<p class="small">The legacy 150/192/204-minute windows are model assumptions, not a sourced official typical duration for every sport. Only MLB's 2025 2:38 average is an official elapsed-time statistic in the sources checked; it is historical and not applied as a guaranteed 2027+ end time. The scoreboard's remaining gap calculations are not verified free-time windows.</p></div>
+<div class="card"><h2>3. Estimation rules (no hallucination)</h2>
+<ul>
+<li>If a league has not published a schedule, <strong>no matchup, date, or time is invented</strong>. The site shows a season window + typical radio window, labeled ESTIMATED.</li>
+<li>Every table row links its official source. Unconfirmable values are <strong>blank + flagged</strong> (see <a href="flagged-for-review.html">Flagged for Review</a>).</li>
+<li>Full game-by-game slates (2,430 MLB, 272 NFL) are <strong>linked, not retyped</strong> — retyping 10k rows would guarantee errors.</li>
+<li>When official schedules publish, update <code>data/schedule.json</code> windows + transcribe anchors, then re-run <code>python3 tools/build_data.py</code>.</li>
+</ul></div>
+<div class="card"><h2>4. Time zone</h2><p>All times <strong>Pacific (PT)</strong> = America/Los_Angeles (PST in winter, PDT in summer). Westwood One publishes ET; scoreboard converts ET→PT (ET minus 3h). Stanford/Cal publish PT. MLB/NFL league pages publish ET — convert before comparing.</p></div>
+<div class="card"><h2>5. Reproduce / rebuild</h2><pre>python3 tools/build_data.py   # regenerates data/schedule.json + data/vacation.json
+# Site is static HTML/CSS/JS — no build step. Serve repo root (GitHub Pages).</pre></div>
+</main>
+<footer><a href="index.html">← Dashboard</a> · <a href="sources.html">Sources →</a></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

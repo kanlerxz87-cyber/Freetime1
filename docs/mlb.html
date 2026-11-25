@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLB - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>MLB</h1>
+<p class="lead">All 30 clubs, loaded from the official MLB Stats API. The <strong>Giants and Athletics are high priority</strong> (highlighted). Every game row links to its official MLB Gameday page.</p>
+<p class="muted" id="feedstatus"></p>
+<div class="card">
+<strong>Official schedule status (verified from mlb.com and statsapi.mlb.com):</strong>
+<ul class="clean">
+<li>2027 regular season: released by MLB on July 16, 2026 (<a href="https://www.mlb.com/press-release/press-release-orioles-announce-2027-regular-season-schedule" target="_blank" rel="noopener">MLB press release, Orioles</a>). Game times for many games are still TBD.</li>
+<li>2027 spring training: 469 games from Feb 19 to Mar 23, 2027 (<a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=S" target="_blank" rel="noopener">MLB Stats API</a>).</li>
+<li>2028 schedule: not released. The MLB Stats API lists 0 games for 2028 as of 2026-11-25 (<a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028" target="_blank" rel="noopener">MLB Stats API</a>). 2028 is treated as an estimate.</li>
+<li>2026 postseason: last game Oct 28, 2026 (World Series), so the 2026 MLB season is over (<a href="https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2026&gameType=W" target="_blank" rel="noopener">MLB Stats API</a>).</li>
+</ul>
+</div>
+<h2>Giants and Athletics, all 2027 games (high priority)</h2>
+<p class="muted">Times in Pacific. "TBD" means MLB has not published the start time; the estimate used for the timeline is marked "est."</p>
+<div class="wrap"><table class="tbl" id="ga"><thead><tr><th>Date (PT)</th><th>Start</th><th>Club</th><th>Game</th><th>Venue</th><th>Type</th><th>Radio (flagship)</th><th>Source</th></tr></thead><tbody><tr><td colspan="8">Loading...</td></tr></tbody></table></div>
+<h2>All 30 clubs</h2>
+<div class="wrap"><table class="tbl" id="clubs"><thead><tr><th>Club</th><th>Abbr.</th><th>League / division</th><th>Home park</th><th>2027 regular-season games (loaded)</th><th>Priority</th><th>Source</th></tr></thead><tbody><tr><td colspan="7">Loading...</td></tr></tbody></table></div>
+</main>
+<footer>MLB data: statsapi.mlb.com (official MLB Stats API). Radio station per game is not verified; the flagship station is shown.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  FT.status(document.getElementById('feedstatus'));
+  FT.loadCtx().then(function (ctx) {
+    var ga = ctx.events.filter(function (e) { return e.league === 'MLB' && e.ids && (e.ids.indexOf(137) >= 0 || e.ids.indexOf(133) >= 0) && e.dateKey && e.dateKey.indexOf('2027') === 0; });
+    var rows = ga.map(function (e) {
+      var club = e.ids.indexOf(137) >= 0 && e.ids.indexOf(133) >= 0 ? 'Giants vs Athletics' : (e.ids.indexOf(137) >= 0 ? 'Giants' : 'Athletics');
+      return '<tr class="hp"><td>' + FT.esc(FT.fmtShort(e.dateKey)) + '</td><td>' + FT.fmtT(e.startMs) + (e.est ? ' <span class="badge est">est.</span>' : '') + '</td><td>' + club + '</td><td>' + FT.esc(e.title) + '</td><td>' + FT.esc(e.venue) + '</td><td>' + FT.esc(e.label) + '</td><td>' + FT.esc(e.radio) + '</td><td><a href="' + FT.esc(e.source) + '" target="_blank" rel="noopener">MLB Gameday</a></td></tr>';
+    });
+    document.querySelector('#ga tbody').innerHTML = rows.join('') || '<tr><td colspan="8">No games loaded (feed unavailable).</td></tr>';
+
+    var teams = (ctx.teams || []).slice().sort(function (a, b) { return a.name < b.name ? -1 : 1; });
+    if (!teams.length) {
+      document.querySelector('#clubs tbody').innerHTML = '<tr><td colspan="7">Club list unavailable (MLB feed not reachable from this browser).</td></tr>';
+      return;
+    }
+    var cnt = {};
+    ctx.events.forEach(function (e) {
+      if (e.league !== 'MLB' || e.gameType !== 'R' || !e.dateKey || e.dateKey.indexOf('2027') !== 0) return;
+      (e.ids || []).forEach(function (id) { cnt[id] = (cnt[id] || 0) + 1; });
+    });
+    document.querySelector('#clubs tbody').innerHTML = teams.map(function (t) {
+      var pri = (t.id === 137 || t.id === 133) ? '<span class="badge core">High priority</span>' : '<span class="badge hi">MLB (high)</span>';
+      return '<tr' + ((t.id === 137 || t.id === 133) ? ' class="hp"' : '') + '><td>' + FT.esc(t.name) + '</td><td>' + FT.esc(t.abbreviation) + '</td><td>' + FT.esc((t.league && t.league.name) || '') + ' / ' + FT.esc((t.division && t.division.name) || '') + '</td><td>' + FT.esc((t.venue && t.venue.name) || '') + '</td><td>' + (cnt[t.id] || 0) + '</td><td>' + pri + '</td><td><a href="https://statsapi.mlb.com/api/v1/teams/' + t.id + '" target="_blank" rel="noopener">MLB Stats API</a></td></tr>';
+    }).join('');
+  });
+});
+</script>
+</body></html>

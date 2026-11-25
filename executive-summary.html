@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive Summary — Freetime1</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><div><h1>Executive Summary</h1><p>When — and what days — have no games on Bay Area AM/FM radio · 2026–2029 · Pacific time</p></div></div></header>
+<nav class="main"><div class="wrap">
+<a href="index.html">Dashboard</a><a class="active" href="executive-summary.html">Executive Summary</a><a href="scoreboard.html">Day Scoreboard</a><a href="vacation-windows.html">Vacation Windows</a><a href="mlb.html">MLB</a><a href="nfl.html">NFL / 49ers</a><a href="ncaaf.html">Stanford / Cal</a><a href="westwood-one.html">Westwood One</a><a href="radio-guide.html">Radio Guide</a><a href="methodology.html">Methodology</a><a href="sources.html">Sources</a><a href="flagged-for-review.html">Flagged for Review</a>
+</div></nav>
+<main>
+<div class="callout warn"><strong>Current answer:</strong> Required schedules and broadcast coverage are incomplete, so <strong>no 7-day, 14-day, or 21-day window can be certified as free</strong>. The partial model also cannot prove that no such window exists. Do not plan a vacation from its estimated intervals.</div>
+
+<h2>1. What would count as “free” (coverage is not complete)</h2>
+<div class="card">
+<p>A minute could be certified <strong>FREE</strong> only after confirming that no required event or broadcast is on air and that all relevant schedules are complete. That completeness condition is not currently met; current gaps are <strong>UNKNOWN</strong>, not free:</p>
+<ul>
+<li><strong>MLB</strong> — Giants &amp; Athletics <span class="badge high">HIGH PRIORITY</span>; all 30 clubs shown (a game is on almost every day in season).</li>
+<li><strong>NFL</strong> — 49ers <span class="badge high">HIGH PRIORITY</span>; all 32 teams shown (preseason + regular + postseason).</li>
+<li><strong>NCAAF</strong> — Stanford &amp; Cal <span class="badge high">HIGH PRIORITY</span> (regular season + bowls/CFP window).</li>
+<li><strong>Westwood One Sports</strong> national NFL radio (TNF/SNF/MNF, holiday tripleheaders, all postseason).</li>
+</ul>
+<p>Radio stations in scope (Outer Sunset 94122, standard AM/FM): KNBR 680 AM / 104.5 FM (Giants, 49ers, Stanford; Westwood One charter affiliate), KSAN 107.7 FM (49ers), KTCT 1050 AM (KNBR overflow), KGO 810 AM (49ers network), KSFN 1510 AM (Giants simulcast). See <a href="radio-guide.html">Radio Guide</a>. Athletics Bay Area AM/FM carriage in 2026–2027 is <strong>unverified</strong> (Sacramento-based) — flagged, not assumed.</p>
+<p class="small">Planning durations (radio on-air window = 30-min pregame + game): MLB <strong>150 min</strong>, NFL <strong>192 min</strong> (halftime 12 min), NCAAF <strong>204 min</strong> (halftime 20 min). Sources and ranges in <a href="methodology.html">Methodology</a>.</p>
+</div>
+
+<h2>2. Season map — when each league is on (Pacific)</h2>
+<div class="card"><div id="windows-table"><p class="small">Loading season windows…</p></div>
+<p class="small">VERIFIED = dates published by the league/team. ESTIMATED = schedule not yet released; window modeled from the prior-year pattern and labeled everywhere. PARTIAL/UNVERIFIED rows are on the <a href="flagged-for-review.html">Flagged for Review</a> page. Full 2,430-game MLB and 272-game NFL slates: <a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">mlb.com/schedule</a> · <a href="https://www.nfl.com/schedule/" target="_blank" rel="noopener">nfl.com/schedule</a>.</p></div>
+
+<h2>3. Can any dates be certified free of all required radio sports?</h2>
+<div class="card">
+<p><strong>No full day or multi-week window is certified free by this dataset.</strong> It does not ingest every future MLB fixture, complete future NFL/Stanford/Cal schedules, and every applicable radio carriage detail. Model-generated empty days are unknown, not proof of no sports. Full limitations: <a href="vacation-windows.html">Vacation Windows</a> and <a href="flagged-for-review.html">Flagged for Review</a>.</p>
+<table><thead><tr><th>Year</th><th>Model output</th><th>Coverage limits</th><th>Certification</th></tr></thead><tbody>
+<tr><td>2026</td><td>Model showed Feb 9–19</td><td>Partial game/radio rows; duration and schedule imports are not exhaustive</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2027</td><td>Model showed Feb 15–18</td><td>MLB regular season published; full NFL and college schedules/radio details incomplete</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2028</td><td>Model showed Feb 14–17</td><td>Full MLB/NFL/college schedules and Spring Training/radio details not verified</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2029</td><td>Model showed Feb 12–16</td><td>Full MLB/NFL/college schedules and radio details not verified</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+</tbody></table>
+<p>The broad model cannot prove that a 7-, 14-, or 21-day free span exists—or does not exist. See the source-linked gaps on <a href="flagged-for-review.html">Flagged for Review</a>.</p>
+</div>
+
+<h2>4. Candidate dates are not a booking recommendation</h2>
+<div class="card">
+<p>Excluding Spring Training and NFL preseason still does not make a clear vacation recommendation: the future Stanford/Cal schedules and complete radio coverage are not verified, and the model does not ingest every game row.</p>
+<table><thead><tr><th>Year</th><th>Previously modeled dates</th><th>Current status</th></tr></thead><tbody>
+<tr><td>2027</td><td>Feb 15 – Mar 23</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2028</td><td>Feb 14 – Mar 29</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+<tr><td>2029</td><td>Feb 12 – Mar 28</td><td><span class="badge unverified">NOT CERTIFIED</span></td></tr>
+</tbody></table>
+<p>These dates are previous outputs of a broad seasonal model, not verified no-conflict windows. Do not book against them as “sports-free.” Reassess only after every required league schedule, relevant special event, and radio assignment is checked. Official 2027 MLB regular-season release: <a href="https://www.mlb.com/orioles/news/mlb-2027-schedule-released" target="_blank" rel="noopener">MLB release</a>; this does not resolve other required coverage.</p>
+</div>
+
+<h2>5. Day-by-day free time (scoreboard)</h2>
+<div class="card"><p>The <a href="scoreboard.html">Day Scoreboard</a> shows modeled activity, selected verified kickoff anchors, and gaps in the partial model. It now labels all dates <strong>not certified</strong>; unmodeled time is not confirmed free time. Pacific timezone uses America/Los_Angeles, with daylight-saving transitions handled by local date display.</p></div>
+
+<h2>6. Risks &amp; what to re-check</h2>
+<div class="card"><ul>
+<li><strong>Future-year schedule coverage incomplete.</strong> MLB published 2027 regular-season dates, but full game/radio ingestion and several other required league schedules remain incomplete.</li>
+<li><strong>2028 MLB All-Star day unannounced</strong> on the official MLB future-locations source; do not rely on non-MLB reported dates.</li>
+<li><strong>Cal 2027 is partial.</strong> Official announcements list three nonconference games; one date has a BYU/Old Dominion conflict requiring review.</li>
+<li><strong>Westwood One Sep–Oct 2026 rows</strong> not in snapshot — use the live official page.</li>
+<li><strong>Athletics Bay Area radio</strong> in Sacramento era — unverified; verify before relying on 94122 AM/FM carriage.</li>
+</ul><p><a class="btn" href="flagged-for-review.html">All flagged items with source links →</a></p></div>
+</main>
+<footer><a href="index.html">← Dashboard</a> · <a href="sources.html">Sources &amp; verification</a> · <a href="methodology.html">Methodology</a></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

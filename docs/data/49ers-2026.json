@@ -1,0 +1,15 @@
+{
+  "title": "San Francisco 49ers 2026 schedule (remaining, official)",
+  "source_page": "https://www.49ers.com/schedule/2026-regular-season/",
+  "retrieved": "2026-11-25",
+  "radio": "KSAN 107.7 FM / KNBR 104.5 FM / 680 AM (listed on each game in the official schedule)",
+  "games": [
+    {"week":"Reg 12","date":"2026-11-29T13:25:00-08:00","opponent":"Seattle Seahawks (home)","tv":"FOX","venue":"Levi's Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/"},
+    {"week":"Reg 13","date":"2026-12-06T10:00:00-08:00","opponent":"New York Giants (at)","tv":"FOX","venue":"MetLife Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/"},
+    {"week":"Reg 14","date":"2026-12-13T13:25:00-08:00","opponent":"Los Angeles Rams (home)","tv":"FOX","venue":"Levi's Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/"},
+    {"week":"Reg 15","date":"2026-12-17T17:15:00-08:00","opponent":"Los Angeles Chargers (at)","tv":"Prime Video","venue":"SoFi Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/","check":"Westwood One lists 7:30 PM ET (4:30 PM PT) for this game, flagged"},
+    {"week":"Reg 16","date":"2026-12-27T13:25:00-08:00","opponent":"Kansas City Chiefs (at)","tv":"CBS","venue":"Arrowhead Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/"},
+    {"week":"Reg 17","date":"2027-01-03T17:20:00-08:00","opponent":"Philadelphia Eagles (home)","tv":"NBC","venue":"Levi's Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/","check":"Westwood One lists 7:30 PM ET (4:30 PM PT) for this game, flagged"},
+    {"week":"Reg 18","date":null,"opponent":"Arizona Cardinals (at)","tv":"TBD","venue":"State Farm Stadium","source":"https://www.49ers.com/schedule/2026-regular-season/","check":"Date and time TBD on official page; not placed on the timeline"}
+  ]
+}
