@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calendar / Scoreboard - Free Time Vacation Planner</title>
+  <link rel="stylesheet" href="site/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Calendar / Scoreboard</h1>
+    <p class="subtitle">Browse day by day. Click a day to see conflicts, verified events, season windows, and a planning timeline. Times are Pacific Time (PT) where shown.</p>
+  </div>
+</header>
+<nav>
+  <div class="wrap">
+    <a href="index.html">Executive Summary</a>
+    <a class="active" href="calendar.html">Calendar / Scoreboard</a>
+    <a href="schedule.html">Schedule Tables</a>
+    <a href="sources.html">Sources &amp; Methodology</a>
+    <a href="flagged-review.html">Flagged for Review</a>
+  </div>
+</nav>
+<main><div class="wrap">
+  <div class="card">
+    <div class="cal-controls">
+      <button id="prev-month" aria-label="Previous month">&#9664; Prev</button>
+      <div class="cal-title" id="cal-title"></div>
+      <button id="next-month" aria-label="Next month">Next &#9654;</button>
+      <button id="today-btn">Jump to Nov 2026</button>
+      <label class="small">Year:
+        <select id="year-select"></select>
+      </label>
+      <label class="small">Month:
+        <select id="month-select">
+          <option value="0">January</option><option value="1">February</option><option value="2">March</option>
+          <option value="3">April</option><option value="4">May</option><option value="5">June</option>
+          <option value="6">July</option><option value="7">August</option><option value="8">September</option>
+          <option value="9">October</option><option value="10">November</option><option value="11">December</option>
+        </select>
+      </label>
+    </div>
+    <div class="legend">
+      <span><i class="sw free"></i> Free (no known conflict in dataset)</span>
+      <span><i class="sw busy"></i> Busy / conflict</span>
+      <span><i class="sw partial"></i> Partial / estimated season window</span>
+    </div>
+    <div class="callout warn small"><strong>Important:</strong> Day-level "Busy" during MLB/NFL/NCAAF season windows is a <span class="badge estimated">planning estimate</span> when official game-by-game schedules are not fully loaded/verified. It means a sport in scope is in season. Always verify the specific day on official schedules before booking. Minute-level free time requires verified start/end times.</div>
+    <div id="calendar"></div>
+  </div>
+
+  <div class="card" id="day-detail">
+    <h3>Select a day</h3>
+    <p class="muted">Click any day on the calendar to see details.</p>
+  </div>
+
+  <div class="card">
+    <h2>Vacation Window Finder (Season-Window Estimate)</h2>
+    <p>This summary is computed from the season windows in the dataset. It identifies contiguous days where no high-priority season window is active. <span class="badge estimated">Estimated</span> where windows are estimated.</p>
+    <div id="vacation-windows"></div>
+  </div>
+</div></main>
+<footer><div class="wrap">Calendar is a planning aid. Verify against official sources before booking travel.</div></footer>
+<script src="site/data/data.js"></script>
+<script src="site/assets/app.js"></script>
+<script>
+(function(){
+  let curY=2026, curM=10; // Nov 2026 (0-based)
+  let selected='2026-11-25';
+  const yearSel=document.getElementById('year-select');
+  for(let y=2026;y<=2030;y++){ const o=document.createElement('option'); o.value=y; o.textContent=y; yearSel.appendChild(o); }
+  function syncControls(){ document.getElementById('cal-title').textContent=monthName(curY,curM); yearSel.value=String(curY); document.getElementById('month-select').value=String(curM); }
+  function rerender(){ syncControls(); renderCalendar('calendar',curY,curM,selected,(ds)=>{ selected=ds; rerender(); renderDayDetail(ds); document.getElementById('day-detail').scrollIntoView({behavior:'smooth',block:'nearest'}); }); }
+  document.getElementById('prev-month').onclick=()=>{ curM--; if(curM<0){curM=11;curY--; } rerender(); };
+  document.getElementById('next-month').onclick=()=>{ curM++; if(curM>11){curM=0;curY++; } rerender(); };
+  document.getElementById('today-btn').onclick=()=>{ curY=2026; curM=10; selected='2026-11-25'; rerender(); renderDayDetail(selected); };
+  yearSel.onchange=e=>{ curY=+e.target.value; rerender(); };
+  document.getElementById('month-select').onchange=e=>{ curM=+e.target.value; rerender(); };
+
+  function findWindows(){
+    // scan 2027-01-01 to 2030-02-28
+    const start=parseDate('2027-01-01'), end=parseDate('2030-02-28');
+    let cur=null; const out=[];
+    for(let d=new Date(start); d<=end; d=addDays(d,1)){
+      const ds=fmtDate(d);
+      const st=dayStatus(ds);
+      const free = st.windows.filter(w=>w.priority==='high').length===0 && st.events.length===0;
+      if(free){ if(!cur) cur={start:ds,end:ds,days:1}; else {cur.end=ds; cur.days++;} }
+      else { if(cur){ out.push(cur); cur=null; } }
+    }
+    if(cur) out.push(cur);
+    return out.filter(w=>w.days>=3).sort((a,b)=>b.days-a.days);
+  }
+  function renderWindows(){
+    const wins=findWindows();
+    const el=document.getElementById('vacation-windows');
+    if(!wins.length){ el.innerHTML='<p class="muted">No 3+ day windows found in current dataset.</p>'; return; }
+    let html='<div class="table-wrap"><table><thead><tr><th>Start</th><th>End</th><th>Days</th><th>Weeks (approx)</th><th>Status</th><th>Note</th></tr></thead><tbody>';
+    wins.forEach(w=>{
+      const weeks=(w.days/7).toFixed(1);
+      html+=`<tr class="est-row"><td>${w.start}</td><td>${w.end}</td><td>${w.days}</td><td>${weeks}</td><td><span class="badge estimated">Estimated dataset</span></td><td class="small">No high-priority season window or verified event in current dataset. Verify against official MLB/NFL/NCAAF/Westwood One schedules before booking.</td></tr>`;
+    });
+    html+='</tbody></table></div>';
+    html+='<p class="small">This finder uses the current dataset season windows. Because 2027-2029 full game schedules are not officially released/ingested, these windows are planning estimates and may close when official schedules are published.</p>';
+    el.innerHTML=html;
+  }
+  rerender(); renderDayDetail(selected); renderWindows();
+})();
+</script>
+</body>
+</html>

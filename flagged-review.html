@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flagged for Review - Free Time Vacation Planner</title>
+  <link rel="stylesheet" href="site/assets/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Flagged for Review</h1>
+    <p class="subtitle">Unverified, estimated, TBD, or incomplete items. These do not block publication but must be reviewed before relying on the planner for travel decisions.</p>
+  </div>
+</header>
+<nav>
+  <div class="wrap">
+    <a href="index.html">Executive Summary</a>
+    <a href="calendar.html">Calendar / Scoreboard</a>
+    <a href="schedule.html">Schedule Tables</a>
+    <a href="sources.html">Sources &amp; Methodology</a>
+    <a class="active" href="flagged-review.html">Flagged for Review</a>
+  </div>
+</nav>
+<main><div class="wrap">
+
+  <div class="callout warn">
+    <strong>Review status:</strong> Items below are intentionally published for transparency. <span class="badge unverified">unverified</span>, <span class="badge tbd">tbd</span>, and <span class="badge estimated">estimated</span> items must not be treated as confirmed schedule facts.
+  </div>
+
+  <div class="card">
+    <h2>Flagged Items</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Status</th><th>Why flagged</th><th>Impact</th><th>Official source to check</th><th>Action needed</th></tr></thead>
+        <tbody>
+          <tr class="est-row">
+            <td>2027 MLB full game-by-game schedule (all 30 teams, every game)</td>
+            <td><span class="badge tbd">TBD / incomplete ingestion</span></td>
+            <td>MLB 2027 season dates are verified, but complete per-game rows (all teams, all games, times) are not fully ingested into this static dataset.</td>
+            <td>Calendar uses season-window busy estimate; minute-level/day-specific game list may be incomplete.</td>
+            <td><a href="https://www.mlb.com/schedule/2027-03-25" target="_blank" rel="noopener">MLB.com 2027 Schedule</a></td>
+            <td>Ingest full official MLB 2027 schedule feed/export and verify each row.</td>
+          </tr>
+          <tr class="est-row">
+            <td>2028 MLB schedule (all teams/games/postseason/all-star/special)</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2028 MLB schedule released as of 2026-11-25.</td>
+            <td>All 2028 MLB dates/times in planning windows are estimates.</td>
+            <td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">MLB.com Schedule</a></td>
+            <td>Replace estimated window with official schedule when released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>2029 MLB schedule (all teams/games/postseason/all-star/special)</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2029 MLB schedule released as of 2026-11-25.</td>
+            <td>All 2029 MLB dates/times in planning windows are estimates.</td>
+            <td><a href="https://www.mlb.com/schedule" target="_blank" rel="noopener">MLB.com Schedule</a></td>
+            <td>Replace estimated window with official schedule when released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>2027 NFL full schedule (all games, 49ers, Westwood One national broadcasts)</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2027 NFL game dates/times released as of 2026-11-25. Opponents may be known by formula but dates/times are not official.</td>
+            <td>Cannot identify exact 2027 conflict days/times beyond season-window estimate.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a>, <a href="https://operations.nfl.com/gameday/nfl-schedule/creating-the-nfl-schedule/" target="_blank" rel="noopener">NFL Operations</a></td>
+            <td>Ingest official schedule upon release; add Westwood One broadcast mappings.</td>
+          </tr>
+          <tr class="est-row">
+            <td>2028 NFL full schedule</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2028 NFL schedule released.</td>
+            <td>Season-window estimate only.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a></td>
+            <td>Replace with official schedule when released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>2029 NFL full schedule</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2029 NFL schedule released.</td>
+            <td>Season-window estimate only.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com Schedules</a></td>
+            <td>Replace with official schedule when released.</td>
+          </tr>
+          <tr class="est-row">
+            <td>Stanford NCAAF 2027-2029 schedules</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2027-2029 Stanford football schedules released.</td>
+            <td>High-priority conflicts may exist on dates not yet known.</td>
+            <td><a href="https://gostanford.com/sports/football/schedule" target="_blank" rel="noopener">GoStanford Football Schedule</a></td>
+            <td>Ingest official schedules when published.</td>
+          </tr>
+          <tr class="est-row">
+            <td>California NCAAF 2027-2029 schedules</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>No official 2027-2029 Cal football schedules released.</td>
+            <td>High-priority conflicts may exist on dates not yet known.</td>
+            <td><a href="https://calbears.com/sports/football/schedule" target="_blank" rel="noopener">CalBears Football Schedule</a></td>
+            <td>Ingest official schedules when published.</td>
+          </tr>
+          <tr>
+            <td>SF Bay Area AM/FM radio carriage for every game (94122)</td>
+            <td><span class="badge unverified">Unverified</span></td>
+            <td>Station carriage/affiliates can change by season, market, and simultaneous-game conflicts. A complete 94122-receivable AM/FM carriage map was not verified game-by-game.</td>
+            <td>A game may be in scope but not confirmable as "live over AM/FM radio in 94122" without station confirmation.</td>
+            <td><a href="https://www.thesportsleader.com/" target="_blank" rel="noopener">KNBR</a>, <a href="https://www.westwoodonesports.com/station-finder/" target="_blank" rel="noopener">Westwood One Station Finder</a>, <a href="https://www.mlb.com/athletics/schedule" target="_blank" rel="noopener">A's</a></td>
+            <td>Verify per-game radio listings on official team/station schedules.</td>
+          </tr>
+          <tr>
+            <td>A’s AM/FM flagship/affiliate for 2027-2029 in SF 94122</td>
+            <td><span class="badge unverified">Unverified</span></td>
+            <td>Current/future A’s radio network carriage not fully verified for target years in this build.</td>
+            <td>High-priority A’s conflicts may be missing radio-carriage confirmation.</td>
+            <td><a href="https://www.mlb.com/athletics" target="_blank" rel="noopener">MLB.com/Athletics</a></td>
+            <td>Confirm official A’s radio network before each season.</td>
+          </tr>
+          <tr class="est-row">
+            <td>Game duration estimates (MLB 160 min, NFL 195 min, NCAAF 210 min)</td>
+            <td><span class="badge estimated">Estimated</span></td>
+            <td>Averages used for planning; actual game length varies by extra innings, overtime, reviews, weather, etc.</td>
+            <td>Minute-level "free time" can be over/under-estimated.</td>
+            <td><a href="https://www.mlb.com/glossary/rules/pace-of-play" target="_blank" rel="noopener">MLB pace of play</a>, <a href="https://operations.nfl.com/gameday/nfl-schedule/" target="_blank" rel="noopener">NFL Operations</a></td>
+            <td>Treat as planning buffer, not exact end time.</td>
+          </tr>
+          <tr class="est-row">
+            <td>Super Bowl / postseason exact dates for 2027-2029 seasons</td>
+            <td><span class="badge estimated">Estimated / partially verified</span></td>
+            <td>Some future Super Bowl locations/dates are publicly announced by NFL, but playoff game dates/times depend on season results and official scheduling.</td>
+            <td>Postseason vacation windows may be shorter/shifted.</td>
+            <td><a href="https://www.nfl.com/schedules/" target="_blank" rel="noopener">NFL.com</a></td>
+            <td>Confirm official postseason dates when announced.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div></main>
+<footer><div class="wrap">Flagged items are published for transparency and do not block site deployment.</div></footer>
+</body>
+</html>

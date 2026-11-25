@@ -115,3 +115,14 @@ Results:
 - Merge: merged 2026-11-25 13:56 UTC, merge commit f664bd1 (merge commit, not squash). Flagged items did not block.
 - Pages: build for f664bd1 status "built" (no errors). Live: https://kanlerxz87-cyber.github.io/Freetime1/docs/scoreboard.html renders the new planner with live MLB data.
 - Root site (PR #1/#2) unchanged.
+
+
+## Session arena/f7d614e2 (2026-11-25)
+- **Session ID:** `f7d614e2`
+- **Branch:** `arena/f7d614e2-freetime1`
+- **Scope:** Attempted full planner build; discovered main already had integrated site from prior sessions (PRs #4-#8 merged).
+- **Actions:** Built an alternative static dashboard (index/calendar/schedule/sources/flagged-review + site/data/data.js) with verified 49ers 2026 (NFL.com), Westwood One 2026 NFL broadcasts, Stanford/Cal 2026, and 2027 MLB season landmarks. All values sourced/flagged; no inferred values.
+- **Conflict resolution:** On rebase against updated main, resolved COORDINATION/README/index/sources conflicts by preserving main's integrated site (no other-session work discarded). Added non-conflicting artifacts under `site/`, `calendar.html`, `schedule.html`, `flagged-review.html`.
+- **Verification performed:** Cross-checked extracted 49ers/Westwood One/Stanford/Cal rows against official pages fetched 2026-11-25. Flagged 2028-2029 MLB, 2027-2029 NFL, 2027-2029 NCAAF as estimated/TBD.
+- **Irregularities:** Full per-game ingestion for all MLB 2027-2028 and all NFL 2027-2029 not complete; SF 94122 AM/FM per-game carriage unverified; A's 2027-2029 radio affiliate unverified. See `flagged-review.html` and `site/data/data.js` notes.
+- **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/9
