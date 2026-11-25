@@ -1,0 +1,95 @@
+{
+  "verified_date": "2026-11-25",
+  "items": [
+    {
+      "id": "FLAG-01",
+      "severity": "CRITICAL",
+      "category": "MLB Labor / CBA Risk",
+      "item": "MLB 2022\u20132026 CBA Expires Dec 1, 2026 (11:59 PM ET) \u2014 Potential 2027 Lockout",
+      "details": "While MLB officially published the complete 2027 Spring Training & Regular Season schedule on July 16, 2026 (all 2,430 games verified via statsapi.mlb.com), the current Collective Bargaining Agreement expires Dec 1, 2026. If a lockout begins Dec 2, 2026 and extends past mid-February 2027, 2027 Spring Training (scheduled to open Feb 19, 2027) or Opening Day (Mar 24\u201325, 2027) could be delayed \u2014 which would artificially EXPAND the Feb\u2013Mar 2027 zero-sports vacation window.",
+      "action_needed": "Monitor MLB\u2013MLBPA CBA negotiations after Dec 1, 2026 and re-verify Spring Training start date in Jan\u2013Feb 2027.",
+      "source_url": "https://www.thebaseballguide.com/mlb-cba-negotiations-explained/"
+    },
+    {
+      "id": "FLAG-02",
+      "severity": "HIGH",
+      "category": "MLB 2027 Start Times",
+      "item": "594 of 2,430 Official 2027 MLB Regular Season Games & 105 Spring Training Games Have startTimeTBD = true",
+      "details": "In the official MLB Stats API (statsapi.mlb.com) as of Nov 25, 2026, six clubs (notably SF Giants home games, LA Dodgers home games, Chicago Cubs, Chicago White Sox, Boston Red Sox, Cleveland Guardians, Toronto Blue Jays, and select Detroit Tigers games) have confirmed matchups and dates for 2027 but have not finalized exact first-pitch times (API stores placeholder 07:33Z/08:33Z/10:33Z with startTimeTBD:true). On our daily free-time scoreboard, TBD games are NEVER shown as verified times; they are labeled 'TBD (Est.)' and estimated using standard local home-park start slots (weekday night 6:45 PM local / weekend day 1:05 PM local).",
+      "action_needed": "Re-sync statsapi.mlb.com when clubs announce 2027 broadcast start times (typically Jan\u2013Feb 2027).",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=R&startDate=2027-03-24&endDate=2027-03-31"
+    },
+    {
+      "id": "FLAG-03",
+      "severity": "HIGH",
+      "category": "NFL Pro Bowl Irregularity",
+      "item": "NFL AFC\u2013NFC Pro Bowl Game Discontinued Beginning 2026\u201327 Season",
+      "details": "On August 27, 2026, the NFL officially announced that the AFC\u2013NFC Pro Bowl game will cease being contested beginning with the 2026 season, replaced by an in-person player celebration and flag football showcase events during Super Bowl LXI week in Los Angeles (early Feb 2027). Because no official traditional Pro Bowl radio game is scheduled, Feb 1\u201313, 2027 currently has NO verified NFL games \u2014 however, check late-Jan 2027 announcements in case Westwood One broadcasts any LA Pro Bowl week flag showcase.",
+      "action_needed": "Verify in late Jan 2027 whether Westwood One or KNBR airs any Super Bowl week flag showcase on terrestrial AM/FM.",
+      "source_url": "https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested"
+    },
+    {
+      "id": "FLAG-04",
+      "severity": "HIGH",
+      "category": "NCAAF High Priority (Stanford)",
+      "item": "Stanford 2026 Bowl Game Date & Kickoff Time TBD (6\u20135 Bowl Eligible)",
+      "details": "Stanford enters its Sat Nov 28, 2026 regular-season finale vs. SMU at 6\u20135 (already bowl-eligible). Stanford's December 2026 bowl assignment, exact date, and kickoff time will not be announced until College Football Bowl Selection Sunday (Dec 6, 2026). Radio flagship KTCT 1050 AM will air the bowl game.",
+      "action_needed": "Update calendar immediately after Bowl Selection Sunday on Dec 6, 2026. (Note: Cal is 3\u20138 and NOT bowl-eligible in 2026.)",
+      "source_url": "https://gostanford.com/sports/football/schedule"
+    },
+    {
+      "id": "FLAG-05",
+      "severity": "HIGH",
+      "category": "NFL 2026 Flex Scheduling",
+      "item": "NFL 2026 Weeks 16, 17, and 18 Contain 24 Official TBD Flex Games",
+      "details": "Per NFL.com official schedule: (1) Week 16 (Dec 26\u201327): 2 of 4 games (TB@ATL, CIN@IND, WAS@MIN, CAR@PIT) move to Sat Dec 26 at 1:30 PM & 5:00 PM PST; announced after Week 14. (2) Week 17 (Jan 2\u20133): 2 of 4 games (WAS@JAX, KC@LAC, DEN@NE, LAR@TB) move to Sat Jan 2 at 1:30 PM & 5:00 PM PST; announced after Week 15. (3) Week 18 (Jan 9\u201310): all 16 divisional matchups (incl. 49ers @ Cardinals) have TBD dates/times \u2014 3 play Sat Jan 9 (10:00 AM, 1:30 PM, 5:00 PM PST) and 13 play Sun Jan 10; announced after Week 17.",
+      "action_needed": "Update exact Sat/Sun assignments after NFL Weeks 14, 15, and 17.",
+      "source_url": "https://www.nfl.com/legal/flexible-scheduling-procedures"
+    },
+    {
+      "id": "FLAG-06",
+      "severity": "MEDIUM",
+      "category": "NFL 2026\u201327 Postseason",
+      "item": "2026\u201327 NFL Playoff Matchups & Exact Kickoff Times TBD (Dates Verified)",
+      "details": "NFL 2026\u201327 Postseason weekend dates are confirmed (Wild Card Jan 16\u201318, Divisional Jan 23\u201324, Conference Championships Jan 31, Super Bowl LXI Sun Feb 14, 2027 at SoFi Stadium), but exact kickoff times and whether the 49ers play on a given day are TBD until seeding is set after Week 18. Standard historical NFL playoff kickoff windows are clearly marked 'Estimated Time'.",
+      "action_needed": "Confirm exact Wild Card / Divisional / CCG kickoff times each Sunday night in January 2027.",
+      "source_url": "https://media.nfl.com/football-information/2026/news/2026-kickoff-guide"
+    },
+    {
+      "id": "FLAG-07",
+      "severity": "MEDIUM",
+      "category": "Unreleased Future Schedules",
+      "item": "2027\u20132029 NFL Regular Seasons, 2028\u20132029 MLB Seasons, & 2027\u20132029 ACC Football Dates Not Yet Published",
+      "details": "Verified directly via official sources on Nov 25, 2026: statsapi.mlb.com returns empty dates for 2028; 2027 NFL full schedule releases in May 2027 (Super Bowl LXII confirmed Sun Feb 13, 2028); 2028 NFL releases May 2028; ACC 2027 football dates release Jan 2027. All 2028\u20132029 vacation window calculations and 2027\u20132028 post-Sep-2027 calendar projections are explicitly labeled 'Estimated'.",
+      "action_needed": "Refresh repository upon official schedule releases (ACC Jan 2027, NFL May 2027, MLB 2028 Jul 2027).",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+    },
+    {
+      "id": "FLAG-08",
+      "severity": "MEDIUM",
+      "category": "NFL 2029 Expansion Uncertainty",
+      "item": "Super Bowl LXIII (Las Vegas) Date Could Shift From Feb 11 to Feb 18, 2029 Under Potential 18-Game Season",
+      "details": "Allegiant Stadium (Las Vegas) was officially confirmed as host of Super Bowl LXIII on March 30, 2026. Under the current 17-game NFL format, Super Bowl LXIII projects to Sun Feb 11, 2029. If the NFL and NFLPA adopt an 18-game regular season before 2028, Super Bowl LXIII would likely shift one week later to Sun Feb 18, 2029 (Presidents' Day Weekend), compressing the Feb 2029 gap before MLB Spring Training.",
+      "action_needed": "Monitor NFL\u2013NFLPA 18-game discussions in 2027\u20132028.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "id": "FLAG-09",
+      "severity": "LOW",
+      "category": "Bay Area AM/FM Reception (94122)",
+      "item": "AM Nighttime Reception Caveats & Digital-Only Team Confirmations in Outer Sunset 94122",
+      "details": "(1) Athletics Bay Area affiliate KNEW 960 AM (5kW East Bay) and Giants Spanish flagship KSFN 1510 AM can experience reduced nighttime groundwave clarity near Ocean Beach / Outer Sunset 94122; KZSF 1370 AM (San Jose) is marginal in 94122. (2) Confirmed NO terrestrial AM/FM broadcast: San Jose Sharks (streaming-only via Sharks Audio Network since 2021) and 49ers Spanish Radio in the Bay Area (streaming-only via 49ers.com/esp).",
+      "action_needed": "No action required unless teams sign new terrestrial Bay Area AM/FM contracts.",
+      "source_url": "https://www.mlb.com/athletics/schedule/affiliates"
+    },
+    {
+      "id": "FLAG-10",
+      "severity": "LOW",
+      "category": "Additional Bay Area Radio Sports",
+      "item": "Warriors (NBA), Valkyries (WNBA), & Earthquakes (MLS) Air on Local AM/FM (95.7 FM & 810 AM)",
+      "details": "Research confirmed Golden State Warriors (Oct\u2013Apr + Playoffs) and Golden State Valkyries (May\u2013Sep + Playoffs) air locally on KGMZ 95.7 FM, and San Jose Earthquakes (Feb\u2013Oct) air on KSFO 810 AM \u2014 both strong signals in Outer Sunset 94122. Because their schedules span Oct\u2013Sep, including NBA/WNBA/MLS would eliminate even the Feb\u2013Mar regular-season vacation window! The dashboard flags them as High-Priority Local Radio Awareness on the Radio Guide and Executive Summary.",
+      "action_needed": "If you also want to avoid Warriors/Valkyries/Earthquakes games, check KGMZ 95.7 FM / KSFO 810 AM schedules before booking Feb\u2013Mar travel.",
+      "source_url": "https://www.nba.com/warriors/radio-network"
+    }
+  ]
+}

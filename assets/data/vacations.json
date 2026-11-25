@@ -1,0 +1,251 @@
+{
+  "verified_date": "2026-11-25",
+  "headline_finding": {
+    "strict_mode_summary": "With MLB Spring Training & NFL Preseason included, there is NO 2-week (14+ day) or 3-week (21+ day) zero-sports window in 2027, 2028, or 2029 \u2014 HOWEVER, because the NFL officially discontinued the Pro Bowl game beginning 2026\u201327, there IS a 13-day (1-week+) zero-game stretch every early February (Feb 1\u201313, 2027; est. Jan 31\u2013Feb 12, 2028; est. Jan 29\u2013Feb 10, 2029), plus a 4-day post-Super Bowl gap (Feb 15\u201318, 2027) before Spring Training opens Feb 19!",
+    "regular_season_mode_summary": "Excluding Spring Training & Preseason exhibitions, a massive 5-to-6+ week completely zero-sports window opens EVERY year immediately after the Super Bowl: 37 consecutive days in 2027 (Mon Feb 15 \u2013 Tue Mar 23, VERIFIED), ~45 consecutive days in 2028 (Mon Feb 14 \u2013 Wed Mar 29, SB LXII verified / MLB est.), and ~45 consecutive days in 2029 (Mon Feb 12 \u2013 Wed Mar 28, est.) \u2014 ideal for 1-week, 2-week, or 3-week vacations!",
+    "lockout_wildcard": "MLB's CBA expires Dec 1, 2026. If a lockout delays 2027 Spring Training beyond Feb 19, 2027, the strict-mode Feb\u2013Mar 2027 window could expand into a multi-week zero-sports stretch."
+  },
+  "streaks_late_2026_strict": [
+    {
+      "start": "2026-12-01",
+      "end": "2026-12-02",
+      "days": 2
+    },
+    {
+      "start": "2026-12-08",
+      "end": "2026-12-09",
+      "days": 2
+    },
+    {
+      "start": "2026-12-15",
+      "end": "2026-12-16",
+      "days": 2
+    },
+    {
+      "start": "2026-12-22",
+      "end": "2026-12-23",
+      "days": 2
+    },
+    {
+      "start": "2026-12-29",
+      "end": "2026-12-30",
+      "days": 2
+    }
+  ],
+  "streaks_2027_strict": [
+    {
+      "start": "2027-01-05",
+      "end": "2027-01-08",
+      "days": 4
+    },
+    {
+      "start": "2027-01-11",
+      "end": "2027-01-15",
+      "days": 5
+    },
+    {
+      "start": "2027-01-19",
+      "end": "2027-01-22",
+      "days": 4
+    },
+    {
+      "start": "2027-01-25",
+      "end": "2027-01-30",
+      "days": 6
+    },
+    {
+      "start": "2027-02-01",
+      "end": "2027-02-13",
+      "days": 13
+    },
+    {
+      "start": "2027-02-15",
+      "end": "2027-02-18",
+      "days": 4
+    }
+  ],
+  "streaks_2027_regular_postseason": [
+    {
+      "start": "2027-01-05",
+      "end": "2027-01-08",
+      "days": 4
+    },
+    {
+      "start": "2027-01-11",
+      "end": "2027-01-15",
+      "days": 5
+    },
+    {
+      "start": "2027-01-19",
+      "end": "2027-01-22",
+      "days": 4
+    },
+    {
+      "start": "2027-01-25",
+      "end": "2027-01-30",
+      "days": 6
+    },
+    {
+      "start": "2027-02-01",
+      "end": "2027-02-13",
+      "days": 13
+    },
+    {
+      "start": "2027-02-15",
+      "end": "2027-03-23",
+      "days": 37
+    }
+  ],
+  "multi_year_windows": [
+    {
+      "year": 2027,
+      "window_name": "2027 Pre-Super Bowl Gap (Pro Bowl Discontinued)",
+      "start_date": "2027-02-01",
+      "end_date": "2027-02-13",
+      "days": 13,
+      "mode": "Both Strict & Regular/Postseason",
+      "fits_1wk": true,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Verified Dates (Flagged: Check LA Flag Showcase)",
+      "bookends": "After Conf Championships (Sun Jan 31) \u2192 Before Super Bowl LXI (Sun Feb 14)",
+      "notes": "NFL officially eliminated the AFC-NFC Pro Bowl game starting 2026\u201327 (Aug 27, 2026 release). Zero MLB or NCAAF games.",
+      "source_url": "https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested"
+    },
+    {
+      "year": 2027,
+      "window_name": "2027 Post-Super Bowl Strict Gap (Before Spring Training)",
+      "start_date": "2027-02-15",
+      "end_date": "2027-02-18",
+      "days": 4,
+      "mode": "Strict (Includes Spring Training)",
+      "fits_1wk": false,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Verified",
+      "bookends": "After Super Bowl LXI (Sun Feb 14) \u2192 Before MLB Spring Training Opener (Fri Feb 19)",
+      "notes": "Longest post-Super Bowl strict gap in 2027 unless MLB CBA lockout delays Feb 19 Spring Training.",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2027&gameType=S&startDate=2027-02-19&endDate=2027-02-19"
+    },
+    {
+      "year": 2027,
+      "window_name": "2027 Prime Multi-Week Window (Regular + Postseason Only)",
+      "start_date": "2027-02-15",
+      "end_date": "2027-03-23",
+      "days": 37,
+      "mode": "Regular Season + Postseason (Excl. Spring Training)",
+      "fits_1wk": true,
+      "fits_2wk": true,
+      "fits_3wk": true,
+      "status": "Verified",
+      "bookends": "After Super Bowl LXI (Sun Feb 14) \u2192 Before MLB Opening Night BOS@SEA (Wed Mar 24)",
+      "notes": "BEST 2027 VACATION WINDOW! 5 weeks + 2 days with ZERO regular-season or postseason NFL, MLB, or NCAAF games. (Spring Training exhibitions occur Feb 19 \u2013 Mar 23.)",
+      "source_url": "https://www.mlb.com/gameday/852583"
+    },
+    {
+      "year": 2027,
+      "window_name": "2027 MLB All-Star Break Gap (Mid-Summer Mini-Break)",
+      "start_date": "2027-07-14",
+      "end_date": "2027-07-14",
+      "days": 1,
+      "mode": "Both Strict & Regular/Postseason",
+      "fits_1wk": false,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Verified",
+      "bookends": "After 97th All-Star Game Wrigley Field (Tue Jul 13) \u2192 Before ATL@BOS (Thu Jul 15)",
+      "notes": "Only 1 completely game-free day in all of summer 2027 (Wed Jul 14; Mon Jul 12 has HR Derby; Thu Jul 15 has 1 MLB game ATL@BOS).",
+      "source_url": "https://www.mlb.com/gameday/853074"
+    },
+    {
+      "year": 2028,
+      "window_name": "2028 Pre-Super Bowl LXII Gap (No Pro Bowl Game)",
+      "start_date": "2028-01-31",
+      "end_date": "2028-02-12",
+      "days": 13,
+      "mode": "Both Strict & Regular/Postseason",
+      "fits_1wk": true,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Estimated (SB LXII Date Verified)",
+      "bookends": "After est. Conf Championships (Sun Jan 30) \u2192 Before CONFIRMED Super Bowl LXII Atlanta (Sun Feb 13, 2028)",
+      "notes": "13-day stretch assuming discontinued Pro Bowl game format continues.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "year": 2028,
+      "window_name": "2028 Post-Super Bowl LXII Strict Gap (Before Spring Training)",
+      "start_date": "2028-02-14",
+      "end_date": "2028-02-18",
+      "days": 5,
+      "mode": "Strict (Includes Spring Training)",
+      "fits_1wk": false,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Estimated (SB LXII Date Verified; MLB 2028 Unreleased)",
+      "bookends": "After CONFIRMED Super Bowl LXII (Sun Feb 13, 2028) \u2192 Before est. 2028 Spring Training (~Sat Feb 19, 2028)",
+      "notes": "2028 MLB schedule releases ~July 2027; exact Spring Training start TBD.",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+    },
+    {
+      "year": 2028,
+      "window_name": "2028 Prime Multi-Week Window (Regular + Postseason Only)",
+      "start_date": "2028-02-14",
+      "end_date": "2028-03-29",
+      "days": 45,
+      "mode": "Regular Season + Postseason (Excl. Spring Training)",
+      "fits_1wk": true,
+      "fits_2wk": true,
+      "fits_3wk": true,
+      "status": "Estimated (SB LXII Verified; MLB 2028 Unreleased)",
+      "bookends": "After CONFIRMED Super Bowl LXII (Sun Feb 13, 2028) \u2192 Before est. 2028 MLB Opening Day (~Thu Mar 30, 2028)",
+      "notes": "BEST 2028 VACATION WINDOW! ~6+ weeks free of all regular-season & postseason MLB/NFL/NCAAF games (2028 is a leap year with Feb 29!).",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "year": 2029,
+      "window_name": "2029 Pre-Super Bowl LXIII Gap (No Pro Bowl Game)",
+      "start_date": "2029-01-29",
+      "end_date": "2029-02-10",
+      "days": 13,
+      "mode": "Both Strict & Regular/Postseason",
+      "fits_1wk": true,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Estimated (Host Confirmed; Subject to 18-Game Review)",
+      "bookends": "After est. Conf Championships (Sun Jan 28) \u2192 Before proj. Super Bowl LXIII Las Vegas (Sun Feb 11, 2029)",
+      "notes": "Shifts one week later if NFL expands to an 18-game season prior to 2028.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "year": 2029,
+      "window_name": "2029 Post-Super Bowl LXIII Strict Gap (Before Spring Training)",
+      "start_date": "2029-02-12",
+      "end_date": "2029-02-16",
+      "days": 5,
+      "mode": "Strict (Includes Spring Training)",
+      "fits_1wk": false,
+      "fits_2wk": false,
+      "fits_3wk": false,
+      "status": "Estimated",
+      "bookends": "After proj. Super Bowl LXIII (Sun Feb 11, 2029) \u2192 Before est. 2029 Spring Training (~Sat Feb 17, 2029)",
+      "notes": "Estimated from standard NFL 17-game calendar and MLB mid-Feb Spring Training start.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "year": 2029,
+      "window_name": "2029 Prime Multi-Week Window (Regular + Postseason Only)",
+      "start_date": "2029-02-12",
+      "end_date": "2029-03-28",
+      "days": 45,
+      "mode": "Regular Season + Postseason (Excl. Spring Training)",
+      "fits_1wk": true,
+      "fits_2wk": true,
+      "fits_3wk": true,
+      "status": "Estimated",
+      "bookends": "After proj. Super Bowl LXIII (Sun Feb 11, 2029) \u2192 Before est. 2029 MLB Opening Day (~Thu Mar 29, 2029)",
+      "notes": "BEST 2029 VACATION WINDOW! ~6+ weeks free of all regular-season & postseason MLB/NFL/NCAAF games.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    }
+  ]
+}

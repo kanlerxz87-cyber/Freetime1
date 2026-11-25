@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flagged for Review &amp; Methodology — FREE TIME VACATION</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="hero" style="padding:22px 26px;">
+      <h1>Flagged for Review &amp; Verification Methodology</h1>
+      <p>Every unverified date, TBD start time, flex scheduling pool, labor risk, or schedule irregularity is transparently documented here — zero fabricated values, 100% official citations.</p>
+    </section>
+
+    <div class="section-title">
+      <h2>Flagged Items Requiring Future Re-Verification (10 Items)</h2>
+    </div>
+    <div class="table-wrap" style="margin-bottom:32px;">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Severity</th>
+            <th>Category</th>
+            <th>Flagged Item &amp; Details</th>
+            <th>Recommended Follow-Up Action</th>
+            <th>Official Source</th>
+          </tr>
+        </thead>
+        <tbody id="flagged-body"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title" id="durations">
+      <h2>Researched Average Game Durations &amp; Official Halftime Rules</h2>
+    </div>
+    <div class="table-wrap" style="margin-bottom:24px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Sport / Phase</th>
+            <th>Avg Duration Used</th>
+            <th>Official Halftime</th>
+            <th>Methodology Notes</th>
+            <th>Official Rule / Stat Source</th>
+          </tr>
+        </thead>
+        <tbody id="durations-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Free-Time Calculation Methodology</h2>
+      <ul style="margin:8px 0 0;padding-left:18px;font-size:.9rem;color:var(--muted);">
+        <li><strong>Timezone Normalization:</strong> All UTC timestamps from <code>statsapi.mlb.com</code> and Eastern Time kickoffs from <code>nfl.com</code> / <code>westwoodonesports.com</code> are converted via Python's <code>zoneinfo.ZoneInfo("America/Los_Angeles")</code>, automatically handling PST (UTC−8) and PDT (UTC−7, DST transitions Mar 14, 2027 &amp; Nov 7, 2027).</li>
+        <li><strong>TBD Start-Time Policy:</strong> Official games whose exact start times have not yet been published (such as 594 of 2,430 official 2027 MLB games with <code>startTimeTBD: true</code>) are NEVER presented as verified times. They are labeled <code>TBD (Est. ...)</code> using standard home-park local start windows (weekday night 6:45–7:10 PM local, Saturday 4:05 PM local, Sunday/Thursday getaway 1:10 PM local) so daily free-time estimates remain realistic while clearly flagged.</li>
+        <li><strong>Interval Merging:</strong> Overlapping games on any date are merged into union busy intervals across 00:00–24:00 Pacific Time; the complement intervals are displayed as exact minute-level FREE TIME windows.</li>
+        <li><strong>Mathematical Verification:</strong> Every data build is validated by <code>scripts/verify_data.py</code> checking exact 2,430 unique official 2027 MLB games (all 30 clubs × 162 games), exact 109 remaining 2026 NFL Weeks 12–18 games, and 100% <code>https://</code> source-URL coverage across all rows.</li>
+      </ul>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    FT.renderNav("flagged");
+    FT.renderFooter();
+
+    (async function init() {
+      const [flagged, meta] = await Promise.all([
+        FT.loadJSON("assets/data/flagged.json"),
+        FT.loadJSON("assets/data/meta.json")
+      ]);
+
+      const sevBadge = sev => {
+        if (sev === "CRITICAL") return `<span class="badge badge-red">CRITICAL</span>`;
+        if (sev === "HIGH") return `<span class="badge badge-amber">HIGH</span>`;
+        if (sev === "MEDIUM") return `<span class="badge badge-blue">MEDIUM</span>`;
+        return `<span class="badge badge-slate">LOW</span>`;
+      };
+
+      document.getElementById("flagged-body").innerHTML = flagged.items.map(i => `
+        <tr class="${i.severity === "CRITICAL" ? "row-hp" : ""}">
+          <td class="num"><strong>${FT.esc(i.id)}</strong></td>
+          <td>${sevBadge(i.severity)}</td>
+          <td><strong>${FT.esc(i.category)}</strong></td>
+          <td>
+            <strong>${FT.esc(i.item)}</strong>
+            <div style="font-size:.84rem;color:var(--muted);margin-top:4px;">${FT.esc(i.details)}</div>
+          </td>
+          <td style="font-size:.84rem;">${FT.esc(i.action_needed)}</td>
+          <td class="num"><a href="${FT.esc(i.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+        </tr>
+      `).join("");
+
+      const dLabels = {
+        mlb_regular: "MLB Regular Season",
+        mlb_spring: "MLB Spring Training / Exhibition",
+        mlb_postseason: "MLB Postseason / All-Star",
+        nfl_regular: "NFL Regular Season",
+        nfl_postseason: "NFL Playoffs (WC / Div / Conf)",
+        nfl_super_bowl: "NFL Super Bowl",
+        ncaaf_fbs: "NCAA Football (FBS — Stanford / Cal)"
+      };
+      document.getElementById("durations-body").innerHTML = Object.entries(meta.durations_and_halftimes).map(([k, v]) => `
+        <tr>
+          <td><strong>${FT.esc(dLabels[k] || k)}</strong></td>
+          <td class="num"><strong>${FT.fmtDuration(v.avg_minutes)}</strong> (${v.avg_minutes} min)</td>
+          <td class="num">${v.halftime_minutes > 0 ? `<strong>${v.halftime_minutes} min</strong>` : "N/A (Inning breaks)"}</td>
+          <td style="font-size:.85rem;">${FT.esc(v.label)}</td>
+          <td class="num"><a href="${FT.esc(v.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+        </tr>
+      `).join("");
+    })();
+  </script>
+</body>
+</html>

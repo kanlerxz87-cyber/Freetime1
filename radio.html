@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outer Sunset SF 94122 AM/FM Sports Radio Guide — FREE TIME VACATION</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="hero" style="padding:22px 26px;">
+      <h1>Outer Sunset SF 94122 — AM/FM Sports Radio Guide</h1>
+      <p>Verified directory of every terrestrial AM &amp; FM live sports radio station receivable in <strong>Outer Sunset, San Francisco (ZIP 94122)</strong>, including reception notes, additional local pro sports (Warriors, Valkyries, Earthquakes), and verified digital-only confirmations (Sharks, 49ers Spanish).</p>
+    </section>
+
+    <div class="grid grid-3" style="margin-bottom:22px;">
+      <div class="card card-amber">
+        <h3>Core High-Priority AM/FM Dial</h3>
+        <ul style="margin:6px 0 0;padding-left:18px;font-size:.9rem;">
+          <li><strong>KNBR 680 AM / 104.5 FM:</strong> SF Giants, SF 49ers, Westwood One NFL</li>
+          <li><strong>KSAN 107.7 FM:</strong> SF 49ers Co-Flagship</li>
+          <li><strong>KTCT 1050 AM:</strong> Stanford Football, ESPN Radio</li>
+          <li><strong>KSFO 810 AM:</strong> Cal Football, SJ Earthquakes, WWO</li>
+          <li><strong>KNEW 960 AM:</strong> Athletics (Bay Area affiliate)</li>
+          <li><strong>KSFN 1510 AM:</strong> SF Giants (Spanish)</li>
+        </ul>
+      </div>
+      <div class="card card-blue">
+        <h3>Additional Local AM/FM Sports (High-Priority Awareness)</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:0;">
+          <strong>KGMZ 95.7 FM ("95.7 The Game")</strong> broadcasts <strong>Golden State Warriors (NBA, Oct–Apr)</strong> and <strong>Golden State Valkyries (WNBA, May–Sep)</strong> with full signal in 94122. <strong>KSFO 810 AM</strong> carries <strong>San Jose Earthquakes (MLS, Feb–Oct)</strong>. Note: these run year-round and are flagged separately so you can see both Core MLB/NFL/NCAAF free time and additional Bay Area broadcasts.
+        </p>
+      </div>
+      <div class="card card-green">
+        <h3>Verified NO Terrestrial AM/FM Conflict</h3>
+        <p style="font-size:.88rem;color:var(--muted);margin:0;">
+          <strong>San Jose Sharks (NHL):</strong> Confirmed streaming-only on Sharks Audio Network since 2021 — zero AM/FM broadcast in 94122.<br><br>
+          <strong>49ers Spanish Radio:</strong> Confirmed streaming-only in the SF Bay Area (<code>49ers.com/esp</code>; terrestrial W Radio stations are in Mexico only).
+        </p>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <h2>Complete Verified Bay Area Sports Radio Directory (94122)</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Station / Callsign</th>
+            <th>Dial</th>
+            <th>Band / Language</th>
+            <th>Priority</th>
+            <th>Teams &amp; Live Sports Carried</th>
+            <th>Outer Sunset 94122 Reception &amp; Conflict Scope</th>
+            <th>Official Source</th>
+          </tr>
+        </thead>
+        <tbody id="radio-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    FT.renderNav("radio");
+    FT.renderFooter();
+
+    (async function init() {
+      const data = await FT.loadJSON("assets/data/radio.json");
+      document.getElementById("radio-body").innerHTML = data.stations.map(s => {
+        let pBadge = `<span class="badge badge-slate">${FT.esc(s.priority)}</span>`;
+        if (s.priority === "HIGH PRIORITY") pBadge = `<span class="badge badge-amber">★ HIGH PRIORITY</span>`;
+        else if (s.priority.includes("OTHER BAY AREA")) pBadge = `<span class="badge badge-blue">★ ${FT.esc(s.priority)}</span>`;
+        else if (s.priority.includes("NOT ON")) pBadge = `<span class="badge badge-green">${FT.esc(s.priority)}</span>`;
+
+        const links = [`<a href="${FT.esc(s.source_url)}" target="_blank" rel="noopener">Primary ↗</a>`];
+        if (s.secondary_source) links.push(`<a href="${FT.esc(s.secondary_source)}" target="_blank" rel="noopener">Secondary ↗</a>`);
+
+        return `
+          <tr class="${s.priority === "HIGH PRIORITY" ? "row-hp" : ""}">
+            <td><strong>${FT.esc(s.callsign)}</strong></td>
+            <td class="num"><strong>${FT.esc(s.dial)}</strong></td>
+            <td>${FT.esc(s.band)}<div style="font-size:.78rem;color:var(--muted);">${FT.esc(s.language)}</div></td>
+            <td>${pBadge}</td>
+            <td><ul style="margin:0;padding-left:16px;font-size:.85rem;">${s.teams_and_leagues.map(t => `<li>${FT.esc(t)}</li>`).join("")}</ul></td>
+            <td style="font-size:.84rem;">
+              <div>${FT.esc(s.power_notes)}</div>
+              <div style="margin-top:4px;color:var(--muted);"><strong>Scope:</strong> ${FT.esc(s.conflict_scope)}</div>
+            </td>
+            <td class="num">${links.join("<br>")}</td>
+          </tr>`;
+      }).join("");
+    })();
+  </script>
+</body>
+</html>

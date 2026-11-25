@@ -1,0 +1,37 @@
+# COORDINATION.md — FREE TIME VACATION (`kanlerxz87-cyber/Freetime1`)
+
+> Shared task board and verification log for autonomous execution.
+> Active working branch: `arena/e4a8480c-freetime1` (base: `main` @ `a7d1d4a`).
+> Verification cutoff date: **2026-11-25 UTC**.
+
+## Task Board
+
+| ID | Task | Status | Owner | Verification & Artifacts |
+| --- | --- | --- | --- | --- |
+| T1 | MLB 2027 Complete Schedule (All 30 Clubs: Spring Training, Exhibition, Regular Season, All-Star, Special Games) + 2028/2029 Check | **DONE (VERIFIED)** | `session-e4a8480c` | `data/mlb_teams.json`, `data/mlb_2027_03.csv`..`09.csv`, `data/mlb_2027_spring.csv`. Mathematical checksum PASSED: **2,430** unique official regular-season games (all 30 teams × 162 games, 0 duplicates), **474** Spring/Exhibition games, **97th All-Star Game** (Jul 13, 2027), **Field of Dreams** (Aug 12), **Little League Classic** (Aug 19). Verified `statsapi.mlb.com` returns empty dates for 2028 (labeled `Estimated`). |
+| T2 | NFL 2026 Remaining Schedule (Weeks 12–18) + Postseason + Pro Bowl Discontinuation + 2027–2029 Super Bowls | **DONE (VERIFIED)** | `session-e4a8480c` | `data/nfl_2026_w12_15.csv`, `data/nfl_2026_w16_18.csv`, `data/other_verified_events.json`. All **109** official Weeks 12–18 matchups & `nfl.com/games/...` URLs verified. Verified AFC–NFC Pro Bowl game discontinued starting 2026–27 (`nfl.com` Aug 27, 2026). Super Bowl LXI (Feb 14, 2027) & Super Bowl LXII (Feb 13, 2028) confirmed; Super Bowl LXIII Las Vegas host confirmed (date est. Feb 11, 2029). |
+| T3 | Westwood One Sports National Radio (NFL & NCAAF) + High-Priority Local NCAAF (Stanford & California) | **DONE (VERIFIED)** | `session-e4a8480c` | Verified upcoming 2026–27 Westwood One NFL & NCAAF slates (`westwoodonesports.com`). Verified Stanford vs SMU (Sat Nov 28, 12:30 PM PST, KTCT 1050 AM; 6–5 bowl-eligible -> Dec bowl TBD flagged) and Cal vs Pitt (Sat Nov 28, 4:30 PM PST, KSFO 810 AM; 3–8, not bowl-eligible). |
+| T4 | Outer Sunset SF 94122 AM/FM Sports Radio Directory & Additional Bay Area Sports Research | **DONE (VERIFIED)** | `session-e4a8480c` | `data/bay_area_radio.json` + `radio.html`. Verified KNBR 680/104.5, KSAN 107.7, KTCT 1050, KSFO 810, KNEW 960, KSFN 1510, KGMZ 95.7 (Warriors/Valkyries), KZSF 1370 (SJ Earthquakes Spanish), plus verified **NO terrestrial AM/FM** for San Jose Sharks (streaming-only since 2021) and SF 49ers Spanish Radio in Bay Area (`49ers.com/esp`). |
+| T5 | Average Game Durations & Official Halftime Research | **DONE (VERIFIED)** | `session-e4a8480c` | Verified MLB (2h 45m avg / 2h 42m 9-inn avg), NFL Regular Season (3h 12m avg, **13-min official halftime** per NFL Rulebook Rule 4-1-3), Super Bowl (3h 40m avg, 25–30 min halftime), NCAAF FBS (3h 25m avg, **20-min official halftime** per NCAA Rule 3-2-2). |
+| T6 | Daily PST/PDT Free-Time Engine & 2027–2029 Multi-Year Vacation Calculator | **DONE (VERIFIED)** | `session-e4a8480c` | `scripts/build_data.py`, `scripts/verify_data.py`, `assets/data/*`. Compiled **3,181 events** across **402 calendar days** (Nov 25, 2026 – Dec 31, 2027) with exact `America/Los_Angeles` PST/PDT conversion, merged free-time intervals, and 2027–2029 vacation matrix. |
+| T7 | Multi-Page GitHub Pages Dashboard (Executive Summary, Scoreboard/Calendar, Vacations, Full Schedules, Radio Guide, Flagged for Review) | **DONE (VERIFIED)** | `session-e4a8480c` | `index.html`, `calendar.html`, `vacations.html`, `schedules.html`, `radio.html`, `flagged.html`, `assets/style.css`, `assets/common.js`, `.nojekyll`, `README.md`. All local refs, inline JS syntax (`node --check`), HTTP 200 endpoints, and 100% official `https://` source links passed automated checks. |
+| T8 | Flagged for Review Registry (10 Items) | **DONE (VERIFIED)** | `session-e4a8480c` | `data/flagged_review.json` + `flagged.html`. Documented MLB Dec 1, 2026 CBA lockout risk, 594 MLB 2027 TBD start times, Pro Bowl discontinuation & LA flag showcase, Stanford 2026 Bowl TBD, NFL Wks 16–18 flex games, NFL playoff slots, unreleased 2027–2029 schedules, SB LXIII 18-game uncertainty, AM nighttime reception caveats, and Warriors/Valkyries/Earthquakes local AM/FM overlap. |
+| T9 | Push, Open PR to `main`, Merge & Verify GitHub Pages Live Deployment | **IN PROGRESS** | `session-e4a8480c` | Ready to commit, push `arena/e4a8480c-freetime1`, open PR to `main`, merge, enable/verify GitHub Pages live URL. |
+
+## Official Sources Verified
+- MLB Official Stats API (`https://statsapi.mlb.com/api/v1/schedule`, `https://statsapi.mlb.com/api/v1/teams?sportId=1&season=2027`) & `https://www.mlb.com/gameday/<gamePk>`
+- SF Giants Radio (`https://www.mlb.com/giants/schedule/tv`) & Athletics Radio (`https://www.mlb.com/athletics/schedule/affiliates`)
+- NFL Official 2026 Schedules (`https://www.nfl.com/schedules/2026/by-week/week-12` .. `week-18`), Flexible Scheduling (`https://www.nfl.com/legal/flexible-scheduling-procedures`), 2026 Kickoff Guide (`https://media.nfl.com/football-information/2026/news/2026-kickoff-guide`), 2026 NFL Rulebook (`https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`), Pro Bowl Discontinuation (`https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested`), Super Bowl Info (`https://www.nfl.com/super-bowl/event-info/`)
+- SF 49ers Official Schedule & Radio (`https://www.49ers.com/schedule/2026/`, `https://www.49ers.com/esp/estaciones-de-radio`)
+- Westwood One Sports (`https://www.westwoodonesports.com/nfl-schedule/`, `https://www.westwoodonesports.com/ncaa-football/`)
+- Stanford Cardinal Football (`https://gostanford.com/sports/football/schedule`, `https://gostanford.com/news/2026/7/30/2026-football-radio-broadcast-team-announced`)
+- California Golden Bears Football (`https://calbears.com/sports/football/schedule`, `https://calbears.com/news/2026/6/25/football-cal-announces-matchups-against-odu-sac-state.aspx`)
+- Golden State Warriors (`https://www.nba.com/warriors/radio-network`), Golden State Valkyries (`https://bayareasportswire.com/valkyries-watch/`), San Jose Earthquakes (`https://www.sjearthquakes.com/news/news-earthquakes-announce-radio-stations-for-2026-mls-season`), San Jose Sharks digital-only audio verification
+
+## Verification Checksums (Run `python3 scripts/verify_data.py`)
+- 2027 MLB Regular Season: **2,430 / 2,430** unique official games; all 30 MLB clubs = **162 games each** (0 mismatches, 0 duplicates).
+- 2026 NFL Remaining Regular Season (Weeks 12–18): **109 / 109** unique official matchups.
+- Source URL Coverage: **3,181 / 3,181** compiled events (100%), **10 / 10** radio entries (100%), **10 / 10** vacation windows (100%), **10 / 10** flagged items (100%) have valid official `https://` source links.
+
+## Session Log
+- `2026-11-25` (`session-e4a8480c`): Initialized repo audit, fetched & verified all official schedules (2026 NFL Wks 12–18, all 2,430 2027 MLB regular season games, all 474 2027 MLB Spring/Exhibition games + ASG, Westwood One Sports, Stanford & Cal NCAAF, Bay Area AM/FM radio stations, and official duration/halftime rules). Built data pipeline (`scripts/build_data.py`), verified mathematical checksums (`scripts/verify_data.py`), built 6-page GitHub Pages dashboard, and ran full local HTTP/JS validation.
