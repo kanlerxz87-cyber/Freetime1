@@ -21,6 +21,7 @@ Date started: 2026-11-25
 | T3 | GitHub Pages site: landing + category subpages + scoreboard/calendar UI | in progress | arena-9f5f3a65 | `index.html`, `*.html`, `assets/*`, `.nojekyll` |
 | T4 | Vacation-window analysis (1/2/3-week all-off windows, 2027–2029) | in progress | arena-9f5f3a65 | `vacation-windows.html`, `data/vacation.json` |
 | T5 | Final integration: re-verify combined data, link check, PR to `main`, merge, Pages deploy | in progress | arena-9f5f3a65 | all (integration only) |
+| T6 | Supplemental official-source reconciliation for future schedule claims and status corrections (handoff only; no edits to owned site/data) | done | arena/bf7d526d-freetime1 | `sources/arena-bf7d526d-audit.md`, `COORDINATION.md` |
 
 Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 `needs review` = published on Flagged for Review page; does not block merge.
@@ -29,6 +30,7 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 - 2026-11-25 — `arena-9f5f3a65` claims T1 (scope: `sources/verification-log.md`, `COORDINATION.md`). No other claims exist. Pushing claim immediately before starting T2–T5.
 - 2026-11-25 — `arena-9f5f3a65` claims T2+T3+T4+T5 (single-session integration; scopes: `data/*`, `tools/*`, `*.html`, `assets/*`, `.nojekyll`). No other sessions active; no overlap possible.
+- 2026-11-25 — `arena/bf7d526d-freetime1` claims T6, a separate official-source reconciliation note at `sources/arena-bf7d526d-audit.md` plus this board. The existing site, shared navigation, source log, schedule data and flagged page remain outside this claim.
 
 ## Handoff / conflict log
 
@@ -73,3 +75,15 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 - Audited 35 visible upcoming listings from the [official Westwood One NFL schedule](https://www.westwoodonesports.com/nfl-schedule/); copied national airtimes in Pacific time, retaining TBD matchup labels. Does not establish local clearances or any broadcasts omitted from the page.
 - Read [Stanford](https://gostanford.com/sports/football/schedule), [Cal](https://calbears.com/sports/football/schedule/2026), [NFL](https://www.nfl.com/super-bowl/halftime-show), [MLB spring announcement](https://www.mlb.com/press-release/press-release-mlb-announces-2027-spring-training-schedule), and [Warriors radio announcement](https://www.nba.com/warriors/news/warriors-announce-2026-27-television-radio-broadcast-schedules-20260824). See Flagged for Review for missing coverage. MLB API was not reachable from the sandbox; runtime retrieval and completeness are not verified.
 - Local tests cover interval merging, midnight clipping, daylight-saving boundaries, snapshot shape and internal links; these are not checks of every external URL or schedule.
+
+## Concurrent branch reconciliation — arena/bf7d526d-freetime1
+
+- 2026-11-25 — This Arena branch was created from the original `a7d1d4a` base when no `COORDINATION.md` existed in its checkout. During `git pull --rebase origin main`, `origin/main` advanced to include merged PR #1 and PR #2, including the shared site, task board, and source-review work.
+- A duplicate standalone planner had been created locally on this branch. To avoid overwriting the already-merged integration site or task-board records, that duplicate site commit is being omitted from the rebase. The PR #1/#2 files and records are preserved unchanged.
+- No other session's file scope is being edited. Any independently verified issue discovered against the merged data will be logged as a request/handoff here, not silently changed in their owned pages or data.
+
+## T6 completion and integration-owner request — arena/bf7d526d-freetime1
+
+- T6 DONE: `sources/arena-bf7d526d-audit.md` records official-source checks and correction recommendations; each finding links to the corresponding league, team, or broadcaster source.
+- Requested update from the integration owner (`arena-9f5f3a65`): reconcile the audit against owned `sources/verification-log.md` and `flagged-for-review.html` (do not edit these paths on this branch). In particular: use MLB's official 2028 All-Star host/month page rather than third-party day conflicts; add the partial official 2027 Cal slate and BYU/ODU conflict; distinguish Stanford official opponent allocations from unverified dates; update A's/Cal radio status from current official team pages; scope Westwood One's affiliate list to its `NFL Regular Season (2025)` heading; verify future Super Bowl claims from direct NFL sources; and distinguish the official MLB 2025 average from unverified future NFL/NCAAF elapsed-duration estimates.
+- This branch intentionally does not replace the already-merged dashboard or its owned data/navigation. The merged PRs #1/#2 remain intact.
