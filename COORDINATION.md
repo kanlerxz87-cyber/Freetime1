@@ -35,6 +35,7 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 - 2026-11-25 — `arena/bf7d526d-freetime1` claims T7 after PR #3 merged the source audit. T7 addresses only prominent false-clearance language and source-status corrections required by that audit; no schedule rows or owner data model are being invented or expanded.
 - T7 DONE: homepage, executive summary, scoreboard, vacation analysis and methodology now state that partial-model gaps are not certified free time. Calendar dates use unknown/modeled-activity colors instead of green free-day claims; minute gaps are labeled unmodeled. Flagged page and source table now reflect the official-source findings from T6 (MLB 2027 release, Cal partial slate/conflict, Stanford opponent-vs-date scope, Athletics/Cal station sources, NFL future schedule data status and Super Bowl confirmation limits). Added regression assertions preventing false-free language from returning.
 - Verification: `node --check assets/app.js`; `node scripts/test.mjs` (interval/DST/snapshot/link checks plus no-false-free claims); `git diff --check`. External official pages were checked via browser tools; per-address 94122 radio reception remains unknown.
+- Follow-up polish after PR #6: removed model-generated date ranges from the vacation page rather than showing unsupported candidate windows, and fixed timeline end-of-day rendering to read “12:00 AM (next day)” instead of “12:00 PM.”
 
 ## Handoff / conflict log
 
