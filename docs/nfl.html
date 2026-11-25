@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFL and 49ers - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>NFL and 49ers</h1>
+<p class="lead">Two tables, both rendered from the source files in <code>data/</code>. The Westwood One table is the national radio list you asked for. The 49ers table is the team's official 2026 schedule and radio flagship. Rows with a time mismatch are flagged.</p>
+<div class="note"><strong>Coverage note:</strong> the full NFL league schedule is not loaded here. Other NFL games are treated as an estimated season window, so no free day is claimed on an NFL-season day. See <a href="flagged.html">Flagged for Review</a>.</div>
+
+<h2>Westwood One Sports - national NFL radio broadcasts (upcoming)</h2>
+<p class="muted">Source: <a href="https://www.westwoodonesports.com/nfl-schedule/" target="_blank" rel="noopener">westwoodonesports.com/nfl-schedule</a>. Times are as listed by Westwood One (Eastern). Pacific is shown for convenience.</p>
+<div class="wrap"><table class="tbl" id="ww"><thead><tr><th>Date</th><th>Westwood One time</th><th>Pacific</th><th>Matchup</th><th>Venue</th><th>Broadcast label</th><th>Check</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+
+<h2>San Francisco 49ers - 2026 remaining (official)</h2>
+<p class="muted">Source: <a href="https://www.49ers.com/schedule/2026-regular-season/" target="_blank" rel="noopener">49ers.com schedule</a>. Radio: KSAN 107.7 FM / KNBR 104.5 FM / 680 AM (listed per game on the official page). Completed games are not listed.</p>
+<div class="wrap"><table class="tbl" id="sf"><thead><tr><th>Week</th><th>Date and time (PT)</th><th>Opponent</th><th>TV</th><th>Venue</th><th>Radio</th><th>Check</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+
+<h2>Not yet in this site</h2>
+<ul class="clean">
+<li>Full NFL league schedule (other teams' games, and NFL.com's listed times) for 2026-27 and the 2027-2029 seasons. The NFL.com pages reviewed (Week 12) show different times from Westwood One; see Flagged.</li>
+<li>NFL preseason games for 2027-2029, and the 2027+ schedule: not released or not loaded.</li>
+</ul>
+</main>
+<footer>Sources: Westwood One Sports (westwoodonesports.com), 49ers.com, NFL.com. Times flagged where sources disagree.</footer>
+<script src="assets/app.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  Promise.all([fetch('data/nfl-radio.json').then(function (r) { return r.json(); }), fetch('data/49ers-2026.json').then(function (r) { return r.json(); })]).then(function (a) {
+    var nfl = a[0], sf = a[1];
+    var rows = nfl.games.map(function (g) {
+      var t = Date.parse(g.date);
+      var et = new Date(t).toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit' });
+      var pt = new Date(t).toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' });
+      var chk = g.dupOf ? '<span class="badge flag">Time mismatch with 49ers.com: flagged</span>' : (g.nfl_com_check ? '<span class="badge flag">' + FT.esc(g.nfl_com_check) + '</span>' : '');
+      return '<tr><td>' + FT.esc(et.split(',').slice(0, 2).join(',')) + '</td><td>' + FT.esc(et.split(', ').slice(-1)[0]) + ' ET</td><td>' + FT.esc(pt) + ' PT</td><td>' + FT.esc(g.matchup) + '</td><td>' + FT.esc(g.venue) + '</td><td>' + FT.esc(g.label) + '</td><td>' + chk + '</td><td><a href="https://www.westwoodonesports.com/events/' + g.id + '" target="_blank" rel="noopener">Westwood One event ' + g.id + '</a></td></tr>';
+    });
+    document.querySelector('#ww tbody').innerHTML = rows.join('');
+    var sr = sf.games.map(function (g) {
+      var label = g.date ? FT.fmtShort(g.date.slice(0, 10)) + ' ' + new Date(Date.parse(g.date)).toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit' }) + ' PT' : 'TBD';
+      var chk = g.check ? '<span class="badge flag">' + FT.esc(g.check) + '</span>' : '';
+      return '<tr class="hp"><td>' + FT.esc(g.week) + '</td><td>' + FT.esc(label) + '</td><td>' + FT.esc(g.opponent) + '</td><td>' + FT.esc(g.tv) + '</td><td>' + FT.esc(g.venue) + '</td><td>KSAN 107.7 FM / KNBR 104.5 FM / 680 AM</td><td>' + chk + '</td><td><a href="' + FT.esc(g.source) + '" target="_blank" rel="noopener">49ers.com</a></td></tr>';
+    });
+    document.querySelector('#sf tbody').innerHTML = sr.join('');
+  });
+});
+</script>
+</body></html>

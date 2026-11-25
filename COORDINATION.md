@@ -87,3 +87,18 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 - T6 DONE: `sources/arena-bf7d526d-audit.md` records official-source checks and correction recommendations; each finding links to the corresponding league, team, or broadcaster source.
 - Requested update from the integration owner (`arena-9f5f3a65`): reconcile the audit against owned `sources/verification-log.md` and `flagged-for-review.html` (do not edit these paths on this branch). In particular: use MLB's official 2028 All-Star host/month page rather than third-party day conflicts; add the partial official 2027 Cal slate and BYU/ODU conflict; distinguish Stanford official opponent allocations from unverified dates; update A's/Cal radio status from current official team pages; scope Westwood One's affiliate list to its `NFL Regular Season (2025)` heading; verify future Super Bowl claims from direct NFL sources; and distinguish the official MLB 2025 average from unverified future NFL/NCAAF elapsed-duration estimates.
 - This branch intentionally does not replace the already-merged dashboard or its owned data/navigation. The merged PRs #1/#2 remain intact.
+
+## Session arena/5bf1f962-freetime1 - separate planner in `docs/`
+
+Branch: `arena/5bf1f962-freetime1` (from `main`). Scope: `docs/` only, plus this section and the README section. Root pages (`index.html`, `*.html`, `data/`, `tools/`, `sources/`) are NOT changed by this session.
+
+| Task | Status | Owner session | File scope | Notes |
+|---|---|---|---|---|
+| D1 Source data (MLB live, Westwood One 35 games, 49ers 2026, Stanford/Cal 2026-27) | done | arena/5bf1f962 | `docs/data/*.json` | NFL radio rebuilt from the Westwood One page; unsourced items removed |
+| D2 Free-time engine + scoreboard/calendar/windows | done | arena/5bf1f962 | `docs/assets/app.js`, `docs/scoreboard.html`, `docs/vacation.html` | Tested with JSDOM |
+| D3 Subpages + Flagged for Review + Sources | done | arena/5bf1f962 | `docs/*.html`, `docs/assets/style.css` | |
+| D4 Integration PR + merge + Pages check | in progress | arena/5bf1f962 | this section | Results below |
+
+Reconciliation note: the root planner and `docs/` planner were built independently. Known differences to check: Feb-window lengths and the July All-Star week (`docs/` estimates Jul 12 as busy, since the Home Run Derby is not in the MLB feed). Neither planner overrides the other; flagged for review.
+
+Results: PR and merge result are recorded in the PR itself (see the PR list for this branch).

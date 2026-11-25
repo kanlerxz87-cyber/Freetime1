@@ -1,0 +1,34 @@
+{
+  "title": "Average game durations used for the free-time calculation",
+  "method": "Busy window = scheduled start to start + average duration. Halftime is inside the football figures. No extra buffer is added.",
+  "items": [
+    {
+      "league": "MLB",
+      "minutes": 158,
+      "label": "2:38 average nine-inning MLB game (2025 season)",
+      "source": "https://www.lines.com/guides/how-long-is-baseball-game/1523",
+      "source_type": "Secondary (lines.com)"
+    },
+    {
+      "league": "NFL",
+      "minutes": 183,
+      "label": "3:03 average NFL regular-season game (2025), kickoff to final whistle; includes halftime",
+      "source": "https://upintherafters.com/",
+      "source_type": "Secondary (upintherafters.com, nflverse analysis)"
+    },
+    {
+      "league": "College (CFB)",
+      "minutes": 207,
+      "label": "3:27 average FBS game (2024 season, as cited by hamcospo.com)",
+      "source": "https://hamcospo.com/",
+      "source_type": "Secondary (hamcospo.com)"
+    }
+  ],
+  "tbd_start_rules": {
+    "mlb_day_pt": "13:00",
+    "mlb_night_pt": "19:00",
+    "cfb_pt": "12:30",
+    "nfl_pt": "13:00 (only used when Westwood One gives no time)",
+    "note": "Used only when the official listing shows TBD. Marked as estimated everywhere."
+  }
+}

@@ -36,3 +36,14 @@ Every table row links its source; unconfirmable values are blank + flagged.
 ## Supplemental source check
 
 [Daily source check](daily-source-check.html) shows the official MLB feed when reachable and a date-stamped Westwood One snapshot. It does not certify free days.
+
+## Second planner: `docs/` (arena/5bf1f962-freetime1)
+
+A separate, independently written site lives in `docs/` and is served at `/docs/` on the same Pages site (`docs/index.html`). It was built from the official feeds listed in `docs/data/*.json` and `docs/sources.html`:
+
+- MLB is read live in the browser from the official MLB Stats API (`statsapi.mlb.com`).
+- Westwood One NFL radio (35 games with event IDs), 49ers 2026 (49ers.com), Stanford and Cal (gostanford.com, calbears.com) are in `docs/data/*.json`.
+- Scoreboard with prev/next/today and month calendar in Pacific time; vacation windows; flagged items in `docs/flagged.html`.
+- Estimates (unreleased 2028-2029 seasons, TBD start times) are labeled as estimates.
+
+The root site above is the primary site; the `docs/` site is an independent check. Their free-day results may differ; see the reconciliation note in `COORDINATION.md`.

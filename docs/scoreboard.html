@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scoreboard - Free Time Vacation</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><div id="nav"></div>
+<main>
+<h1>Scoreboard and calendar</h1>
+<p class="muted">Pick a day, or use the buttons to go to yesterday or tomorrow. All times are Pacific. Free blocks are the gaps between tracked games, using average durations (MLB 2:38, NFL 3:03, college 3:27).</p>
+<p class="muted" id="feedstatus"></p>
+<div class="controls">
+<a class="btn alt" id="prev" href="#">&larr; Yesterday</a>
+<a class="btn" id="today" href="#">Today</a>
+<a class="btn alt" id="next" href="#">Tomorrow &rarr;</a>
+<input type="date" id="pick" min="2026-11-25" max="2029-12-31">
+</div>
+<div class="legend"><span><span class="badge free">FREE</span> no tracked game</span><span><span class="badge busy">BUSY</span> verified games</span><span><span class="badge est">ESTIMATED BUSY</span> inside an estimated season window</span></div>
+<div class="card" id="day">Loading...</div>
+<h2>Month calendar</h2>
+<div class="controls">
+<a class="btn alt" id="pm" href="#">&larr; Previous month</a>
+<strong id="mlabel"></strong>
+<a class="btn alt" id="nm" href="#">Next month &rarr;</a>
+</div>
+<div id="month"></div>
+</main>
+<footer>Free time is calculated in Pacific Time. Sources for each game are linked on its card.</footer>
+<script src="assets/app.js"></script>
+<script>
+(function () {
+  function pacificToday() { return FT.keyOf(Date.now()); }
+  var q = new URLSearchParams(location.search);
+  var key = q.get('date') || pacificToday();
+  if (key < FT.RANGE_START) key = FT.RANGE_START;
+  if (key > FT.RANGE_END) key = FT.RANGE_END;
+  var mon = { y: +key.slice(0, 4), m: +key.slice(5, 7) };
+  function go(k) { location.href = 'scoreboard.html?date=' + k; }
+  document.getElementById('prev').onclick = function (e) { e.preventDefault(); go(FT.addDays(key, -1)); };
+  document.getElementById('next').onclick = function (e) { e.preventDefault(); go(FT.addDays(key, 1)); };
+  document.getElementById('today').onclick = function (e) { e.preventDefault(); go(pacificToday()); };
+  document.getElementById('pick').value = key;
+  document.getElementById('pick').onchange = function () { if (this.value) go(this.value); };
+  document.getElementById('pm').onclick = function (e) { e.preventDefault(); var d = new Date(Date.UTC(mon.y, mon.m - 2, 1)); location.href = 'scoreboard.html?date=' + d.toISOString().slice(0, 10); };
+  document.getElementById('nm').onclick = function (e) { e.preventDefault(); var d = new Date(Date.UTC(mon.y, mon.m, 1)); location.href = 'scoreboard.html?date=' + d.toISOString().slice(0, 10); };
+  document.getElementById('mlabel').textContent = new Date(Date.UTC(mon.y, mon.m - 1, 1, 12)).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  FT.status(document.getElementById('feedstatus'));
+  FT.loadCtx().then(function (ctx) {
+    FT.renderDay(document.getElementById('day'), key, ctx);
+    FT.renderMonth(document.getElementById('month'), mon.y, mon.m, ctx, key);
+  }).catch(function (err) {
+    document.getElementById('day').innerHTML = '<p>Could not load the schedule data: ' + FT.esc(err.message) + '</p>';
+  });
+})();
+</script>
+</body></html>
