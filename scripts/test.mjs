@@ -11,5 +11,6 @@ const html=readFileSync('daily-source-check.html','utf8');for(const [,,href] of 
 const index=readFileSync('index.html','utf8');assert.match(index,/no 1-, 2-, or 3-week span can be certified as sports-free/i);assert.match(index,/unknown, not free/i);
 const scoreboard=readFileSync('scoreboard.html','utf8');assert.match(scoreboard,/No date is certified free/i);assert.match(scoreboard,/unknown, not free/i);
 const vacation=readFileSync('vacation-windows.html','utf8');assert.match(vacation,/UNKNOWN — incomplete coverage/);assert.match(vacation,/no 1-, 2-, or 3-week span can currently be certified as sports-free/i);
-const app=readFileSync('assets/app.js','utf8');assert.match(app,/NOT CERTIFIED — schedule coverage is incomplete/);assert.match(app,/Unblocked in this partial model/);
+const app=readFileSync('assets/app.js','utf8');assert.match(app,/NOT CERTIFIED — schedule coverage is incomplete/);assert.match(app,/Unblocked in this partial model/);assert.match(app,/12:00 AM \(next day\)/);
+assert.doesNotMatch(vacation,/2028-02-14/);assert.doesNotMatch(vacation,/Feb 15–Mar 23/);
 console.log('Passed interval, DST, snapshot, link, and no-false-free-claim checks.');

@@ -72,7 +72,7 @@ function freeGaps(blocks){
   if(cur<1440) gaps.push({start:cur,end:1440});
   return gaps.filter(g=>g.end>g.start);
 }
-function mmToTime(m){ const h=Math.floor(m/60), mm=m%60; const ap=h>=12?"PM":"AM"; const hh=h%12||12; return `${hh}:${String(mm).padStart(2,"0")} ${ap}`; }
+function mmToTime(m){ if(m>=1440) return "12:00 AM (next day)"; const h=Math.floor(m/60), mm=m%60; const ap=h>=12?"PM":"AM"; const hh=h%12||12; return `${hh}:${String(mm).padStart(2,"0")} ${ap}`; }
 
 function renderDay(iso){
   const day=dayByDate(iso);
@@ -90,16 +90,16 @@ function renderDay(iso){
   const blockRows = blocks.map(b=>`<tr><td>${mmToTime(b.startMin)} – ${mmToTime(b.endMin)} PT</td><td>${esc(b.label)}</td><td>${esc(b.note)}</td></tr>`).join("") || `<tr><td colspan="3">No busy blocks.</td></tr>`;
   el.innerHTML = `
     <h2 style="margin-top:0">${esc(fmtDate(iso))}</h2>
-    <p>${status} <span class="small">· All times Pacific (PT). Free minutes = minutes with no tracked game on air.</span></p>
+    <p>${status} <span class="small">· All times Pacific (PT). Gap durations are unmodeled minutes in an incomplete snapshot, not verified free time.</span></p>
     <p><strong>Unblocked in this partial model: ${freeMins} min (${(freeMins/60).toFixed(1)} h)</strong> of 1,440 min. This is not verified free time.</p>
     <h3>Why?</h3><ul>${reasons}</ul>
     <h3>Timeline (12:00 AM – 11:59 PM PT)</h3>
     <div class="timeline"><div class="ticks"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div>${tlBlocks}</div>
     <p class="small">Colored blocks show modeled or transcribed windows only; blank space is not certified free time. Verified kickoff anchors still do not establish complete coverage of every required league, special event, or broadcast.</p>
-    <h3>Busy blocks (on air)</h3>
+    <h3>Windows represented in the model</h3>
     <table><thead><tr><th>Window (PT)</th><th>Game / window</th><th>Note</th></tr></thead><tbody>${blockRows}</tbody></table>
-    <h3>Unmodeled gaps (not confirmed game-free)</h3>
-    <table><thead><tr><th>Free window (PT)</th><th>Length</th></tr></thead><tbody>${gapRows}</tbody></table>
+    <h3>Unmodeled intervals (not confirmed game-free)</h3>
+    <table><thead><tr><th>Interval (PT)</th><th>Length in partial model</th></tr></thead><tbody>${gapRows}</tbody></table>
   `;
   renderMonth(iso.slice(0,7), iso);
 }
