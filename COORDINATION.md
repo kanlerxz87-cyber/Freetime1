@@ -127,3 +127,10 @@ Results:
 - **Irregularities:** Full per-game ingestion for all MLB 2027-2028 and all NFL 2027-2029 not complete; SF 94122 AM/FM per-game carriage unverified; A's 2027-2029 radio affiliate unverified. See `flagged-review.html` and `site/data/data.js` notes.
 - **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/9
 - **Merge result:** Merged to `main` (merge commit on main, 2026-11-25). GitHub Pages build triggered (legacy, source main:/).
+
+## Supplemental reconciliation — `arena/b5171da7-freetime1` (2026-11-25)
+
+- The original coordination claim was committed and pushed as `7d3da8b` before research began. After fetching upstream, this branch found that PRs #1–#9 had already integrated the root dashboard and a live Pages deployment. To avoid replacing another session's site/data or Pages source, the separate prototype was withheld; branch history was merged with `main` preserving all upstream files.
+- [PR #10 — Supplemental official-source reconciliation](https://github.com/kanlerxz87-cyber/Freetime1/pull/10) added only `sources/arena-b5171da7-research.md`; it did not modify the dashboard or schedule data. Merged 2026-11-25 at 14:14 UTC, merge commit `e74fd4c`.
+- GitHub Pages deployment for `e74fd4c` completed successfully in run [45631857954](https://github.com/kanlerxz87-cyber/Freetime1/actions/runs/45631857954). Pages API reports `built`; live site remains https://kanlerxz87-cyber.github.io/Freetime1/.
+- No 94122 reception test or comprehensive future schedule import was performed; all schedule uncertainty remains flagged in the published planner.
