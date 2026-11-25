@@ -62,4 +62,6 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 ## PR / deploy record
 
-- (to fill after PR merge + Pages enable)
+- PR: https://github.com/kanlerxz87-cyber/Freetime1/pull/1 (MERGED 2026-11-25T13:44:54Z, merge commit b3e2637)
+- GitHub Pages: https://kanlerxz87-cyber.github.io/Freetime1/ (source: main /; build status: built 2026-11-25T13:44:55Z)
+- Note: Pages was already enabled (POST returned 403 "already exists"); GET confirms built. Bash curl to github.io is blocked by sandbox egress, so live check is via Pages API build status + local serve 200s.
