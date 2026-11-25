@@ -17,7 +17,7 @@ UTC = ZoneInfo("UTC")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
-OUT_DIR = os.path.join(ROOT, "assets", "data")
+OUT_DIR = os.path.join(ROOT, "planner", "assets", "data")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 NFL_TEAMS = {

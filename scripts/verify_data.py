@@ -16,7 +16,7 @@ from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
-OUT_DIR = os.path.join(ROOT, "assets", "data")
+OUT_DIR = os.path.join(ROOT, "planner", "assets", "data")
 
 errors = []
 
@@ -58,7 +58,7 @@ check(len(nfl_slugs) == 109, f"Unique NFL game slugs == 109 (got {len(nfl_slugs)
 print("3. Verifying compiled JSON assets & 100% source_url coverage...")
 for fn in ("meta.json", "daily_summary.json", "vacations.json", "radio.json", "flagged.json", "key_schedules.json"):
     p = os.path.join(OUT_DIR, fn)
-    check(os.path.exists(p), f"Exists: assets/data/{fn}")
+    check(os.path.exists(p), f"Exists: planner/assets/data/{fn}")
     with open(p) as fh:
         json.load(fh)
 
