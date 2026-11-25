@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Scoreboard &amp; PST Free-Time Calendar — FREE TIME VACATION</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="hero" style="padding:22px 26px;">
+      <h1>Daily Scoreboard &amp; PST/PDT Free-Time Calendar</h1>
+      <p>Navigate day-by-day like an MLB/NFL scoreboard (Nov 25, 2026 – Dec 31, 2027) to see exact Pacific Time free-time windows calculated from verified start times, average game durations, and halftime lengths.</p>
+    </section>
+
+    <div class="sb-bar">
+      <div class="sb-nav">
+        <button class="btn" id="btn-prev" title="Previous Day">◀ Yesterday</button>
+        <input type="date" id="date-picker" class="sb-date-input" min="2026-11-25" max="2027-12-31" value="2026-11-25" />
+        <button class="btn btn-primary" id="btn-today">Today (Nov 25)</button>
+        <button class="btn" id="btn-next" title="Next Day">Tomorrow ▶</button>
+      </div>
+      <div class="sb-nav" id="mode-group">
+        <button class="btn btn-sm active" data-mode="strict">All Core Sports (Strict)</button>
+        <button class="btn btn-sm" data-mode="reg">Regular + Postseason Only</button>
+        <button class="btn btn-sm" data-mode="hp">High-Priority Local Only</button>
+      </div>
+    </div>
+
+    <div class="quick-jumps">
+      <button class="btn btn-sm" data-jump="2026-11-26">Thanksgiving NFL (Nov 26)</button>
+      <button class="btn btn-sm" data-jump="2026-11-28">Stanford &amp; Cal Finales (Nov 28)</button>
+      <button class="btn btn-sm" data-jump="2026-11-29">Seahawks @ 49ers (Nov 29)</button>
+      <button class="btn btn-sm" data-jump="2027-02-01">13-Day Free Window Start (Feb 1)</button>
+      <button class="btn btn-sm" data-jump="2027-02-14">Super Bowl LXI (Feb 14)</button>
+      <button class="btn btn-sm" data-jump="2027-02-19">MLB Spring Opener (Feb 19)</button>
+      <button class="btn btn-sm" data-jump="2027-03-25">MLB Opening Day (Mar 25)</button>
+      <button class="btn btn-sm" data-jump="2027-07-13">MLB All-Star Game (Jul 13)</button>
+      <button class="btn btn-sm" data-jump="2027-07-14">Summer Free Day (Jul 14)</button>
+      <button class="btn btn-sm" data-jump="2027-08-12">Field of Dreams (Aug 12)</button>
+      <button class="btn btn-sm" data-jump="2027-09-26">MLB Finale (Sep 26)</button>
+    </div>
+
+    <div class="card" id="day-hero-card" style="margin-bottom:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;">
+        <div>
+          <h2 id="day-title" style="font-size:1.35rem;margin:0 0 4px;">Loading…</h2>
+          <div id="day-subtitle" style="color:var(--muted);font-size:.9rem;"></div>
+        </div>
+        <div id="day-status-badge"></div>
+      </div>
+
+      <div style="margin-top:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;font-size:.82rem;color:var(--muted);flex-wrap:wrap;gap:8px;">
+          <strong>24-Hour Pacific Time Conflict Map (<span id="tz-label">PST</span>)</strong>
+          <span>
+            <span style="display:inline-block;width:10px;height:10px;background:#dcfce7;border:1px solid #86efac;border-radius:2px;margin-right:4px;"></span>Free Time
+            <span style="display:inline-block;width:10px;height:10px;background:#ef4444;border-radius:2px;margin:0 4px 0 12px;"></span>Live Sports Busy
+            <span style="display:inline-block;width:10px;height:10px;background:#f59e0b;border-radius:2px;margin:0 4px 0 12px;"></span>High-Priority Local Team
+          </span>
+        </div>
+        <div class="timeline-track" id="timeline-track"></div>
+        <div class="timeline-ticks">
+          <span>12 AM</span><span>3 AM</span><span>6 AM</span><span>9 AM</span><span>12 PM</span><span>3 PM</span><span>6 PM</span><span>9 PM</span><span>11:59 PM</span>
+        </div>
+      </div>
+
+      <div id="windows-breakdown" style="margin-top:14px;"></div>
+    </div>
+
+    <div class="section-title">
+      <h2 id="scoreboard-heading">Games On Air</h2>
+      <div id="scoreboard-counts" style="font-size:.86rem;color:var(--muted);"></div>
+    </div>
+    <div class="table-wrap" style="margin-bottom:28px;">
+      <table>
+        <thead>
+          <tr>
+            <th>League / Phase</th>
+            <th>Matchup</th>
+            <th>Priority</th>
+            <th>Start (PST/PDT)</th>
+            <th>Est. End</th>
+            <th>Duration / Halftime</th>
+            <th>Bay Area Radio</th>
+            <th>Status</th>
+            <th>Official Source</th>
+          </tr>
+        </thead>
+        <tbody id="day-games-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="cal-header">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button class="btn btn-sm" id="cal-prev-m">◀ Prev Month</button>
+          <h2 id="cal-month-title" style="margin:0;">Month</h2>
+          <button class="btn btn-sm" id="cal-next-m">Next Month ▶</button>
+        </div>
+        <div style="font-size:.8rem;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;">
+          <span><span class="badge badge-green">Green</span> 100% Free Day</span>
+          <span><span class="badge badge-amber">Gold</span> High-Priority Bay Area Game</span>
+          <span><span class="badge badge-slate">Dashed</span> Contains Estimated/Unreleased Block</span>
+        </div>
+      </div>
+      <div class="cal-grid" id="cal-grid"></div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    FT.renderNav("calendar");
+    FT.renderFooter();
+
+    let dailyData = {};
+    let currentDate = FT.TODAY;
+    let currentMode = "strict"; // strict | reg | hp
+
+    function getParamDate() {
+      const p = new URLSearchParams(window.location.search).get("date");
+      if (p && /^\d{4}-\d{2}-\d{2}$/.test(p) && p >= FT.MIN_DATE && p <= FT.MAX_DATE) return p;
+      return FT.TODAY;
+    }
+
+    function filterGamesByMode(games, mode) {
+      if (mode === "reg") {
+        return games.filter(g => !/Spring Training|Exhibition|Preseason/.test(g.phase));
+      }
+      if (mode === "hp") {
+        return games.filter(g => g.high_priority);
+      }
+      return games;
+    }
+
+    async function renderDay(dIso) {
+      if (dIso < FT.MIN_DATE) dIso = FT.MIN_DATE;
+      if (dIso > FT.MAX_DATE) dIso = FT.MAX_DATE;
+      currentDate = dIso;
+      document.getElementById("date-picker").value = dIso;
+      const url = new URL(window.location);
+      url.searchParams.set("date", dIso);
+      window.history.replaceState({}, "", url);
+
+      const info = dailyData[dIso];
+      const ym = dIso.slice(0, 7);
+      const monthGames = await FT.loadMonth(ym);
+      const allDayGames = monthGames.filter(g => g.date === dIso);
+      const shownGames = filterGamesByMode(allDayGames, currentMode);
+
+      document.getElementById("day-title").textContent = `${FT.fmtDateLong(dIso)}`;
+      document.getElementById("tz-label").textContent = info.tz;
+
+      const freeMin = currentMode === "strict" ? info.free_min_strict
+        : currentMode === "reg" ? info.free_min_reg : info.free_min_hp;
+      const freeWins = currentMode === "strict" ? info.free_windows_strict
+        : currentMode === "reg" ? info.free_windows_reg : info.free_windows_hp;
+      const isFree = shownGames.length === 0;
+      const busyMin = 1440 - freeMin;
+
+      document.getElementById("day-subtitle").innerHTML =
+        `Pacific Time Zone: <strong>${info.tz}</strong> · Free Time: <strong>${FT.fmtDuration(freeMin)}</strong> · Live Sports Busy: <strong>${FT.fmtDuration(busyMin)}</strong> · ${shownGames.length} game(s) in current filter (${allDayGames.length} total all-sports)`;
+
+      document.getElementById("day-status-badge").innerHTML = isFree
+        ? `<span class="badge badge-green" style="font-size:.9rem;padding:6px 14px;">✅ 100% FREE DAY (24h 00m)</span>`
+        : `<span class="badge badge-red" style="font-size:.9rem;padding:6px 14px;">${shownGames.length} Game${shownGames.length === 1 ? "" : "s"} On Air · ${FT.fmtDuration(freeMin)} Free</span>`;
+
+      // Timeline track
+      const track = document.getElementById("timeline-track");
+      track.innerHTML = shownGames.map(g => {
+        const left = (g.start_min / 1440) * 100;
+        const width = Math.max(0.6, ((g.end_min - g.start_min) / 1440) * 100);
+        const cls = g.high_priority ? "timeline-busy timeline-busy-hp" : "timeline-busy";
+        return `<div class="${cls}" style="left:${left.toFixed(2)}%;width:${width.toFixed(2)}%;" title="${FT.esc(g.matchup)} (${FT.esc(g.time_display)} – Est. ${FT.fmtMinClock(g.end_min)} ${info.tz})"></div>`;
+      }).join("");
+
+      // Exact free-time chips
+      const wb = document.getElementById("windows-breakdown");
+      let noteHtml = "";
+      if (shownGames.some(g => g.tbd)) {
+        noteHtml = `<div style="margin-top:8px;font-size:.82rem;color:#92400e;">⚠️ Includes TBD/Estimated start times — free-time boundaries use researched standard home-park / league windows and will auto-refine once official times release. <a href="flagged.html">See Flagged for Review →</a></div>`;
+      }
+      wb.innerHTML = `
+        <div style="font-size:.84rem;font-weight:700;color:var(--muted);margin-bottom:6px;">EXACT FREE-TIME WINDOWS (${info.tz}):</div>
+        <div class="free-chips">
+          ${freeWins.map(w => `<span class="free-chip">🟢 ${w[0]} – ${w[1]} ${info.tz} (${FT.fmtDuration(w[2])})</span>`).join("")}
+        </div>
+        ${noteHtml}
+      `;
+
+      // Scoreboard table
+      document.getElementById("scoreboard-heading").textContent = `Scoreboard — ${FT.fmtDateShort(dIso)}`;
+      document.getElementById("scoreboard-counts").textContent =
+        `${shownGames.length} shown · ${shownGames.filter(g => g.high_priority).length} High Priority · ${shownGames.filter(g => g.tbd).length} TBD/Est.`;
+
+      const tbody = document.getElementById("day-games-body");
+      if (shownGames.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:28px;color:#065f46;background:#ecfdf5;font-weight:700;">
+          🎉 ZERO scheduled games in this mode on ${FT.fmtDateLong(dIso)}! All 24 hours (${info.tz}) are completely free of live sports conflicts.
+        </td></tr>`;
+      } else {
+        tbody.innerHTML = shownGames.map(g => {
+          const prio = g.high_priority
+            ? `<span class="badge badge-amber">★ ${FT.esc(g.priority_tag || "HIGH PRIORITY")}</span>`
+            : (g.priority_tag ? `<span class="badge badge-blue">${FT.esc(g.priority_tag)}</span>` : `<span class="badge badge-slate">Standard</span>`);
+          const ht = g.halftime_min > 0 ? ` (${g.halftime_min}m HT)` : "";
+          const noteLine = g.note ? `<div style="font-size:.78rem;color:var(--muted);margin-top:2px;">${FT.esc(g.note)}</div>` : "";
+          return `
+            <tr class="${g.high_priority ? "row-hp" : ""}">
+              <td>${FT.leagueBadge(g.league)}<div style="font-size:.76rem;color:var(--muted);margin-top:3px;">${FT.esc(g.phase)}</div></td>
+              <td><strong>${FT.esc(g.matchup)}</strong>${noteLine}</td>
+              <td>${prio}</td>
+              <td class="num"><strong>${FT.esc(g.time_display)}</strong></td>
+              <td class="num">~${FT.fmtMinClock(g.end_min)} ${info.tz}</td>
+              <td class="num">${FT.fmtDuration(g.duration_min)}${ht}</td>
+              <td style="font-size:.82rem;">${FT.esc(g.radio)}</td>
+              <td>${FT.statusBadge(g.status)}</td>
+              <td class="num"><a href="${FT.esc(g.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+            </tr>`;
+        }).join("");
+      }
+
+      renderCalendarMonth(dIso.slice(0, 7));
+    }
+
+    function renderCalendarMonth(ym) {
+      const [y, m] = ym.split("-").map(Number);
+      const first = new Date(Date.UTC(y, m - 1, 1, 12, 0, 0));
+      const monthName = first.toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+      document.getElementById("cal-month-title").textContent = monthName;
+
+      const dows = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      let html = dows.map(d => `<div class="cal-dow">${d}</div>`).join("");
+
+      const startDow = first.getUTCDay();
+      for (let i = 0; i < startDow; i++) html += `<div class="cal-cell empty"></div>`;
+
+      const daysInMonth = new Date(Date.UTC(y, m, 0)).getUTCDate();
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dIso = `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+        const info = dailyData[dIso];
+        if (!info) {
+          html += `<div class="cal-cell empty" style="opacity:.35;border:1px solid var(--border);"><div class="cal-daynum">${d}</div></div>`;
+          continue;
+        }
+        const isFree = currentMode === "strict" ? info.is_free_strict
+          : currentMode === "reg" ? info.is_free_reg : info.is_free_hp;
+        const gCount = currentMode === "strict" ? info.total_games
+          : currentMode === "reg" ? info.reg_games : info.hp_games;
+        const fMin = currentMode === "strict" ? info.free_min_strict
+          : currentMode === "reg" ? info.free_min_reg : info.free_min_hp;
+        let cls = "cal-cell ";
+        if (isFree) cls += "free";
+        else if (info.hp_games > 0) cls += "hp";
+        else cls += "busy";
+        if (info.has_estimated) cls += " est";
+        if (dIso === currentDate) cls += " selected";
+
+        html += `
+          <div class="${cls}" data-day="${dIso}">
+            <div class="cal-daynum">
+              <span>${d}</span>
+              ${isFree ? '<span style="color:#059669;font-size:.7rem;">FREE</span>' : `<span style="font-size:.7rem;color:var(--muted);">${gCount}g</span>`}
+            </div>
+            <div class="cal-meta">
+              ${isFree ? "24h Free" : `${FT.fmtDuration(fMin)} free`}${info.hp_games > 0 && !isFree ? " · ★Local" : ""}
+            </div>
+          </div>`;
+      }
+
+      const grid = document.getElementById("cal-grid");
+      grid.innerHTML = html;
+      grid.querySelectorAll(".cal-cell[data-day]").forEach(el => {
+        el.addEventListener("click", () => renderDay(el.dataset.day));
+      });
+    }
+
+    function shiftMonth(delta) {
+      const [y, m] = currentDate.slice(0, 7).split("-").map(Number);
+      const dt = new Date(Date.UTC(y, m - 1 + delta, 1, 12, 0, 0));
+      let target = dt.toISOString().slice(0, 10);
+      if (target < FT.MIN_DATE) target = FT.MIN_DATE;
+      if (target > FT.MAX_DATE) target = FT.MAX_DATE;
+      renderDay(target);
+    }
+
+    (async function init() {
+      dailyData = await FT.loadJSON("assets/data/daily_summary.json");
+      currentDate = getParamDate();
+
+      document.getElementById("btn-prev").addEventListener("click", () => renderDay(FT.shiftDate(currentDate, -1)));
+      document.getElementById("btn-next").addEventListener("click", () => renderDay(FT.shiftDate(currentDate, 1)));
+      document.getElementById("btn-today").addEventListener("click", () => renderDay(FT.TODAY));
+      document.getElementById("date-picker").addEventListener("change", e => { if (e.target.value) renderDay(e.target.value); });
+      document.getElementById("cal-prev-m").addEventListener("click", () => shiftMonth(-1));
+      document.getElementById("cal-next-m").addEventListener("click", () => shiftMonth(1));
+
+      document.querySelectorAll("#mode-group button").forEach(btn => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll("#mode-group button").forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentMode = btn.dataset.mode;
+          renderDay(currentDate);
+        });
+      });
+
+      document.querySelectorAll(".quick-jumps button").forEach(btn => {
+        btn.addEventListener("click", () => renderDay(btn.dataset.jump));
+      });
+
+      renderDay(currentDate);
+    })();
+  </script>
+</body>
+</html>

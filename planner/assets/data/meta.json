@@ -1,0 +1,195 @@
+{
+  "generated_at": "2026-11-25",
+  "timezone": "America/Los_Angeles (PST/PDT)",
+  "location": "Outer Sunset, San Francisco, CA 94122",
+  "counts": {
+    "total_indexed_events": 3181,
+    "mlb_2027_regular": 2430,
+    "mlb_2027_spring_exhibition": 474,
+    "nfl_2026_remaining_reg": 109,
+    "total_calendar_days": 402,
+    "strict_free_days_2027": 67,
+    "reg_free_days_2027": 100,
+    "flagged_items": 10,
+    "radio_stations": 10
+  },
+  "durations_and_halftimes": {
+    "mlb_regular": {
+      "avg_minutes": 165,
+      "avg_9inn_minutes": 162,
+      "halftime_minutes": 0,
+      "label": "2h 45m avg (2h 42m 9-inn 2026 avg; 2h 38m 2025 avg)",
+      "source_url": "https://www.mlb.com/news/mlb-pitchcom-announce-six-year-extension"
+    },
+    "mlb_spring": {
+      "avg_minutes": 160,
+      "halftime_minutes": 0,
+      "label": "2h 40m est. Spring Training avg",
+      "source_url": "https://www.mlb.com/news/mlb-pitchcom-announce-six-year-extension"
+    },
+    "mlb_postseason": {
+      "avg_minutes": 185,
+      "halftime_minutes": 0,
+      "label": "3h 05m est. Postseason avg (longer TV breaks)",
+      "source_url": "https://www.mlb.com/news/mlb-pitchcom-announce-six-year-extension"
+    },
+    "nfl_regular": {
+      "avg_minutes": 192,
+      "halftime_minutes": 13,
+      "label": "3h 12m avg (13-min official halftime per NFL Rule 4-1-3)",
+      "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook"
+    },
+    "nfl_postseason": {
+      "avg_minutes": 198,
+      "halftime_minutes": 13,
+      "label": "3h 18m avg (13-min official halftime)",
+      "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook"
+    },
+    "nfl_super_bowl": {
+      "avg_minutes": 220,
+      "halftime_minutes": 28,
+      "label": "3h 40m avg (25\u201330 min extended Super Bowl Halftime Show)",
+      "source_url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook"
+    },
+    "ncaaf_fbs": {
+      "avg_minutes": 205,
+      "halftime_minutes": 20,
+      "label": "3h 25m avg (20-min official halftime per NCAA Rule 3-2-2)",
+      "source_url": "https://www.indystar.com/story/sports/college/2024/08/31/college-football-halftime-length-2024-season-ncaa-rules/75033152007/"
+    }
+  },
+  "estimated_season_blocks": [
+    {
+      "id": "mlb-2027-postseason",
+      "year": 2027,
+      "league": "MLB",
+      "phase": "Postseason (Estimated)",
+      "start_date": "2027-09-28",
+      "end_date": "2027-10-30",
+      "status": "Estimated",
+      "description": "Wild Card (~Sep 28-30), Division Series (~Oct 2-9), LCS (~Oct 10-20), World Series (~Oct 22-30, 2027). Official postseason schedule releases late summer 2027.",
+      "source_url": "https://www.mlb.com/schedule/2027-09-26"
+    },
+    {
+      "id": "nfl-2027-preseason",
+      "year": 2027,
+      "league": "NFL",
+      "phase": "Preseason (Estimated)",
+      "start_date": "2027-08-05",
+      "end_date": "2027-08-29",
+      "status": "Estimated",
+      "description": "Hall of Fame Game (~Thu Aug 5, 2027) + 3 Preseason Weeks (Thu-Sun slates through ~Aug 29, 2027). Official 2027 NFL schedule releases May 2027.",
+      "source_url": "https://www.nfl.com/schedules/"
+    },
+    {
+      "id": "nfl-2027-regular",
+      "year": 2027,
+      "league": "NFL",
+      "phase": "Regular Season (Estimated)",
+      "start_date": "2027-09-09",
+      "end_date": "2028-01-09",
+      "status": "Estimated",
+      "description": "18-week NFL regular season (est. Kickoff Thu Sep 9, 2027 through Week 18 Jan 8-9, 2028; Thu/Sun/Mon + Thanksgiving/Christmas/late-Dec Sat slates). Official schedule releases May 2027.",
+      "source_url": "https://www.nfl.com/schedules/"
+    },
+    {
+      "id": "ncaaf-2027-local",
+      "year": 2027,
+      "league": "NCAAF",
+      "phase": "Stanford & Cal Regular Season + Bowls (Partial Verified / Est.)",
+      "start_date": "2027-08-28",
+      "end_date": "2028-01-01",
+      "status": "Partially Verified / Estimated",
+      "description": "Stanford & Cal ACC regular seasons (~Aug 28 / Sep 4 \u2013 Nov 27, 2027, Saturdays). Verified Cal 2027 non-conference matchups include Sacramento State & Old Dominion (calbears.com); Stanford ACC opponents verified (gostanford.com). Exact ACC dates & kickoff times release Jan 2027.",
+      "source_url": "https://calbears.com/news/2026/6/25/football-cal-announces-matchups-against-odu-sac-state.aspx"
+    },
+    {
+      "id": "nfl-2027-postseason",
+      "year": 2028,
+      "league": "NFL",
+      "phase": "Postseason + Verified Super Bowl LXII",
+      "start_date": "2028-01-15",
+      "end_date": "2028-02-13",
+      "status": "Estimated Playoffs / Verified SB LXII Date",
+      "description": "Wild Card (~Jan 15-17), Divisional (~Jan 22-23), Conf Championships (~Jan 30), Super Bowl LXII CONFIRMED Sun Feb 13, 2028 in Atlanta.",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "id": "mlb-2028-spring",
+      "year": 2028,
+      "league": "MLB",
+      "phase": "Spring Training (Estimated)",
+      "start_date": "2028-02-19",
+      "end_date": "2028-03-28",
+      "status": "Estimated",
+      "description": "Estimated 2028 Cactus & Grapefruit League Spring Training (~Feb 19 \u2013 Mar 28, 2028). Verified statsapi.mlb.com has not yet released 2028 schedule (releases ~Jul 2027).",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+    },
+    {
+      "id": "mlb-2028-regular",
+      "year": 2028,
+      "league": "MLB",
+      "phase": "Regular Season (Estimated)",
+      "start_date": "2028-03-30",
+      "end_date": "2028-10-01",
+      "status": "Estimated",
+      "description": "Estimated 2028 MLB Regular Season (~Thu Mar 30 \u2013 Sun Oct 1, 2028; All-Star Break ~Jul 10-13, 2028). Unreleased official schedule.",
+      "source_url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&season=2028"
+    },
+    {
+      "id": "mlb-2028-postseason",
+      "year": 2028,
+      "league": "MLB",
+      "phase": "Postseason (Estimated)",
+      "start_date": "2028-10-03",
+      "end_date": "2028-11-04",
+      "status": "Estimated",
+      "description": "Estimated 2028 MLB Postseason (~Oct 3 \u2013 Nov 4, 2028).",
+      "source_url": "https://www.mlb.com/schedule"
+    },
+    {
+      "id": "nfl-2028-full",
+      "year": 2028,
+      "league": "NFL",
+      "phase": "Preseason + Regular Season (Estimated)",
+      "start_date": "2028-08-03",
+      "end_date": "2029-01-07",
+      "status": "Estimated",
+      "description": "Estimated 2028 NFL Preseason (~Aug 3-27) & Regular Season (~Thu Sep 7, 2028 \u2013 Sun Jan 7, 2029). Official schedule releases May 2028.",
+      "source_url": "https://www.nfl.com/schedules/"
+    },
+    {
+      "id": "nfl-2028-postseason",
+      "year": 2029,
+      "league": "NFL",
+      "phase": "Postseason + Super Bowl LXIII (Est. Date)",
+      "start_date": "2029-01-13",
+      "end_date": "2029-02-11",
+      "status": "Estimated (Host Confirmed)",
+      "description": "Playoffs est. Jan 13\u201328, 2029; Super Bowl LXIII at Allegiant Stadium, Las Vegas (host confirmed Mar 30, 2026; target Sun Feb 11, 2029).",
+      "source_url": "https://www.nfl.com/super-bowl/event-info/"
+    },
+    {
+      "id": "mlb-2029-full",
+      "year": 2029,
+      "league": "MLB",
+      "phase": "Spring Training + Regular + Postseason (Estimated)",
+      "start_date": "2029-02-17",
+      "end_date": "2029-11-03",
+      "status": "Estimated",
+      "description": "Estimated 2029 MLB Spring Training (~Feb 17 \u2013 Mar 27), Regular Season (~Mar 29 \u2013 Sep 30), Postseason (~Oct 2 \u2013 Nov 3, 2029).",
+      "source_url": "https://www.mlb.com/schedule"
+    },
+    {
+      "id": "nfl-2029-full",
+      "year": 2029,
+      "league": "NFL",
+      "phase": "Preseason + Regular Season (Estimated)",
+      "start_date": "2029-08-02",
+      "end_date": "2030-01-06",
+      "status": "Estimated",
+      "description": "Estimated 2029 NFL Preseason (~Aug 2-26) & Regular Season (~Sep 6, 2029 \u2013 Jan 6, 2030) leading to Super Bowl LXIV in Nashville (Feb 2030).",
+      "source_url": "https://www.nfl.com/schedules/"
+    }
+  ]
+}

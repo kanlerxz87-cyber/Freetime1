@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Schedules &amp; High-Priority Tracker — FREE TIME VACATION</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="hero" style="padding:22px 26px;">
+      <h1>Full Schedules &amp; High-Priority Bay Area Tracker</h1>
+      <p>Search and filter all 3,181 verified &amp; projected games across MLB (all 30 teams), NFL (all 32 teams), Westwood One Sports, Stanford NCAAF, and Cal NCAAF — every row verified with an official league source link.</p>
+    </section>
+
+    <div class="filter-bar">
+      <select id="f-month">
+        <option value="KEY">★ Key &amp; High-Priority Schedules (49ers, Giants, A's, Stanford, Cal, All 2026 NFL, Specials)</option>
+        <option value="2026-11">Nov 2026 (NFL Wk 12 + Stanford/Cal Finales)</option>
+        <option value="2026-12">Dec 2026 (NFL Wks 13–17 + WWO NCAAF)</option>
+        <option value="2027-01">Jan 2027 (NFL Wks 17–18 + NFL Playoffs)</option>
+        <option value="2027-02">Feb 2027 (Super Bowl LXI + MLB Spring Training)</option>
+        <option value="2027-03">Mar 2027 (Spring Training + MLB Opening Week)</option>
+        <option value="2027-04">Apr 2027 (All 30 MLB Teams — 392 Games)</option>
+        <option value="2027-05">May 2027 (All 30 MLB Teams — 421 Games)</option>
+        <option value="2027-06">Jun 2027 (All 30 MLB Teams — 397 Games)</option>
+        <option value="2027-07">Jul 2027 (All 30 MLB Teams + 97th All-Star Game)</option>
+        <option value="2027-08">Aug 2027 (All 30 MLB + Field of Dreams + LL Classic + NFL Pre Est.)</option>
+        <option value="2027-09">Sep 2027 (MLB Stretch Run + NFL/NCAAF Est.)</option>
+        <option value="2027-10">Oct 2027 (Estimated MLB Postseason + NFL/NCAAF)</option>
+        <option value="2027-11">Nov 2027 (Estimated NFL + NCAAF)</option>
+        <option value="2027-12">Dec 2027 (Estimated NFL)</option>
+      </select>
+      <select id="f-league">
+        <option value="ALL">All Leagues</option>
+        <option value="MLB">MLB</option>
+        <option value="NFL">NFL</option>
+        <option value="NCAAF">NCAAF (Stanford / Cal)</option>
+        <option value="WWO-NCAAF">Westwood One NCAAF</option>
+      </select>
+      <select id="f-prio">
+        <option value="ALL">All Priority Levels</option>
+        <option value="HP">★ High-Priority Only (Giants, A's, 49ers, Stanford, Cal, Specials)</option>
+      </select>
+      <input type="text" id="f-search" placeholder="Search team, city, radio station, e.g. Giants, 49ers, Athletics, KNBR…" />
+      <span id="f-count" class="badge badge-blue">Loading…</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>League / Phase</th>
+            <th>Matchup</th>
+            <th>Priority</th>
+            <th>Start (PST/PDT)</th>
+            <th>Est. Duration</th>
+            <th>Radio / Broadcast</th>
+            <th>Status</th>
+            <th>Official Source</th>
+          </tr>
+        </thead>
+        <tbody id="sched-body"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:14px;display:flex;justify-content:center;gap:10px;align-items:center;" id="pager"></div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    FT.renderNav("schedules");
+    FT.renderFooter();
+
+    let currentRows = [];
+    let filteredRows = [];
+    let page = 1;
+    const PAGE_SIZE = 100;
+
+    async function loadDataset(sel) {
+      document.getElementById("sched-body").innerHTML = `<tr><td colspan="9" style="text-align:center;padding:24px;color:var(--muted);">Loading verified schedule…</td></tr>`;
+      if (sel === "KEY") {
+        currentRows = await FT.loadJSON("assets/data/key_schedules.json");
+      } else {
+        currentRows = await FT.loadMonth(sel);
+      }
+      page = 1;
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const league = document.getElementById("f-league").value;
+      const prio = document.getElementById("f-prio").value;
+      const q = document.getElementById("f-search").value.trim().toLowerCase();
+
+      filteredRows = currentRows.filter(g => {
+        if (league !== "ALL" && g.league !== league) return false;
+        if (prio === "HP" && !g.high_priority) return false;
+        if (q) {
+          const hay = `${g.date} ${g.league} ${g.phase} ${g.matchup} ${g.priority_tag} ${g.radio} ${g.note}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+      page = 1;
+      renderTable();
+    }
+
+    function renderTable() {
+      const total = filteredRows.length;
+      document.getElementById("f-count").textContent = `${total.toLocaleString()} matching event${total === 1 ? "" : "s"}`;
+      const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+      if (page > pages) page = pages;
+      const slice = filteredRows.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+
+      if (slice.length === 0) {
+        document.getElementById("sched-body").innerHTML = `<tr><td colspan="9" style="text-align:center;padding:24px;color:var(--muted);">No games match your current filter.</td></tr>`;
+      } else {
+        document.getElementById("sched-body").innerHTML = slice.map(g => {
+          const prio = g.high_priority
+            ? `<span class="badge badge-amber">★ ${FT.esc(g.priority_tag || "HIGH PRIORITY")}</span>`
+            : (g.priority_tag ? `<span class="badge badge-blue">${FT.esc(g.priority_tag)}</span>` : `<span class="badge badge-slate">Standard</span>`);
+          const noteHtml = g.note ? `<div style="font-size:.76rem;color:var(--muted);margin-top:2px;">${FT.esc(g.note)}</div>` : "";
+          return `
+            <tr class="${g.high_priority ? "row-hp" : ""}">
+              <td class="num"><a href="calendar.html?date=${g.date}"><strong>${g.date}</strong></a></td>
+              <td>${FT.leagueBadge(g.league)}<div style="font-size:.75rem;color:var(--muted);margin-top:2px;">${FT.esc(g.phase)}</div></td>
+              <td><strong>${FT.esc(g.matchup)}</strong>${noteHtml}</td>
+              <td>${prio}</td>
+              <td class="num"><strong>${FT.esc(g.time_display)}</strong></td>
+              <td class="num">${FT.fmtDuration(g.duration_min)}${g.halftime_min ? ` (${g.halftime_min}m HT)` : ""}</td>
+              <td style="font-size:.82rem;">${FT.esc(g.radio)}</td>
+              <td>${FT.statusBadge(g.status)}</td>
+              <td class="num"><a href="${FT.esc(g.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+            </tr>`;
+        }).join("");
+      }
+
+      const pager = document.getElementById("pager");
+      if (pages <= 1) {
+        pager.innerHTML = "";
+      } else {
+        pager.innerHTML = `
+          <button class="btn btn-sm" ${page === 1 ? "disabled" : ""} id="pg-prev">◀ Prev</button>
+          <span style="font-size:.86rem;color:var(--muted);">Page ${page} of ${pages}</span>
+          <button class="btn btn-sm" ${page === pages ? "disabled" : ""} id="pg-next">Next ▶</button>
+        `;
+        document.getElementById("pg-prev")?.addEventListener("click", () => { page--; renderTable(); window.scrollTo(0, 0); });
+        document.getElementById("pg-next")?.addEventListener("click", () => { page++; renderTable(); window.scrollTo(0, 0); });
+      }
+    }
+
+    document.getElementById("f-month").addEventListener("change", e => loadDataset(e.target.value));
+    document.getElementById("f-league").addEventListener("change", applyFilters);
+    document.getElementById("f-prio").addEventListener("change", applyFilters);
+    document.getElementById("f-search").addEventListener("input", applyFilters);
+
+    loadDataset("KEY");
+  </script>
+</body>
+</html>

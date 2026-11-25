@@ -1,0 +1,62 @@
+week,date,time_et,tbd,away,home,network,wwo,slug,note
+12,2026-11-25,20:00,0,GB,LAR,NETFLIX,1,packers-at-rams-2026-reg-12,Wednesday Special (WWO)
+12,2026-11-26,13:00,0,CHI,DET,CBS,1,bears-at-lions-2026-reg-12,Thanksgiving Day (WWO)
+12,2026-11-26,16:30,0,PHI,DAL,FOX,1,eagles-at-cowboys-2026-reg-12,Thanksgiving Day (WWO)
+12,2026-11-26,20:20,0,KC,BUF,NBC,1,chiefs-at-bills-2026-reg-12,Thanksgiving Night (WWO)
+12,2026-11-27,15:00,0,DEN,PIT,PRIME,1,broncos-at-steelers-2026-reg-12,Black Friday (WWO)
+12,2026-11-29,13:00,0,NO,CIN,CBS,0,saints-at-bengals-2026-reg-12,
+12,2026-11-29,13:00,0,BAL,HOU,CBS,0,ravens-at-texans-2026-reg-12,
+12,2026-11-29,13:00,0,NYG,IND,FOX,0,giants-at-colts-2026-reg-12,
+12,2026-11-29,13:00,0,NYJ,MIA,CBS,0,jets-at-dolphins-2026-reg-12,
+12,2026-11-29,13:00,0,ATL,MIN,FOX,0,falcons-at-vikings-2026-reg-12,
+12,2026-11-29,13:00,0,TEN,JAX,FOX,0,titans-at-jaguars-2026-reg-12,
+12,2026-11-29,16:05,0,NE,LAC,CBS,0,patriots-at-chargers-2026-reg-12,
+12,2026-11-29,16:25,0,WAS,ARI,FOX,0,commanders-at-cardinals-2026-reg-12,
+12,2026-11-29,16:25,0,SEA,SF,FOX,0,seahawks-at-49ers-2026-reg-12,49ers High Priority (KNBR/KSAN)
+12,2026-11-29,20:20,0,LV,CLE,NBC,1,raiders-at-browns-2026-reg-12,Sunday Night Football (WWO)
+12,2026-11-30,20:15,0,CAR,TB,ESPN,1,panthers-at-buccaneers-2026-reg-12,Monday Night Football (WWO)
+13,2026-12-03,20:15,0,KC,LAR,PRIME,1,chiefs-at-rams-2026-reg-13,Thursday Night Football (WWO)
+13,2026-12-06,13:00,0,DET,ATL,CBS,0,lions-at-falcons-2026-reg-13,
+13,2026-12-06,13:00,0,JAX,CHI,FOX,0,jaguars-at-bears-2026-reg-13,
+13,2026-12-06,13:00,0,CIN,CLE,CBS,0,bengals-at-browns-2026-reg-13,
+13,2026-12-06,13:00,0,GB,NO,FOX,0,packers-at-saints-2026-reg-13,
+13,2026-12-06,13:00,0,SF,NYG,FOX,0,49ers-at-giants-2026-reg-13,49ers High Priority (KNBR/KSAN)
+13,2026-12-06,13:00,0,LAC,TB,CBS,0,chargers-at-buccaneers-2026-reg-13,
+13,2026-12-06,13:00,0,WAS,TEN,CBS,0,commanders-at-titans-2026-reg-13,
+13,2026-12-06,16:05,0,PHI,ARI,FOX,0,eagles-at-cardinals-2026-reg-13,
+13,2026-12-06,16:05,0,MIA,DEN,FOX,0,dolphins-at-broncos-2026-reg-13,
+13,2026-12-06,16:25,0,CAR,MIN,CBS,0,panthers-at-vikings-2026-reg-13,
+13,2026-12-06,16:25,0,BUF,NE,CBS,0,bills-at-patriots-2026-reg-13,
+13,2026-12-06,20:20,0,HOU,PIT,NBC,1,texans-at-steelers-2026-reg-13,Sunday Night Football (WWO)
+13,2026-12-07,20:15,0,DAL,SEA,ESPN,1,cowboys-at-seahawks-2026-reg-13,Monday Night Football (WWO)
+14,2026-12-10,20:15,0,MIN,NE,PRIME,1,vikings-at-patriots-2026-reg-14,Thursday Night Football (WWO)
+14,2026-12-13,13:00,0,TB,BAL,FOX,0,buccaneers-at-ravens-2026-reg-14,
+14,2026-12-13,13:00,0,NO,CAR,CBS,0,saints-at-panthers-2026-reg-14,
+14,2026-12-13,13:00,0,ATL,CLE,CBS,0,falcons-at-browns-2026-reg-14,
+14,2026-12-13,13:00,0,TEN,DET,FOX,0,titans-at-lions-2026-reg-14,
+14,2026-12-13,13:00,0,CHI,MIA,CBS,0,bears-at-dolphins-2026-reg-14,
+14,2026-12-13,13:00,0,DEN,NYJ,CBS,0,broncos-at-jets-2026-reg-14,
+14,2026-12-13,13:00,0,IND,PHI,FOX,0,colts-at-eagles-2026-reg-14,
+14,2026-12-13,13:00,0,HOU,WAS,CBS,0,texans-at-commanders-2026-reg-14,
+14,2026-12-13,16:05,0,LAC,LV,CBS,0,chargers-at-raiders-2026-reg-14,
+14,2026-12-13,16:25,0,KC,CIN,FOX,0,chiefs-at-bengals-2026-reg-14,
+14,2026-12-13,16:25,0,NYG,SEA,FOX,0,giants-at-seahawks-2026-reg-14,
+14,2026-12-13,16:25,0,LAR,SF,FOX,0,rams-at-49ers-2026-reg-14,49ers High Priority (KNBR/KSAN)
+14,2026-12-13,20:20,0,BUF,GB,NBC,1,bills-at-packers-2026-reg-14,Sunday Night Football (WWO)
+14,2026-12-14,20:15,0,PIT,JAX,ESPN,1,steelers-at-jaguars-2026-reg-14,Monday Night Football (WWO)
+15,2026-12-17,20:15,0,SF,LAC,PRIME,1,49ers-at-chargers-2026-reg-15,TNF 49ers High Priority (KNBR/KSAN/WWO)
+15,2026-12-19,17:00,0,SEA,PHI,FOX,1,seahawks-at-eagles-2026-reg-15,Saturday Doubleheader (WWO)
+15,2026-12-19,20:20,0,CHI,BUF,CBS,1,bears-at-bills-2026-reg-15,Saturday Doubleheader (WWO)
+15,2026-12-20,13:00,0,CIN,CAR,FOX,0,bengals-at-panthers-2026-reg-15,
+15,2026-12-20,13:00,0,MIA,GB,FOX,0,dolphins-at-packers-2026-reg-15,
+15,2026-12-20,13:00,0,JAX,HOU,CBS,0,jaguars-at-texans-2026-reg-15,
+15,2026-12-20,13:00,0,CLE,NYG,CBS,0,browns-at-giants-2026-reg-15,
+15,2026-12-20,13:00,0,BAL,PIT,CBS,0,ravens-at-steelers-2026-reg-15,
+15,2026-12-20,13:00,0,NO,TB,FOX,0,saints-at-buccaneers-2026-reg-15,
+15,2026-12-20,13:00,0,IND,TEN,CBS,0,colts-at-titans-2026-reg-15,
+15,2026-12-20,13:00,0,ATL,WAS,FOX,0,falcons-at-commanders-2026-reg-15,
+15,2026-12-20,16:05,0,NYJ,ARI,FOX,0,jets-at-cardinals-2026-reg-15,
+15,2026-12-20,16:25,0,DAL,LAR,CBS,0,cowboys-at-rams-2026-reg-15,
+15,2026-12-20,16:25,0,DEN,LV,CBS,0,broncos-at-raiders-2026-reg-15,
+15,2026-12-20,20:20,0,DET,MIN,NBC,1,lions-at-vikings-2026-reg-15,Sunday Night Football (WWO)
+15,2026-12-21,20:15,0,NE,KC,ESPN,1,patriots-at-chiefs-2026-reg-15,Monday Night Football (WWO)

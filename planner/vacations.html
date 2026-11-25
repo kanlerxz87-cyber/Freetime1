@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2027–2029 Multi-Year Vacation Windows — FREE TIME VACATION</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <section class="hero" style="padding:22px 26px;">
+      <h1>2027, 2028 &amp; 2029 Sports-Free Vacation Planner</h1>
+      <p>Exact 1-week, 2-week, and 3-week zero-sports vacation windows across 2027–2029 comparing <strong>Strict Mode</strong> (includes MLB Spring Training &amp; NFL Preseason) vs. <strong>Regular Season + Postseason Mode</strong>.</p>
+    </section>
+
+    <div class="grid grid-2" style="margin-bottom:22px;">
+      <div class="card card-green">
+        <h2>Regular Season + Postseason Mode (Recommended)</h2>
+        <p id="reg-summary" style="margin:0;font-size:.93rem;color:var(--muted);"></p>
+      </div>
+      <div class="card card-amber">
+        <h2>Strict Mode (Includes Spring Training &amp; Preseason)</h2>
+        <p id="strict-summary" style="margin:0;font-size:.93rem;color:var(--muted);"></p>
+      </div>
+    </div>
+
+    <div class="alert alert-blue" id="lockout-note"></div>
+
+    <div class="section-title">
+      <h2>1-Week, 2-Week &amp; 3-Week Vacation Feasibility Matrix (2027–2029)</h2>
+    </div>
+    <div class="table-wrap" style="margin-bottom:26px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Window Name</th>
+            <th>Dates (Zero Core Sports)</th>
+            <th>Length</th>
+            <th>Mode</th>
+            <th>1-Wk (7d)</th>
+            <th>2-Wk (14d)</th>
+            <th>3-Wk (21d)</th>
+            <th>Status</th>
+            <th>Official Source</th>
+          </tr>
+        </thead>
+        <tbody id="vac-matrix-body"></tbody>
+      </table>
+    </div>
+
+    <div class="section-title">
+      <h2>All 2027 Verified Multi-Day Zero-Game Stretches (3+ Days)</h2>
+      <a class="btn btn-sm" href="calendar.html?date=2027-02-01">Inspect on Calendar →</a>
+    </div>
+    <div class="grid grid-2" style="margin-bottom:26px;">
+      <div class="card">
+        <h3>Strict Mode 2027 (All Games Incl. Spring Training)</h3>
+        <div id="streaks-2027-strict"></div>
+      </div>
+      <div class="card">
+        <h3>Regular + Postseason Mode 2027 (Excl. Spring Training)</h3>
+        <div id="streaks-2027-reg"></div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <h2>2027–2029 Unreleased &amp; Projected Season Blocks Reference</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>League</th>
+            <th>Season Phase</th>
+            <th>Projected Date Range</th>
+            <th>Status</th>
+            <th>Notes</th>
+            <th>Official Reference</th>
+          </tr>
+        </thead>
+        <tbody id="season-blocks-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/common.js"></script>
+  <script>
+    FT.renderNav("vacations");
+    FT.renderFooter();
+
+    (async function init() {
+      const [vac, meta] = await Promise.all([
+        FT.loadJSON("assets/data/vacations.json"),
+        FT.loadJSON("assets/data/meta.json")
+      ]);
+
+      document.getElementById("reg-summary").textContent = vac.headline_finding.regular_season_mode_summary;
+      document.getElementById("strict-summary").textContent = vac.headline_finding.strict_mode_summary;
+      document.getElementById("lockout-note").innerHTML = `<strong>MLB CBA Wildcard (Dec 1, 2026):</strong> ${FT.esc(vac.headline_finding.lockout_wildcard)}`;
+
+      const yn = v => v ? `<span class="badge badge-green">YES</span>` : `<span class="badge badge-slate">No</span>`;
+      document.getElementById("vac-matrix-body").innerHTML = vac.multi_year_windows.map(w => `
+        <tr class="${w.fits_3wk ? "row-hp" : ""}">
+          <td class="num"><strong>${w.year}</strong></td>
+          <td><strong>${FT.esc(w.window_name)}</strong><div style="font-size:.78rem;color:var(--muted);margin-top:2px;">${FT.esc(w.bookends)}</div><div style="font-size:.78rem;color:var(--muted);">${FT.esc(w.notes)}</div></td>
+          <td class="num"><strong>${FT.fmtDateShort(w.start_date)}</strong><br>to ${FT.fmtDateShort(w.end_date)}</td>
+          <td class="num"><strong>${w.days} day${w.days === 1 ? "" : "s"}</strong></td>
+          <td style="font-size:.82rem;">${FT.esc(w.mode)}</td>
+          <td>${yn(w.fits_1wk)}</td>
+          <td>${yn(w.fits_2wk)}</td>
+          <td>${yn(w.fits_3wk)}</td>
+          <td>${FT.statusBadge(w.status)}</td>
+          <td class="num"><a href="${FT.esc(w.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+        </tr>
+      `).join("");
+
+      const renderStreaks = (arr, targetId) => {
+        document.getElementById(targetId).innerHTML = `<ul style="margin:8px 0 0;padding-left:18px;font-size:.92rem;">` +
+          arr.map(s => `<li style="margin-bottom:6px;"><strong>${s.days} days:</strong> <a href="calendar.html?date=${s.start}">${FT.fmtDateShort(s.start)} – ${FT.fmtDateShort(s.end)}</a></li>`).join("") +
+          `</ul>`;
+      };
+      renderStreaks(vac.streaks_2027_strict, "streaks-2027-strict");
+      renderStreaks(vac.streaks_2027_regular_postseason, "streaks-2027-reg");
+
+      document.getElementById("season-blocks-body").innerHTML = meta.estimated_season_blocks.map(b => `
+        <tr>
+          <td class="num"><strong>${b.year}</strong></td>
+          <td>${FT.leagueBadge(b.league)}</td>
+          <td><strong>${FT.esc(b.phase)}</strong></td>
+          <td class="num">${b.start_date} → ${b.end_date}</td>
+          <td>${FT.statusBadge(b.status)}</td>
+          <td style="font-size:.84rem;">${FT.esc(b.description)}</td>
+          <td class="num"><a href="${FT.esc(b.source_url)}" target="_blank" rel="noopener">Official ↗</a></td>
+        </tr>
+      `).join("");
+    })();
+  </script>
+</body>
+</html>

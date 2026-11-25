@@ -47,3 +47,17 @@ A separate, independently written site lives in `docs/` and is served at `/docs/
 - Estimates (unreleased 2028-2029 seasons, TBD start times) are labeled as estimates.
 
 The root site above is the primary site; the `docs/` site is an independent check. Their free-day results may differ; see the reconciliation note in `COORDINATION.md`.
+
+---
+
+## Complete Verified 2,430-Game MLB 2027 + 109-Game NFL 2026 Planner (`planner/` — Session `e4a8480c`)
+
+Published separately at **`planner/`** (preserving all prior root, `docs/`, and `site/` work unchanged):
+- **Live Dashboard:** https://kanlerxz87-cyber.github.io/Freetime1/planner/
+- **Pages:** `planner/index.html` (Executive Summary), `planner/calendar.html` (Daily Scoreboard & PST/PDT Free-Time Calendar), `planner/vacations.html` (2027–2029 Multi-Year Vacation Planner), `planner/schedules.html` (Searchable 3,181-Event Schedules), `planner/radio.html` (Outer Sunset SF 94122 AM/FM Radio Guide), `planner/flagged.html` (Flagged for Review & Methodology).
+- **Verified Official Ingestion:**
+  - **2,430 / 2,430** official 2027 MLB Regular Season games (`data/mlb_2027_03.csv`..`09.csv`, mathematically checksummed: all 30 MLB teams × 162 games, 0 duplicate `gamePk`s, directly from `statsapi.mlb.com`)
+  - **474** official 2027 MLB Spring Training/Exhibition games (`data/mlb_2027_spring.csv`) + 97th All-Star Game (Jul 13, 2027) + Field of Dreams (Aug 12) + Little League Classic (Aug 19)
+  - **109 / 109** official remaining 2026 NFL Regular Season games Weeks 12–18 (`data/nfl_2026_w12_15.csv`, `data/nfl_2026_w16_18.csv`, directly from `nfl.com`)
+  - **Pro Bowl Discontinuation Finding:** Official NFL Aug 27, 2026 announcement eliminating the AFC–NFC Pro Bowl game starting 2026–27 unlocks a **13-day zero-game window (Mon Feb 1 – Sat Feb 13, 2027)** even in Strict Mode; Regular+Postseason Mode provides **37 verified days (Feb 15 – Mar 23, 2027)** and **~45 est. days** in 2028–2029.
+  - **Rebuild & Verify:** `python3 scripts/build_data.py && python3 scripts/verify_data.py`

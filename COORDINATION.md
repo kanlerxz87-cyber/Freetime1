@@ -134,3 +134,18 @@ Results:
 - [PR #10 — Supplemental official-source reconciliation](https://github.com/kanlerxz87-cyber/Freetime1/pull/10) added only `sources/arena-b5171da7-research.md`; it did not modify the dashboard or schedule data. Merged 2026-11-25 at 14:14 UTC, merge commit `e74fd4c`.
 - GitHub Pages deployment for `e74fd4c` completed successfully in run [45631857954](https://github.com/kanlerxz87-cyber/Freetime1/actions/runs/45631857954). Pages API reports `built`; live site remains https://kanlerxz87-cyber.github.io/Freetime1/.
 - No 94122 reception test or comprehensive future schedule import was performed; all schedule uncertainty remains flagged in the published planner.
+
+## Session `arena/e4a8480c-freetime1` — Full Verified 2,430-Game MLB 2027 + 109-Game NFL 2026 Planner (`planner/`, 2026-11-25)
+
+- **Branch:** `arena/e4a8480c-freetime1` (merged with `origin/main` @ `018e4c8`, preserving 100% of root site, `docs/`, `site/`, and prior audit/coordination records unchanged).
+- **File Scope:** `planner/` (6-page dashboard + `planner/assets/`), `data/mlb_2027_*.csv`, `data/mlb_teams.json`, `data/nfl_2026_*.csv`, `data/other_verified_events.json`, `data/bay_area_radio.json`, `data/flagged_review.json`, `scripts/build_data.py`, `scripts/verify_data.py`, plus appended sections in `README.md` & `COORDINATION.md`.
+- **Key Verified Additions (Addressing Prior Sessions' Incomplete Full-Schedule Ingestion):**
+  - Fetched and checksum-verified **all 2,430 official 2027 MLB Regular Season games** from `statsapi.mlb.com` (all 30 teams = exactly 162 games each, 0 duplicates, 594 `startTimeTBD=true` explicitly flagged rather than misrepresented as verified).
+  - Fetched **all 474 official 2027 MLB Spring Training & Exhibition games** (Feb 19 – Mar 23, 2027) + 97th All-Star Game (Jul 13, 2027) + Field of Dreams (Aug 12) + Little League Classic (Aug 19).
+  - Fetched **all 109 remaining official 2026 NFL Regular Season games** (Weeks 12–18, Nov 25, 2026 – Jan 10, 2027) with exact `nfl.com/games/...` URLs and flex pools.
+  - Verified NFL Aug 27, 2026 Pro Bowl game discontinuation (`https://www.nfl.com/news/nfl-elevates-pro-bowl-selection-game-s-will-cease-being-contested`), identifying a **13-day zero-game window (Feb 1–13, 2027)** in Strict Mode alongside the **37-day verified Regular+Postseason window (Feb 15–Mar 23, 2027)**.
+  - Verified NFL Rulebook Rule 4-1-3 (**13-minute** official halftime), NCAA Rule 3-2-2 (**20-minute** official halftime), Cal 2026 record (3–8, not bowl-eligible), Stanford 2026 (6–5, bowl-eligible -> Dec bowl TBD flagged), San Jose Sharks streaming-only audio (no terrestrial AM/FM since 2021), SF 49ers Spanish streaming-only in Bay Area (`49ers.com/esp`), and SF Giants Spanish flagship KSFN 1510 AM.
+- **Verification (`scripts/verify_data.py` + local HTTP 200 + `node --check`):**
+  - 2,430 / 2,430 unique MLB 2027 regular games (all 30 teams × 162); 109 / 109 NFL Weeks 12–18 games; 3,181 / 3,181 compiled events with official `https://` source links; all 6 `planner/*.html` pages pass ref/JS/HTTP-200 checks.
+- **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/12 (`arena/e4a8480c-freetime1` -> `main`).
+- **Live URL (after merge):** https://kanlerxz87-cyber.github.io/Freetime1/planner/
