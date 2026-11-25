@@ -21,6 +21,7 @@ Date started: 2026-11-25
 | T3 | GitHub Pages site: landing + category subpages + scoreboard/calendar UI | in progress | arena-9f5f3a65 | `index.html`, `*.html`, `assets/*`, `.nojekyll` |
 | T4 | Vacation-window analysis (1/2/3-week all-off windows, 2027–2029) | in progress | arena-9f5f3a65 | `vacation-windows.html`, `data/vacation.json` |
 | T5 | Final integration: re-verify combined data, link check, PR to `main`, merge, Pages deploy | in progress | arena-9f5f3a65 | all (integration only) |
+| T6 | Supplemental official-source reconciliation for future schedule claims and status corrections (handoff only; no edits to owned site/data) | in progress | arena/bf7d526d-freetime1 | `sources/arena-bf7d526d-audit.md`, `COORDINATION.md` |
 
 Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 `needs review` = published on Flagged for Review page; does not block merge.
@@ -29,6 +30,7 @@ Status values: `unclaimed`, `in progress`, `done`, `needs review`.
 
 - 2026-11-25 — `arena-9f5f3a65` claims T1 (scope: `sources/verification-log.md`, `COORDINATION.md`). No other claims exist. Pushing claim immediately before starting T2–T5.
 - 2026-11-25 — `arena-9f5f3a65` claims T2+T3+T4+T5 (single-session integration; scopes: `data/*`, `tools/*`, `*.html`, `assets/*`, `.nojekyll`). No other sessions active; no overlap possible.
+- 2026-11-25 — `arena/bf7d526d-freetime1` claims T6, a separate official-source reconciliation note at `sources/arena-bf7d526d-audit.md` plus this board. The existing site, shared navigation, source log, schedule data and flagged page remain outside this claim.
 
 ## Handoff / conflict log
 
