@@ -174,3 +174,10 @@ Results:
   1. `tools/build_data.py`: Replace blanket `Postseason wd in (0,5,6)` busy rule with official NFL playoff round dates + Aug 27, 2026 Pro Bowl abolition (`Feb 1–13, 2027` is 13 days free); mark `2026-11-25` busy (`events/548511`); remove `2026-07-16` & `2027-07-15` from `allstar_breaks` (`totalGames=1` in StatsAPI); end 2026 World Series on `2026-10-28`.
   2. `assets/app.js`: Change `westwood_2026_verified.find(...)` at L48 to `.filter(...)` so multi-game holiday slates render all broadcasts; filter `renderWindowsTable` per league subpage.
 
+### PR & GitHub Pages Deploy Record (`arena-1d4ebaad`)
+- **PR:** https://github.com/kanlerxz87-cyber/Freetime1/pull/13 (`arena/1d4ebaad-freetime1` -> `main`)
+- **Merge Result:** Merged `2026-11-25T14:36:38Z`, merge commit `0ae8c287617c738ac5edc17e0af9eeb50561af44`.
+- **GitHub Pages Deploy:** Build `1402508926` for commit `0ae8c28` completed with `status: "built"` (`error: null`) at `2026-11-25T14:37:02Z`.
+- **Live Verified URL:** https://kanlerxz87-cyber.github.io/Freetime1/vacation-hub/ (verified live rendering via `fetch_page`, alongside root `https://kanlerxz87-cyber.github.io/Freetime1/`).
+
+
